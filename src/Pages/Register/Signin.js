@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { setAuthToken } from '../../api/auth';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Signin = () => {
-    const {signInUser} = useContext(AuthContext)
+    const {signInUser, loading, setLoading} = useContext(AuthContext)
     const {register, handleSubmit} = useForm()
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleSignin = (data) => {
         console.log(data)
@@ -13,8 +18,14 @@ const Signin = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
+            // get auth token
+            setAuthToken(user)
+            navigate(from, {replace: true})
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            setLoading(false)
+        })
     }
     return (
         <div className='flex justify-center items-center pt-8'>

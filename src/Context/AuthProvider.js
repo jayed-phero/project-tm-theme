@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import app from '../firebase/firebase.config';
 
 
@@ -18,22 +18,39 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const updateUserInfo = (userInfo) => {
-        return updateProfile(auth.currentUser, userInfo)
+    // const updateUserInfo = (userInfo) => {
+    //     return updateProfile(auth.currentUser, userInfo)
+    // }
+
+    //   2. Update Name
+    const updateUserProfile = (name, photo) => {
+        setLoading(true)
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo,
+        })
+    }
+
+    const logout = () => {
+        setLoading(true)
+        localStorage.removeItem('eduTMToken')
+        return signOut(auth)
     }
 
     useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, currentUser => {
-          setUser(currentUser)
-       })
-       return () => unsubscribe();
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser)
+        })
+        return () => unsubscribe();
     }, [])
 
     const authInfo = {
         user,
         createUser,
         signInUser,
-        updateUserInfo
+        // updateUserInfo,
+        updateUserProfile,
+        logout
     }
     return (
         <div>

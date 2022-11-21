@@ -1,64 +1,62 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { setAuthToken } from '../../api/auth';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Register = () => {
-    const { createUser, user, updateUserInfo } = useContext(AuthContext)
+    const { createUser, user, updateUserProfile } = useContext(AuthContext)
     const [createdUserEmail, setCretedUserEmail] = useState()
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const imageHostKey = process.env.REACT_APP_imgbb_key
     const [data, setData] = useState('')
 
-    // a077e8492f86b60248059cd9af80d654
-    // https://api.imgbb.com/1/upload
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
+
+   
 
     const handleSignUp = (data) => {
-        // const formData = new FormData()
-        // formData.append('image', data.image)
-        // console.log(formData)
 
-        // const url = 'https://api.imgbb.com/1/upload?key=a077e8492f86b60248059cd9af80d654';
+        const image = data.image[0];
+        console.log(image)
+        const formData = new FormData();
+        formData.append("image", image)
 
-        // fetch(url, {
-        //     method: 'POST', 
-        //     body: formData
-        // })
-        // .then(res => res.json())
-        // .then(data => console.log(data))
+        const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`;
 
-        createUser(data.email, data.password)
-            .then(result => {
-                const user = result.user;
-                const userInfo = {
-                    displayName: data.name
-                }
-                updateUserInfo(userInfo)
-                    .then(() => {
-                        saveUser(data.name, data.email)
-                    })
-                    .catch(err => console.log(err))
-                console.log(user)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
-    const saveUser = (name, email) => {
-        const user = { name, email }
-        fetch("http://localhost:5000/users", {
+        fetch(url, {
             method: 'POST',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(user)
+            body: formData
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            setCretedUserEmail(email)
-        })
-    }
+            .then(res => res.json())
+            .then(imgData => {
+                console.log(imgData)
+                if (imgData.success) {
+                    console.log(imgData.data.display_url)
+
+                }
+
+                createUser(data.email, data.password)
+                    .then(result => {
+                        const user = result.user;
+                        updateUserProfile(data.name, imgData.data.display_url)
+                        .then(() => {
+                            setAuthToken(user)
+                            navigate(from, {replace: true})
+                        })
+                        .catch(err => console.log(err))
+                        console.log(user)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            })
+
+
+        }
 
 
     return (
