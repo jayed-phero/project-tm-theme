@@ -1,0 +1,9 @@
+.principalIntro{
+
+}
+
+@media screen and (min-width: 800px) {
+    .principalIntro{
+        height: 500px;
+    }
+}

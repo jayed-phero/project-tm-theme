@@ -2,6 +2,16 @@
 
 }
 
+.aboutFirst {
+    background: #f8f9fb;
+}
+.aboutSecond {
+    background: #0d0b3a;
+}
+.aboutThird {
+    background: #e28b00;
+}
+
 @media screen and (min-width: 800px){
     .aboutVideo{
         height: 380px;

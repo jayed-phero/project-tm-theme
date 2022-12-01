@@ -1,0 +1,13 @@
+.freeAQbg{
+    background: #0d0b3a;
+}
+
+.videoUrl{
+    background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+    height: 100%;
+    width: 100%;
+}
+
+.bg-Video{
+    background-color: rgba(0, 0, 0, 0.6)
+}

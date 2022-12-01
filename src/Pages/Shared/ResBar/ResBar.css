@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.resNavr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    padding: 0px, 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.resNavr .logo {
+    font-weight: bolder;
+    font-size: 25px;
+    color: #333;
+}
+
+.resNavr .navbarRes ul li {
+    position: relative;
+    float: left;
+}
+
+.resNavr .navbarRes ul li a {
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+}
+
+
+.resNavr .navbarRes ul li a:hover {
+    color: #fff;
+    background: #333;
+}
+
+.resNavr .navbarRes ul li ul {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background: #fff;
+}
+
+
+.resNavr .navbarRes ul li ul li {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.resNavr .navbarRes ul li ul li ul {
+    left: 200px;
+    top: 0;
+}
+
+.resNavr .navbarRes ul li:focus-within > ul,
+.resNavr .navbarRes ul li:hover > ul {
+    display: initial;
+}
+
+
+#menu-bar {
+    display: none;
+}
+
+.resNavr label {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+}
+
+
+
+@media(max-width: 991px) {
+    .resNavr {
+        padding: 20px;
+    }
+
+    .resNavr label {
+        display: initial;
+    }
+
+    .resNavr .navbarRes {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        display: none;
+    }
+
+    .resNavr.navbarRes ul li {
+        width: 100%;
+    }
+
+    .resNavr .navbarRes ul li ul {
+        position: relative;
+        width: 100%;
+    }
+
+    .resNavr .navbarRes ul li ul li {
+        background: #eee;
+    }
+
+    .resNavr .navbarRes ul li ul li ul {
+        width: 100%;
+        left: 0;
+    }
+
+    #menu-bar:checked~.navbarRes {
+        display: initial;
+    }
+}

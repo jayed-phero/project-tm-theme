@@ -1,9 +1,7 @@
 import { format } from 'date-fns';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { addEvent } from '../api/addEvents';
-import { getImageUrl } from '../api/imageUpload';
-import AddEventForm from '../components/Form/AddEventForm';
+import AddEventForm from './AddEventForm';
 
 const AddEventt = () => {
     const { register, handleSubmit } = useForm()
@@ -24,40 +22,27 @@ const AddEventt = () => {
         const content4 = data.content4
         const content5 = data.content5
 
-        getImageUrl(image)
-            .then(data => {
-                console.log(data)
-                const eventData = {
-                    start,
-                    to,
-                    title,
-                    image: data,
-                    description,
-                    price,
-                    address,
-                    content: [
-                        { content: content1 },
-                        { content: content2 },
-                        { content: content3 },
-                        { content: content4 },
-                        { content: content5 }
-                    ]
-                }
-
-                // content: [
-                //     { content: content1 },
-                //     { content: content2 },
-                //     { content: content3 },
-                //     { content: content4 },
-                //     { content: content5 }
-                // ]
-
-                addEvent(eventData)
-                    .then(data => {
-                        console.log(data)
-                    })
-            })
-            .catch(err => console.log(err))
+        // getImageUrl(image)
+            // .then(data => {
+            //     console.log(data)
+            //     const eventData = {
+            //         start,
+            //         to,
+            //         title,
+            //         image: data,
+            //         description,
+            //         price,
+            //         address,
+            //         content: [
+            //             { content: content1 },
+            //             { content: content2 },
+            //             { content: content3 },
+            //             { content: content4 },
+            //             { content: content5 }
+            //         ]
+            //     }
+            // })
+            // .catch(err => console.log(err))
 
     }
     return (

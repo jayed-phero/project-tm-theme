@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const Nav = () => {
     return (
@@ -8,7 +9,6 @@ const Nav = () => {
             <Link className='px-5' to='/signup'>Sign Up</Link>
             <Link className='px-5' to='/addevent'>Add Event</Link>
             <Link to='/'>Home</Link>
-            <Link to='/dashboard'>Dashboard</Link>
         </div>
     );
 };

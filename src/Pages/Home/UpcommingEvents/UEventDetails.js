@@ -8,7 +8,7 @@ const UEventDetails = () => {
 
     const eventData = useLoaderData()
     console.log(eventData)
-    const { image, title, description, start, to, content , address} = eventData;
+    const { image, title, description, start, to, content, address } = eventData;
 
     const timing = [
         {
@@ -29,14 +29,14 @@ const UEventDetails = () => {
         },
     ]
 
-   
+
     return (
         <div className='xl:px-52 px-5'>
-            <h3 className='pb-7 text-3xl font-semibold'>Events</h3>
+            <h3 className='pb-7 lg:pt-11 text-3xl font-semibold'>Events</h3>
             <div>
                 <div className='flex flex-col xl:flex-row items-start gap-11 relative'>
                     <div className='flex-1'>
-                        <div className='text-3xl font-semibold pb-7'>
+                        <div className='text-xl lg:text-2xl font-semibold pb-7'>
                             <h1>{title}</h1>
                         </div>
                         <div className='relative flex flex-col items-center justify-center'>
@@ -44,15 +44,44 @@ const UEventDetails = () => {
                                 src={image}
                                 alt=""
                                 className='w-full h-64 md:h-96' />
-                            <div className='absolute top-3 grid grid-cols-2 md:grid-cols-4 gap-6'>
+                            {/* <div className='absolute top-3 grid grid-cols-2 md:grid-cols-4 gap-6'>
                                 {
                                     timing.map((time, i) =>
-                                        <div key={i} className='h-24 w-24 rounded-full border-2 border-white text-white flex items-center justify-center flex-col'>
+                                        <div key={i} className='h-24 w-24 rounded-full border-2 border-white text-white flex items-center justify-center flex-col bg-gray-300'>
                                             <h3 className='text-5xl font-bold'>{time.count}</h3>
                                             <p>{time.text}</p>
                                         </div>
                                     )
                                 }
+                            </div> */}
+                            <div className="grid grid-flow-col gap-5 text-center auto-cols-max absolute top-5">
+                                <span className="countdown">
+                                    <span style={{ "--value": 9 }}></span>
+                                </span>
+                                <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                                    <span className="countdown font-mono text-5xl">
+                                        <span style={{ "--value": 15 }}></span>
+                                    </span>
+                                    days
+                                </div>
+                                <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                                    <span className="countdown font-mono text-5xl">
+                                        <span style={{ "--value": 10 }}></span>
+                                    </span>
+                                    hours
+                                </div>
+                                <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                                    <span className="countdown font-mono text-5xl">
+                                        <span style={{ "--value": 24 }}></span>
+                                    </span>
+                                    min
+                                </div>
+                                <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                                    <span className="countdown font-mono text-5xl">
+                                        <span style={{ "--value": 39 }}></span>
+                                    </span>
+                                    sec
+                                </div>
                             </div>
                             <div className='flex flex-col xl:flex-row items-start lg:gap-16 pt-12 '>
                                 <div className='flex-1'>
@@ -102,7 +131,7 @@ const UEventDetails = () => {
                                     </div>
                                     <div className='flex gap-4  border-b border-gray-300 py-3 '>
                                         <p className='text-regal-orange text-lg'>
-                                        <i class="fa-solid fa-location-dot"></i>
+                                            <i class="fa-solid fa-location-dot"></i>
                                         </p>
                                         <div>
                                             <h3 className='font-bold'>Address</h3>
@@ -115,7 +144,7 @@ const UEventDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-full lg:w-72 sticky top-20 pb-44 border borde-gray-300 '>
+                    <div className='w-full lg:w-72 sticky top-32 pb-16 border borde-gray-300 '>
                         <h3 className='uppercase font-bold text-xl w-full py-4 bg-regal-orange text-center'>Registration</h3>
 
                         <div className='px-5 py-7'>

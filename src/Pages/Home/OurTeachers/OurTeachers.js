@@ -102,7 +102,7 @@ const OurTeachers = () => {
         }
     ]
     return (
-        <div className='teachersInfo lg:px-52 py-20 px-5'>
+        <div className='teachersInfo lg:px-52 py-20 px-5 sm:px-11 md:px-20'>
             <div className='mb-9 text-white'>
                 <h3 className='text-2xl text-regal-orange font-semibold'>OUR TEACHERS</h3>
                 <h4 className='text-4xl font-semibold py-2'>Learn a new skills online on your time</h4>

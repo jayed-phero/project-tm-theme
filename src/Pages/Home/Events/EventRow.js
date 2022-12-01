@@ -5,10 +5,10 @@ const EventRow = ({ event }) => {
     return (
         <div>
             <div className='border-b-2 border-gray-100 pb-5 relative'>
-                <div className=' bg-white h-20 w-20 rounded-full flex flex-col shadow-xl items-center justify-center absolute top-5 left-5'>
+                {/* <div className=' bg-white h-20 w-20 rounded-full flex flex-col shadow-xl items-center justify-center absolute top-5 left-5'>
                     <h1 className='font-extrabold text-orange-400 text-3xl'>25</h1>
                     <p className='text-sm'>Sep</p>
-                </div>
+                </div> */}
                 <div className=''>
                     <img className='h-56 w-full' src={event.image} alt="" />
                     <div className='blogPost p-5 hover:bg-white'>

@@ -26,7 +26,7 @@ const ShortDetails = () => {
         },
     ]
     return (
-        <div className='shortDetails grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-16 py-20 sm:px-20 xl:px-52 px-5'>
+        <div className='shortDetails grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-16 py-20 lg:my-11 sm:px-20 xl:px-52 px-5'>
             {
                 shortDetails.map((details, i) =>
                     <div key={i} className='flex items-center flex-col justify-center border-dotted border-2 border-white  rounded-3xl relative w-full py-12 '>
