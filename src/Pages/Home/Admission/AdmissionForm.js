@@ -1,12 +1,6 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
 
-const Payment = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => {
-        console.log(data)
-
-    }
+const AdmissionForm = ({ onSubmit, handleSubmit, register }) => {
     return (
         <div className='xl:px-52 py-10'>
             <div className='text-center'>
@@ -36,15 +30,22 @@ const Payment = () => {
                                                         <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                     </svg>
                                                 </span>
-                                                <button type="button" class="ml-5 rounded-md border border-gray-300 bg-white py-2 px-3 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Change</button>
+                                                <input
+                                                    type='file'
+                                                    {...register("image")}
+                                                    name='image'
+                                                    id='image'
+                                                    accept='image/*'
+                                                    className='ml-7 bg-gray-300'
+                                                />
                                             </div>
                                         </div>
 
                                         <div class="grid grid-cols-3 gap-6">
                                             <div class="col-span-3 sm:col-span-2">
                                                 <label for="country" class="block text-sm font-medium text-gray-700">Blood Group</label>
-                                                <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("bloodGroup")} 
+                                                <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("bloodGroup")}
                                                 >
                                                     <option>Select Group</option>
                                                     <option value='O+'>O+ ive</option>
@@ -57,8 +58,15 @@ const Payment = () => {
 
                                             <div class="col-span-6 sm:col-span-2">
                                                 <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                                                <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("email")} 
+                                                <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("email")}
+                                                />
+                                            </div>
+
+                                            <div class="col-span-6 sm:col-span-2">
+                                                <label for="email-address" class="block text-sm font-medium text-gray-700">Password</label>
+                                                <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("password")}
                                                 />
                                             </div>
                                         </div>
@@ -70,7 +78,7 @@ const Payment = () => {
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="country" class="block text-sm font-medium text-gray-700"> Select your section</label>
                                                 <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                                {...register("studentGender")} 
+                                                    {...register("studentGender")}
                                                 >
                                                     <option>Select</option>
                                                     <option value='Boys'>Boys Section</option>
@@ -80,7 +88,7 @@ const Payment = () => {
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="country" class="block text-sm font-medium text-gray-700">Class Name</label>
                                                 <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                                {...register("class")} 
+                                                    {...register("class")}
                                                 >
                                                     <option>Select Class</option>
                                                     <option value='Hifz (1st)'>Hifz (1st)</option>
@@ -100,8 +108,8 @@ const Payment = () => {
                                         </div>
                                     </div>
                                     {/* <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                                    <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
-                                </div> */}
+                                <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
+                            </div> */}
                                 </div>
                             </div>
                         </div>
@@ -129,57 +137,57 @@ const Payment = () => {
                                         <div class="grid grid-cols-6 gap-6">
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("firstName")} 
+                                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("firstName")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("lastName")} 
+                                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("lastName")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Father Name</label>
-                                                <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("fatherName")} 
+                                                <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("fatherName")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Father NID/Passport Number</label>
-                                                <input type="text" name="Father NID/Passport Number" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("fatherNID")} 
+                                                <input type="text" name="Father NID/Passport Number" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("fatherNID")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Mother Name</label>
-                                                <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("motherName")} 
+                                                <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("motherName")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Mother NID/Passport Number</label>
-                                                <input type="text" name="Mother NID/Passport Number" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("motherNID")} 
+                                                <input type="text" name="Mother NID/Passport Number" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("motherNID")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">If Father Died , Authority Name</label>
-                                                <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("gurdianName")} 
+                                                <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("gurdianName")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="country" class="block text-sm font-medium text-gray-700"> Relation with Gurdian</label>
                                                 <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                                {...register("gurdianWithRelation")} 
+                                                    {...register("gurdianWithRelation")}
                                                 >
                                                     <option>Select Relation</option>
                                                     <option value='Brother'>Brother</option>
@@ -194,24 +202,24 @@ const Payment = () => {
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Date of Birth</label>
-                                                <input type="date" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("dob")} 
+                                                <input type="date" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("dob")}
                                                 />
                                             </div>
 
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Birth Certificate/ Passport</label>
-                                                <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("barthNumber")} 
+                                                <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("barthNumber")}
                                                 />
                                             </div>
                                             {/* grid grid-cols-6 gap-6 */}
                                         </div>
                                     </div>
                                     {/* <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                                    <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
-                                </div> */}
+                                <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
+                            </div> */}
                                 </div>
                             </div>
                         </div>
@@ -240,70 +248,70 @@ const Payment = () => {
 
                                             <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                                                 <label for="city" class="block text-sm font-medium text-gray-700">Division</label>
-                                                <input type="text" name="city" id="city" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("division")} 
+                                                <input type="text" name="city" id="city" autocomplete="address-level2" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("division")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                                                 <label for="region" class="block text-sm font-medium text-gray-700">District</label>
-                                                <input type="text" name="region" id="region" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("district")} 
+                                                <input type="text" name="region" id="region" autocomplete="address-level1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("district")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                                                 <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
-                                                <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("postCode")} 
+                                                <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("postCode")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6">
                                                 <label for="street-address" class="block text-sm font-medium text-gray-700">Present Address</label>
-                                                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("presentAddress")} 
+                                                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("presentAddress")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6">
                                                 <label for="street-address" class="block text-sm font-medium text-gray-700">Gurdian Present Address</label>
-                                                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("gurdianAddress")} 
+                                                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("gurdianAddress")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="first-name" class="block text-sm font-medium text-gray-700">Father Mobile Number</label>
-                                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("fatherMobileNumber")} 
+                                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("fatherMobileNumber")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Mother Mobile Number</label>
-                                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("motherMobileNumber")} 
+                                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("motherMobileNumber")}
                                                 />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="first-name" class="block text-sm font-medium text-gray-700">Father/Mother Whatsapp Number</label>
-                                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("fmWhatsappNumber")} />
+                                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("fmWhatsappNumber")} />
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name" class="block text-sm font-medium text-gray-700">Gurdian Anual Sallery</label>
-                                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" 
-                                                {...register("anualSallery")} 
+                                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                    {...register("anualSallery")}
                                                 />
                                             </div>
                                         </div>
                                     </div>
                                     {/* <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                                    <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
-                                </div> */}
+                                <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Save</button>
+                            </div> */}
                                 </div>
                             </div>
                         </div>
@@ -389,4 +397,4 @@ const Payment = () => {
     );
 };
 
-export default Payment;
+export default AdmissionForm;
