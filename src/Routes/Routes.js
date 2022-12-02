@@ -8,6 +8,7 @@ import UEventDetails from "../Pages/Home/UpcommingEvents/UEventDetails";
 import BecomeAHost from "../Pages/Login/BecomeAHost/BecomeAHost";
 import LoginPage from "../Pages/Login/LoginPage";
 import StudentLogin from "../Pages/Login/StudentLogin/StudentLogin";
+import Payment from "../Pages/Payment/Payment";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -20,6 +21,10 @@ const routes = createBrowserRouter([
             {
                 path: 'admission',
                 element: <Admission></Admission>
+            },
+            {
+                path: 'payment',
+                element: <Payment/>
             },
             {
                 path: 'loginpage',
