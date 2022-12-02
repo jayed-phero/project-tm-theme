@@ -16,7 +16,7 @@ const Menu = ({ menuOpen, menuToggle }) => {
             <button className='text-xl text-black font-bold md:hidden' onClick={menuToggle}>X</button>
             <div className="navbar-center hidden lg:flex menudaisiUI">
                 <ul className="menu menu-horizontal p-0">
-                    <li><a>Home</a></li>
+                    <Link to='/'><li><a>Home</a></li></Link>
                     <li tabIndex={0}>
                         <a>
                             About Us
@@ -41,7 +41,6 @@ const Menu = ({ menuOpen, menuToggle }) => {
                     <li><a>Faculties</a></li>
                     <li><a>Gallery</a></li>
                     <li><a>Contact</a></li>
-
                 </ul>
             </div>
         </ul>

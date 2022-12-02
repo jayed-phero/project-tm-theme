@@ -5,7 +5,9 @@ import Admission from "../Pages/Home/Admission/Admission";
 import Events from "../Pages/Home/Events/Events";
 import Home from "../Pages/Home/Home/Home";
 import UEventDetails from "../Pages/Home/UpcommingEvents/UEventDetails";
+import BecomeAHost from "../Pages/Login/BecomeAHost/BecomeAHost";
 import LoginPage from "../Pages/Login/LoginPage";
+import StudentLogin from "../Pages/Login/StudentLogin/StudentLogin";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -22,6 +24,14 @@ const routes = createBrowserRouter([
             {
                 path: 'loginpage',
                 element: <LoginPage/>
+            },
+            {
+               path: '/studentlogin',
+               element: <StudentLogin/>
+            },
+            {
+                path: 'becomeahost',
+                element: <BecomeAHost/>
             },
             {
                 path: '/events',

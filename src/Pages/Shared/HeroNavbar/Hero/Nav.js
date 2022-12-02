@@ -6,7 +6,7 @@ import { Carousel } from 'flowbite-react'
 const Nav = () => {
     return (
         <div >
-            <header className=''>
+            <header className=' shadow-lg'>
                 <HeroNavbar></HeroNavbar>
             </header>
             <section>

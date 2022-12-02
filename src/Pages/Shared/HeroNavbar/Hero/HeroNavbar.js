@@ -24,7 +24,7 @@ const HeroNavbar = () => {
         setMenuOpen(!menuOpen)
     }
     return (
-        <div className={`navbarHero shadow-lg  ${nav && 'navbar-active'}`}>
+        <div className={`shadow-lg navbarHero ${nav && 'navbar-active'}`}>
             <div className="containerHero px-5 lg:px-52 ">
                 <div className='flex items-center gap-5'>
                     <div className="menu-btn">
