@@ -12,7 +12,7 @@ const DataProvider = ({children}) => {
         fetch('pro.json')
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             dispatch({type: FATCHING_SUCCESS, payload: data.data})
             .catch((err) => {
                 dispatch({type: FATCHING_ERROR})

@@ -1,7 +1,37 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 const StudentLogin = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { user, createUser } = useContext(AuthContext)
+
+
+    const onSubmit = (event) => {
+        console.log(event)
+        const studentId = event.studentId
+        const email = event.email
+        const password = event.password
+
+        const studentInfo = {
+            studentId,
+            email,
+            password
+        }
+
+        axios.post(`${process.env.REACT_APP_API_URL}/studentlogin`, studentInfo)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+
     return (
         <div className='xl:px-52 py-9'>
             {/* <div class="container px-6 py-5 mx-auto">
@@ -18,7 +48,7 @@ const StudentLogin = () => {
                     <div className='text-center'>
                         <h1 className='my-3 text-2xl font-bold'>Student Login</h1>
                     </div>
-                    <form
+                    <form onSubmit={handleSubmit(onSubmit)}
                         noValidate=''
                         action=''
                         className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -36,20 +66,22 @@ const StudentLogin = () => {
                                     placeholder='Enter Your ID'
                                     className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs'
                                     data-temp-mail-org='0'
+                                    {...register("studentId")}
                                 />
                             </div>
                             <div>
                                 <label htmlFor='studentid' className='block mb-2 text-sm'>
-                                    Name
+                                    Email
                                 </label>
                                 <input
                                     type='text'
                                     name='name'
                                     id='name'
                                     required
-                                    placeholder='Enter Your Name'
+                                    placeholder='Enter Your Email'
                                     className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs'
                                     data-temp-mail-org='0'
+                                    {...register("email")}
                                 />
                             </div>
                             <div>
@@ -57,6 +89,7 @@ const StudentLogin = () => {
                                     Class Name
                                 </label>
                                 <select className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs">
+                                    <option>Select Class</option>
                                     <option>One to Ten</option>
                                     <option>Alim to Kamil</option>
                                     <option>Honours</option>
@@ -75,6 +108,7 @@ const StudentLogin = () => {
                                     required
                                     placeholder='*******'
                                     className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs'
+                                    {...register("password")}
                                 />
                             </div>
                             <div className='-mt-2 flex justify-end'>

@@ -52,12 +52,12 @@ const Admission = () => {
 
     const onSubmit = (event) => {
 
-        const anualSallery = event.anualSallery;
-        const barthNumber = event.barthNumber;
+        const fatherAnualSallery = event.anualSallery;
+        const barthCertificateNumber = event.barthNumber;
         const bloodGroup = event.bloodGroup;
         const className = event.class;
-        const formatDistanceStrict = event.formatDistanceStrict;
         const division = event.division;
+        const district = event.district;
         const dob = event.dob;
         const email = event.email;
         const password = event.password;
@@ -65,12 +65,10 @@ const Admission = () => {
         const fatherNID = event.fatherNID;
         const name = `${event.firstName} ${event.lastName}`;
         // const name = `${form.firstname.value} ${form.lastname.value}`;
-        const firstName = event.firstName;
         const fmWhatsappNumber = event.fmWhatsappNumber;
         const gurdianAddress = event.gurdianAddress;
         const gurdianName = event.gurdianName;
         const gurdianWithRelation = event.gurdianWithRelation;
-        const lastName = event.lastName;
         const motherMobileNumber = event.motherMobileNumber;
         const motherNID = event.motherNID;
         const motherName = event.motherName;
@@ -82,108 +80,56 @@ const Admission = () => {
 
 
         postAndGetImageUrl(image)
-            .then(imgData => {
-                console.log(imgData)
-                createUser(email, password)
-                    .then(result => {
-                        const user = result.user
-                        console.log(user)
-                        const studentInfo = {
-                            anualSallery,
-                            barthNumber,
-                            bloodGroup,
-                            className,
-                            formatDistanceStrict,
-                            division,
-                            dob,
-                            email,
-                            password,
-                            fatherMobileNumber,
-                            fatherNID,
-                            name,
-                            fmWhatsappNumber,
-                            gurdianAddress,
-                            gurdianName,
-                            gurdianWithRelation,
-                            motherMobileNumber,
-                            motherNID,
-                            motherName,
-                            postCode,
-                            presentAddress,
-                            studentGender,
-                            imgData,
+            .then(imgLink => {
+                console.log(imgLink)
 
+                const studentInfo = {
+                    studentId,
+                    name,
+                    imgLink,
+                    studentGender,
+                    barthCertificateNumber,
+                    bloodGroup,
+                    className,
+                    dob,
+                    email,
+                    password,
+                    fatherMobileNumber,
+                    fmWhatsappNumber,
+                    fatherNID,
+                    motherMobileNumber,
+                    motherName,
+                    motherNID,
+                    postCode,
+                    gurdianName,
+                    gurdianAddress,
+                    gurdianWithRelation,
+                    presentAddress,
+                    district,
+                    division,
+                    fatherAnualSallery,
+                }
+
+                console.log(studentInfo)
+
+                fetch(`${process.env.REACT_APP_API_LINK}/studentsfullinfo`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(studentInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.acknowledged) {
+                            toast.success('Admission form submitted successfully.')
                         }
-                        handleID()
-                        getId()
-
-                        const studentInfoWithId = {
-                            studentInfo,
-                            studentId
-                        }
-                        console.log(studentInfoWithId)
-
-                        fetch('http://localhost:8000/studentsfullinfo', {
-                            method: 'POST',
-                            headers: {
-                                'content-type' : 'application/json'
-                            },
-                            body: JSON.stringify(studentInfoWithId)
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data)
-                                if (data.acknowledged) {
-                                    toast.success('Admission form submitted successfully.')
-                                }
-                            })
-                            .catch(err => console.error(err))
-
-
-
                     })
+                    .catch(err => console.error(err))
 
             })
-
-        // const studentInfo = {
-        //     section,
-        //     name,
-        //     email,
-        //     // phone,
-        //     dob,
-        //     address,
-        //     pclass,
-        //     message
-        // }
-
-        // handleID()
-        // getId()
-
-        // console.log(studentInfo)
-
-        // const studentInfoWithId = {
-        //     studentInfo,
-        //     studentId
-        // }
-
-
-
-
-        // fetch('http://localhost:5000/studentsfullinfo', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(studentInfoWithId)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //         if (data.acknowledged) {
-        //             toast.success('Admission form submitted successfully.')
-        //         }
-        //     })
-        //     .catch(err => console.error(err))
+            .catch(err => console.error(err))
     }
     return (
         // <div className='md:px-52 py-20'>
