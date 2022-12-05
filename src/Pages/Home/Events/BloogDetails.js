@@ -164,8 +164,45 @@ const BloogDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-full lg:w-72 pb-16 border borde-gray-300 '>
-
+                    <div className='w-full lg:w-96'>
+                        <div className="w-full flex gap-1 items-center flex-col lg:flex-row">
+                            <input type="text" className="border-2 border-gray-300 w-full" />
+                            <button className='bg-regal-orange text-white w-full lg:w-32  h-11 uppercase'>Search</button>
+                        </div>
+                        <div className='mt-7'>
+                            <h3 className='text-2xl font-semibold pb-5'>Category</h3>
+                            <div>
+                                {
+                                    [1, 2, 3, 4, 5].map(i =>
+                                        <div className='flex items-center justify-between border-b-2 border-gray-300 py-2'>
+                                            <h3 className='text-lg font-semibold'>visual form documen</h3>
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div>
+                        <div className='mt-11'>
+                            <h3 className='text-2xl font-semibold pb-4'>Category</h3>
+                            <div>
+                                {
+                                    [1, 2, 3].map(i =>
+                                        <div className='flex items-start gap-3 border-b-2 border-gray-300 pb-2 mt-7'>
+                                            <img
+                                                className='lg:h-28 lg:w-32 w-full rounded'
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp" alt="" />
+                                            <div>
+                                                <h3 className='font-semibold text-regal-orange'>Heading</h3>
+                                                <p className='text-gray-400 pt-2'>Lorem ipsum may be used as a placeholder before final copy is available</p>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div>
+                        <div className='mt-9'>
+                            <h3 className='text-2xl font-semibold pb-4'>Category</h3>
+                        </div>
                     </div>
                 </div>
             </div>
