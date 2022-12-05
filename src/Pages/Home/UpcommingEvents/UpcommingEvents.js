@@ -47,20 +47,24 @@ const UpcommingEvents = () => {
                 <div className='w-full'>
                     {
                         eventsData.map((data, i) =>
-                            <div key={i} className='flex gap-3 items-start py-5 border-b border-gray-300'>
+                            <div key={i} className='flex gap-5 items-start py-5  border-b border-gray-300 border-b-gray-400 w-full'>
                                 <div className=''>
-                                    <h3 className='text-4xl font-bold text-regal-orange  '>{i + 1}.</h3>
-                                    {/* <p className='text-sm -mt-1'>Sep</p> */}
+                                    <div className='px-3 py-1 border-2 border-regal-orange text-center'>
+                                        <h3 className='text-2xl font-semibold'>05</h3>
+                                    </div>
+                                    <div className='border-2 px-3 py-1 border-gray-300 text-center'>
+                                        <p className='uppercase text-gray-500 '>Mar</p>
+                                    </div>
                                 </div>
                                 <div className='UpCommingTime'>
-                                    <h1><Link to={`eventdetails/${data._id}`}>
-                                        <h1 className='text-xl hover:text-regal-orange ease-in-out duration-500'>{data.title.slice(0, 41)}</h1>
-                                    </Link></h1>
-                                    <div className='md:flex flex-col md:flex-row items-center text-base  text-gray-400'>
-                                        <div className='flex items-center gap-3'>
-                                            <h3 className='pr-3'><i className="pr-2 fa-solid fa-calendar-days text-regal-orange"></i>31/12/22</h3>
-                                            <h3 className='pr-3'><i className="pr-2 fa-regular fa-clock text-regal-orange"></i> 08:00 - 17:00</h3>
-                                        </div>
+                                    <Link to={`eventdetails/${data._id}`}>
+                                        <h1 className='text-sm hover:text-regal-orange ease-in-out duration-500 uppercase'>{data.title.slice(0, 67)}</h1>
+                                    </Link>
+                                    <div className='flex flex-col text-base text-gray-400 mt-3'>
+                                        {/* <div className='flex items-center gap-3'>
+                                            <h3 className='pr-3'><i className="pr-2 fa-solid fa-calendar-days text-regal-orange"></i>31/12/22</h3> */}
+                                        <h3 className=''><i className="pr-2 fa-regular fa-clock text-regal-orange"></i> 08:00 - 17:00</h3>
+                                        {/* </div> */}
                                         <h3><i className="pr-2 fa-solid fa-location-dot text-regal-orange"></i> NewYourk, USA</h3>
                                     </div>
                                 </div>

@@ -30,14 +30,20 @@ const HeroNavbar = () => {
                     <div className="menu-btn">
                         <i className="fa-solid fa-bars" onClick={menuToggle}></i>
                     </div>
-                    <Link href="" className='brand text-black'> <i className="pr-3 text-regal-orange     fa-solid fa-graduation-cap"></i>Eduma</Link>
+                    <div className='flex items-center gap-3'>
+                        <i className=" text-5xl text-regal-orange fa-solid fa-graduation-cap"></i>
+                        <div>
+                            <h3 className='text-2xl text-regal-orange'>Eduma</h3>
+                            <p>Univercity of Eduma</p>
+                        </div>
+                    </div>
                 </div>
                 <Menu menuOpen={menuOpen}
                     menuToggle={menuToggle}
                 />
                 <div className='hiddden md:block'>
                     <Link to='/loginpage'
-                        className='bg-regal-orange border-2 border-regal-orange text-white hover:bg-transparent hover:text-black font-semibold px-5 lg:px-11 py-2 lg:py-3 rounded'
+                        className='hover:bg-regal-orange border-2 border-regal-orange text-regal-orange hover:text-white font-semibold px-5 lg:px-11 py-2 lg:py-3 rounded'
                     >
                         Sign In
                     </Link>

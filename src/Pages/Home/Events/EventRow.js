@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './BlogPage.css';
 
 const EventRow = ({ event }) => {
+    
     return (
         <div>
             <div className='border-b-2 border-gray-100 pb-5 relative'>
@@ -21,7 +23,7 @@ const EventRow = ({ event }) => {
                                 <p> <i className="pr-2  fa-solid fa-comments  text-regal-orange "></i>Comments</p>
                             </div>
                         </div>
-                        <button className='px-5 py-2 border-2 border-regal-orange rounded-3xl mt-5 hover:bg-black font-semibold hover:text-white text-regal-orange'>Read More</button>
+                        <Link to={`/blogdetails/1`}><button className='px-5 py-2 border-2 border-regal-orange rounded-3xl mt-5 hover:bg-regal-orange font-semibold hover:text-white text-regal-orange'>Read More</button></Link>
                     </div>
                 </div>
             </div>

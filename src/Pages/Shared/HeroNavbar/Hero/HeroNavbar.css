@@ -8,10 +8,10 @@ body{
     background-size: cover;
 } */
 
-section{
+/* section{
     color: #fff;
-    /* padding: 1.5em; */
-}
+    padding: 1.5em;
+} */
 
 /* p{
     max-width: 35em;
@@ -49,21 +49,21 @@ ul{
 }
 
 .navbarHero a{
-    text-decoration: none;
-    color: #222;
+    /* text-decoration: none; */
+    /* color: #222; */
     transition: 0.3s;
 }
 
 
 .navbarHero a:hover {
-    color: #b2b2b2;
+    /* color: #b2b2b2; */
 }
 
-.brand{
+/* .brand{
     font-size: 1.5em;
     font-weight: bold;
     color: #222;
-}
+} */
 
 
 .menuHero {
@@ -126,4 +126,12 @@ ul{
     border-radius: 7px;
     font-size: 17px;
     font-weight: 400;
+}
+
+.submanu li a {
+    color: white;
+}
+
+.submanu li a:hover{
+    color: orange;
 }

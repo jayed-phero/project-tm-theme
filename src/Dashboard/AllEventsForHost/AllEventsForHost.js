@@ -1,6 +1,15 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const AllEventsForHost = () => {
+    const [eventData , setEventData] = useState([])
+    const {user} = useContext(AuthContext)
+    axios.get(`${process.env.REACT_APP_API_URL}/eventsall?email=${user?.email}`)
+    .then(res => {
+        console.log(res)
+        setEventData(res)
+    })
     return (
         <div>
             <div className="overflow-x-auto w-full">

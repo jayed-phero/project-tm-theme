@@ -1,21 +1,23 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import DashboardNavbar from '../Dashboard/DashboardNavbar/DashboardNavbar';
+import DashboardSidebar from './DashboardSidebar';
 
 const DashboardLayout = () => {
+
     return (
         <div>
             <DashboardNavbar />
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content py-9 px-5">
+                <div className="drawer-content py-7 px-5">
                     <Outlet />
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-sky-900 text-base-content">
                         {/* <!-- Sidebar content here --> */}
-                        <div className='mt-7'>
+                        {/* <div className='mt-7'>
                             <h3 className='text-white text-lg font-semibold'>Academics</h3>
                             <div className='py-2'>
                                 <li className='text-gray-300'><a>
@@ -37,10 +39,10 @@ const DashboardLayout = () => {
                                     <i class="fa-brands fa-elementor"></i>
                                     My Posted Event
                                 </a></li></Link>
-                                <li className='text-gray-300'><a>
+                                <Link to='/dashboard/addevent'> <li className='text-gray-300'><a>
                                     <i class="fa-solid fa-calendar-plus"></i>
                                     Add Event
-                                </a></li>
+                                </a></li></Link>
                             </div>
                         </div>
                         <div className="mt-7 ">
@@ -70,7 +72,8 @@ const DashboardLayout = () => {
                                     Add Image
                                 </a></li>
                             </div>
-                        </div>
+                        </div> */}
+                        <DashboardSidebar/>
                     </ul>
 
                 </div>

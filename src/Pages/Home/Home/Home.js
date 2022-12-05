@@ -2,7 +2,6 @@
 import React from 'react';
 import About from '../About/About';
 import HomeCarosel from '../Carousel/HomeCarosel';
-import ClientSays from '../ClientSays/ClientSays';
 import Events from '../Events/Events';
 import FreequrntlyAQ from '../FreequentlyAQ/FreequrntlyAQ';
 import Gallery from '../Gallery/Gallery';

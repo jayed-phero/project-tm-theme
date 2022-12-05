@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'regal-orange': '#ffb607'
+        'regal-orangeNew': '#ffb607',
+        'regal-orange': '#458ccc'
       },
     },
   },

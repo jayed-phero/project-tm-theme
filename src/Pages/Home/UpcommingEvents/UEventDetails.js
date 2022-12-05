@@ -32,9 +32,9 @@ const UEventDetails = () => {
 
     return (
         <div className='xl:px-52 px-5'>
-            <h3 className='pb-7 lg:pt-11 text-3xl font-semibold'>Events</h3>
+            {/* <h3 className='pb-7 lg:pt-11 text-3xl font-semibold'>Events</h3> */}
             <div>
-                <div className='flex flex-col xl:flex-row items-start gap-11 relative'>
+                <div className='flex flex-col xl:flex-row items-start gap-11 relative lg:pt-11'>
                     <div className='flex-1'>
                         <div className='text-xl lg:text-2xl font-semibold pb-7'>
                             <h1>{title}</h1>
@@ -101,6 +101,24 @@ const UEventDetails = () => {
                                                     </div>
                                                 )
                                             }
+                                        </div>
+                                        {/* npx expo install react-native-web@~0.18.9 react-dom@18.1.0 @expo/webpack-config@^0.17.2 */}
+                                    </div>
+                                    <div className='flex items-center gap-5 py-7'>
+                                        <h3 className='text-xl'>Share:</h3>
+                                        <div className='flex items-center gap-5'>
+                                            <div className='border-2 border-gray-300 rounded-full h-9 w-9 flex items-center justify-center'>
+                                                <i class="fa-brands fa-facebook-f"></i>
+                                            </div>
+                                            <div className='border-2 border-gray-300 rounded-full h-9 w-9 flex items-center justify-center'>
+                                                <i class="fa-brands fa-google"></i>
+                                            </div>
+                                            <div className='border-2 border-gray-300 rounded-full h-9 w-9 flex items-center justify-center'>
+                                                <i class="fa-brands fa-twitter"></i>
+                                            </div>
+                                            <div className='border-2 border-gray-300 rounded-full h-9 w-9 flex items-center justify-center'>
+                                                <i class="fa-regular fa-paper-plane"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -3,7 +3,7 @@ import AllEventsForHost from "../Dashboard/AllEventsForHost/AllEventsForHost";
 import Dashboard from "../Dashboard/Dashboard";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
-import AddEventt from "../Pages/AddEventt";
+import AddEventt from "../Dashboard/AddEvent/AddEventt";
 import Admission from "../Pages/Home/Admission/Admission";
 import Events from "../Pages/Home/Events/Events";
 import Home from "../Pages/Home/Home/Home";
@@ -13,6 +13,7 @@ import HostLogin from "../Pages/Login/BecomeAHost/HostLogin";
 import LoginPage from "../Pages/Login/LoginPage";
 import StudentLogin from "../Pages/Login/StudentLogin/StudentLogin";
 import Payment from "../Pages/Payment/Payment";
+import BloogDetails from "../Pages/Home/Events/BloogDetails";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -28,50 +29,55 @@ const routes = createBrowserRouter([
             },
             {
                 path: 'payment',
-                element: <Payment/>
+                element: <Payment />
             },
             {
                 path: 'loginpage',
-                element: <LoginPage/>
+                element: <LoginPage />
             },
             {
-               path: '/studentlogin',
-               element: <StudentLogin/>
+                path: '/studentlogin',
+                element: <StudentLogin />
             },
             {
                 path: 'becomeahost',
-                element: <BecomeAHost/>
+                element: <BecomeAHost />
             },
             {
                 path: 'hostlogin',
-                element: <HostLogin/>
+                element: <HostLogin />
             },
             {
                 path: '/events',
                 element: <Events></Events>
             },
             {
+                path: '/blogdetails/:id',
+                // loader: ({ params }) => fetch(`http://localhost:8000/allevents/${params.id}`),
+                element: <BloogDetails/>
+            },
+            {
                 path: '/eventdetails/:id',
                 loader: ({ params }) => fetch(`http://localhost:8000/allevents/${params.id}`),
                 element: <UEventDetails></UEventDetails>
-            },
-            {
-                path: 'addevent',
-                element: <AddEventt></AddEventt>
-            },
+            }
         ]
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout/>,
+        element: <DashboardLayout />,
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard/>
+                element: <Dashboard />
             },
             {
                 path: '/dashboard/eventsbyhost',
-                element: <AllEventsForHost/>
+                element: <AllEventsForHost />
+            },
+            {
+                path: '/dashboard/addevent',
+                element: <AddEventt></AddEventt>
             },
             // {
             //     path: '/dashboard/my-posted-event',

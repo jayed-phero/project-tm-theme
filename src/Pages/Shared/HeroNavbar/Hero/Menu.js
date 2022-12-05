@@ -22,7 +22,7 @@ const Menu = ({ menuOpen, menuToggle }) => {
                             About Us
                             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                         </a>
-                        <ul className="p-3 bg-white w-64 shadow-lg">
+                        <ul className="p-3 bg-regal-orange w-64 shadow-xl rounded-lg submanu">
                             <li><a>Who We Are</a></li>
                             <li><a>Achievement</a></li>
                         </ul>
@@ -32,7 +32,7 @@ const Menu = ({ menuOpen, menuToggle }) => {
                             Users Corner
                             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                         </a>
-                        <ul className="p-3 bg-white w-64 shadow-lg">
+                        <ul className="p-3 bg-regal-orange w-64 shadow-xl rounded-lg submanu">
                             <li><a>Users Login</a></li>
                             <li><a>Academic Result</a></li>
                             <li><a>Courses</a></li>

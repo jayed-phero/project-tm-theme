@@ -11,12 +11,12 @@ const HomeHeader = () => {
             <div className='flex items-center lg:pr-16 justify-center md:justify-start'>
                 <Link to='/admission' className='bg-orange-400 px-3  py-2 rounded flex items-center mr-2 font-semibold hover:bg-white hover:text-orange-400 ease-in duration-300 cursor-pointer'><button>Admission</button></Link>
                 {
-                    user.uid ? 
+                    user?.uid ? 
                     <Link to='/dashboard' className='bg-orange-400 px-5 rounded py-2 font-semibold hover:bg-white hover:text-orange-400 ease-in duration-300 cursor-pointer'><button>Dashboard</button></Link>
 
                     :
 
-                    <Link to='/payment' className='bg-orange-400 px-5 rounded py-2 font-semibold hover:bg-white hover:text-orange-400 ease-in duration-300 cursor-pointer'><button>Payment</button></Link>
+                    <Link to='/payment' className='bg-orange-400 px-5 rounded py-2 font-semibold hover:bg-white hover:text-orange-400 ease-in duration-300 cursor-pointer'><button>Notice</button></Link>
                 }
             </div>
             <div className='py-2 lg:py-0'>

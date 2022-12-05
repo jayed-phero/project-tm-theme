@@ -14,8 +14,8 @@ const AddEventForm = ({
 }) => {
     return (
         <div>
-            <div className='flex justify-center mt-6'>
-                <div className='w-full max-w-md p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50'>
+            <div className='flex justify-center'>
+                <div className='w-full max-w-lg lg:p-8  space-y-3 text-gray-800 rounded-xl bg-gray-50'>
                     <form
                         onSubmit={handleSubmit(handleAddEvent)}
                         className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -214,7 +214,7 @@ const AddEventForm = ({
                             type='submit'
                             className='block w-full p-3 text-center font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-emerald-500 to-lime-500 hover:bg-gray-200 hover:text-gray-700 focus:shadow-outline focus:outline-none'
                         >
-                            Save & Continue
+                            Save & Upload
                         </button>
                     </form>
                 </div>
