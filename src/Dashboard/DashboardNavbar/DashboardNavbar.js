@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
+import ScrollToTop from '../../hooks/Scrool-to-top';
 
 const DashboardNavbar = () => {
-    const {user} = useContext(AuthContext)
+    const {user, logout} = useContext(AuthContext)
     return (
         <div className=''>
+            <ScrollToTop/>
             <div className="navbar bg-base-100 shadow-lg">
                 <div className="flex-1">
                     <label htmlFor="my-drawer-2" className="btn btn-ghost btn-circle lg:hidden">
@@ -36,7 +38,7 @@ const DashboardNavbar = () => {
                                 </a>
                             </li>
                             <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            <li onClick={logout}><a>Logout</a></li>
                         </ul>
                     </div>
                 </div>

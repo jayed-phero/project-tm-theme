@@ -2,6 +2,7 @@ import { getAllByTitle } from '@testing-library/react';
 import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 
 const UEventDetails = () => {
     const { user } = useContext(AuthContext)
@@ -32,7 +33,7 @@ const UEventDetails = () => {
 
     return (
         <div className='xl:px-52 px-5'>
-            {/* <h3 className='pb-7 lg:pt-11 text-3xl font-semibold'>Events</h3> */}
+            <ScrollToTop/>
             <div>
                 <div className='flex flex-col xl:flex-row items-start gap-11 relative lg:pt-11'>
                     <div className='flex-1'>
@@ -54,7 +55,7 @@ const UEventDetails = () => {
                                     )
                                 }
                             </div> */}
-                            <div className="grid grid-flow-col gap-5 text-center auto-cols-max absolute top-5">
+                            {/* <div className="grid grid-flow-col gap-5 text-center auto-cols-max absolute top-5">
                                 <span className="countdown">
                                     <span style={{ "--value": 9 }}></span>
                                 </span>
@@ -82,7 +83,7 @@ const UEventDetails = () => {
                                     </span>
                                     sec
                                 </div>
-                            </div>
+                            </div> */}
                             <div className='flex flex-col xl:flex-row items-start lg:gap-16 pt-12 '>
                                 <div className='flex-1'>
                                     <div>
@@ -102,7 +103,6 @@ const UEventDetails = () => {
                                                 )
                                             }
                                         </div>
-                                        {/* npx expo install react-native-web@~0.18.9 react-dom@18.1.0 @expo/webpack-config@^0.17.2 */}
                                     </div>
                                     <div className='flex items-center gap-5 py-7'>
                                         <h3 className='text-xl'>Share:</h3>
@@ -163,7 +163,7 @@ const UEventDetails = () => {
                         </div>
                     </div>
                     <div className='w-full lg:w-72 sticky top-32 pb-16 border borde-gray-300 '>
-                        <h3 className='uppercase font-bold text-xl w-full py-4 bg-regal-orange text-center'>Registration</h3>
+                        <h3 className='uppercase font-bold text-xl w-full py-4 bg-regal-orange text-center text-white'>Registration</h3>
 
                         <div className='px-5 py-7'>
                             <div className='text-lg border-b border-gray-300 py-4 flex items-center justify-between text-gray-500'>
@@ -189,7 +189,8 @@ const UEventDetails = () => {
                                 user ?
                                     <div className='flex-col flex items-center'>
                                         <Link>
-                                            <h3 className='w-32 py-2 text-center bg-regal-orange font-semibold mt-2'>BOOK NOW</h3>
+                                            <h3 className='w-32 py-2 text-center text-white
+                                            bg-regal-orange font-semibold mt-2'>BOOK NOW</h3>
                                         </Link>
                                     </div>
                                     :

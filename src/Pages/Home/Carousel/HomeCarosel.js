@@ -18,11 +18,11 @@ const HomeCarosel = () => {
                                 <div class="flex justify-center items-center h-full">
                                     <div class="text-white">
                                         <h2 class="font-semibold lg:text-6xl text-3xl mb-4">
-                                            Welcome to new <br /> way <span className='text-regal-orange'>University</span> of <span className='text-regal-orange'>Eduma</span>
+                                            Welcome to new <br /> way <span className='text-regal-orange'>University</span> of <span className='text-regal-orange'>TMKMT</span>
                                         </h2>
                                         <h4 class="font-semibold text-lg mb-6">Positive behavioral supports is a behavior management system</h4>
                                         <a
-                                            class="inline-block px-7 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                            class="border-2 border-regal-orange bg-regal-orange px-7 py-2 lg:px-11 py-3 hover:bg-transparent"
                                             href="#!"
                                             role="button"
                                             data-mdb-ripple="true"
@@ -45,11 +45,11 @@ const HomeCarosel = () => {
                                 <div class="flex justify-center items-center h-full">
                                     <div class="text-white">
                                         <h2 class="font-semibold lg:text-6xl text-3xl mb-4">
-                                            Welcome to new <br /> way <span className='text-regal-orange'>University</span> of <span className='text-regal-orange'>Eduma</span>
+                                            Welcome to new <br /> way <span className='text-regal-orange'>University</span> of <span className='text-regal-orange'>TMKMT</span>
                                         </h2>
                                         <h4 class="font-semibold text-lg mb-6">Positive behavioral supports is a behavior management system</h4>
                                         <a
-                                            class="inline-block px-7 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                            class="border-2 border-regal-orange bg-regal-orange px-7 py-2 lg:px-11 py-3 hover:bg-transparent"
                                             href="#!"
                                             role="button"
                                             data-mdb-ripple="true"
@@ -72,11 +72,11 @@ const HomeCarosel = () => {
                                 <div class="flex justify-center items-center h-full">
                                     <div class="text-white">
                                         <h2 class="font-semibold lg:text-6xl text-3xl mb-4">
-                                            Welcome to new <br /> way <span className='text-regal-orange'>University</span> of <span className='text-regal-orange'>Eduma</span>
+                                            Welcome to new <br /> way <span className='text-regal-orange'>University</span> of <span className='text-regal-orange'>TMKMT</span>
                                         </h2>
                                         <h4 class="font-semibold text-lg mb-6">Positive behavioral supports is a behavior management system</h4>
                                         <a
-                                            class="inline-block px-7 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                            class="border-2 border-regal-orange bg-regal-orange px-7 py-2 lg:px-11 py-3 hover:bg-transparent"
                                             href="#!"
                                             role="button"
                                             data-mdb-ripple="true"

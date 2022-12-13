@@ -1,25 +1,16 @@
 import React from 'react';
-import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
-import { CalendarIcon } from '@heroicons/react/20/solid'
 import ScrollToTop from '../../hooks/Scrool-to-top';
 
-const AddEventForm = ({
-    register,
+const AddBlogForm = ({ register,
     handleSubmit,
-    handleAddEvent,
-    startingDate,
-    finishingDate,
-    setStartingDate,
-    setFinishingDate
-}) => {
+    handleAddBlog, loading }) => {
     return (
         <div>
             <ScrollToTop/>
             <div className='flex justify-center'>
                 <div className='w-full max-w-lg lg:p-8  space-y-3 text-gray-800 rounded-xl bg-gray-50'>
                     <form
-                        onSubmit={handleSubmit(handleAddEvent)}
+                        onSubmit={handleSubmit(handleAddBlog)}
                         className='space-y-6 ng-untouched ng-pristine ng-valid'
                     >
                         <div className='space-y-1 text-sm'>
@@ -47,10 +38,11 @@ const AddEventForm = ({
                                 {...register("description")}
                                 className='block rounded-md focus:green-300 w-full h-20 px-4 py-3 text-gray-800 bg-green-50 border border-green-300 focus:outline-green-500 '
                                 name='description'
+                                required
                             ></textarea>
                         </div>
 
-                        <div className='flex justify-between '>
+                        {/* <div className='flex justify-between '>
                             <div className='shadow-md rounded-md my-2 p-3 flex justify-between items-center'>
                                 <div>
                                     <p className='block text-sm text-gray-500'>From</p>
@@ -76,9 +68,9 @@ const AddEventForm = ({
 
                                 <CalendarIcon className='h5 w-5' />
                             </div>
-                        </div>
+                        </div> */}
 
-                        <div className='flex justify-between gap-2'>
+                        {/* <div className='flex justify-between gap-2'>
 
                             <div className='space-y-1 text-sm'>
                                 <label htmlFor='bedrooms' className='block text-gray-600'>
@@ -109,107 +101,84 @@ const AddEventForm = ({
                                     required
                                 />
                             </div>
+                        </div> */}
+
+                        <div className='space-y-1 text-sm'>
+                            <label htmlFor='' className='block text-gray-600'>
+                                Blog Coute
+                            </label>
+
+                            <textarea
+                                id='blogcoute'
+                                {...register("blogcoute")}
+                                className='block rounded-md focus:green-300 w-full h-20 px-4 py-3 text-gray-800 bg-green-50 border border-green-300 focus:outline-green-500 '
+                                name='blogcoute'
+                                required
+                            ></textarea>
                         </div>
 
 
-                        <div className='flex space-x-4 items-center'>
+                        <div className='flex'>
                             <label
                                 htmlFor='image'
-                                className='p-3 text-center rounded-md cursor-pointer text-gray-500 font-bold border  border-green-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-400 hover:border-white hover:text-white'
+                                className='p-3 text-center rounded-md cursor-pointer text-gray-500 font-bold border  border-green-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-400 hover:border-white hover:text-white w-full'
                             >
                                 <input
                                     type='file'
                                     {...register("image")}
                                     name='image'
                                     id='image'
-                                    accept='image/*'
-                                    hidden
+                                    required
                                 />
                             </label>
                         </div>
 
-                        <div className=''>
-                            <label htmlFor='rules' className='block text-gray-600 space-y-1 my-2'>
-                                Event Rules One by One
+                        <div className='space-y-1 text-sm'>
+                            <label htmlFor='' className='block text-gray-600'>
+                                Category
                             </label>
-                            <div className='space-y-1 text-sm m-y-2'>
-                                <label htmlFor='price' className='block text-gray-600'>
-                                    Content 1
-                                </label>
-                                <input
-                                    className='w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50'
-                                    name='price'
-                                    {...register("content1")}
-                                    id='content1'
-                                    type='text'
-                                    placeholder='Content 1'
-                                    required
-                                />
-                            </div>
 
-                            <div className='space-y-1 text-sm my-2'>
-                                <label htmlFor='guest' className='block text-gray-600'>
-                                    Content 2
-                                </label>
-                                <input
-                                    className='w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50'
-                                    name='content2'
-                                    id='content2'
-                                    type='text'
-                                    {...register("content2")}
-                                    placeholder='Content 2'
-                                    required
-                                />
-                            </div>
-
-                            <div className='space-y-1 text-sm my-2'>
-                                <label htmlFor='bedrooms' className='block text-gray-600'>
-                                    Content 3
-                                </label>
-                                <input
-                                    className='w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50'
-                                    name='content3'
-                                    id='content-3'
-                                    {...register("content3")}
-                                    type='text'
-                                    placeholder='Content 3'
-                                    required
-                                />
-                            </div>
-
-
-                            <div className='space-y-1 text-sm my-2'>
-                                <label htmlFor='title' className='block text-gray-600'>
-                                    Content 4
-                                </label>
-                                <input
-                                    className='w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50'
-                                    name='title'
-                                    {...register("content4")}
-                                    id='title'
-                                    type='text'
-                                    placeholder='Content 4'
-                                    required
-                                />
-                            </div>
-
-
-                            <div className='space-y-1 text-sm my-2'>
-                                <label htmlFor='title' className='block text-gray-600'>
-                                    Content 5
-                                </label>
-                                <input
-                                    className='w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50'
-                                    name='title'
-                                    {...register("content5")}
-                                    id='title'
-                                    type='text'
-                                    placeholder='Content 5'
-                                    required
-                                />
-                            </div>
+                            <select
+                                id='category'
+                                {...register("category")}
+                                className='w-full px-4 py-3 text-gray-800 border border-green-300 focus:outline-green-500 rounded-md bg-green-50'
+                                name='category'
+                                required
+                            >
+                                <option>Select</option>
+                                <option value="education">Education</option>
+                                <option value="islamic">Islamic</option>
+                                <option value="recent">Recent</option>
+                            </select>
                         </div>
 
+                        <div className='space-y-1 text-sm'>
+                            <label htmlFor='' className='block text-gray-600'>
+                                Middle Description
+                            </label>
+
+                            <textarea
+                                id=''
+                                {...register("middledesc")}
+                                className='block rounded-md focus:green-300 w-full h-20 px-4 py-3 text-gray-800 bg-green-50 border border-green-300 focus:outline-green-500 '
+                                name='middledesc'
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div className='space-y-1 text-sm'>
+                            <label htmlFor='' className='block text-gray-600'>
+                                Finising Speech
+                            </label>
+
+                            <textarea
+                                id='lastspeech'
+                                {...register("lastspeech")}
+                                className='block rounded-md focus:green-300 w-full h-20 px-4 py-3 text-gray-800 bg-green-50 border border-green-300 focus:outline-green-500 '
+                                name='lastspeech'
+                                required
+                            ></textarea>
+                        </div>
 
 
                         <button
@@ -225,4 +194,4 @@ const AddEventForm = ({
     );
 };
 
-export default AddEventForm;
+export default AddBlogForm;

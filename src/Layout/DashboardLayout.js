@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import DashboardNavbar from '../Dashboard/DashboardNavbar/DashboardNavbar';
+import ScrollToTop from '../hooks/Scrool-to-top';
 import DashboardSidebar from './DashboardSidebar';
 
 const DashboardLayout = () => {
 
     return (
         <div>
+            <ScrollToTop/>
             <DashboardNavbar />
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

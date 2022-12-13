@@ -1,0 +1,83 @@
+[
+    {
+        "start": "11/12/22",
+        "to": "15/12/22",
+        "title": "Drawing Competition is open for students from Class 1 to Class 10. ",
+        "image": "https://images.unsplash.com/photo-1580196969807-cc6de06c05be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGRyYXdpbmdzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "description": "International Drawing Olympiad (IDO) exams are conducted once a year at National level in respective schools. Apart from excelling in academics, it is important for students to focus on soft skills such as drawing, painting, sketching, and so on. There are many students in India who have exceptional drawing skills. Schools engage students in such activities in the free time to encourage young talent. Teachers are in a better position to identify students who are interested in different art forms. The activities conducted in school are enough for teachers to identify imagination of students. Drawing Competition is open for students from Class 1 to Class 10. The objective behind such exam is to enhance and sharpen creativity among them. It allows students to maintain a balance between academics and co-curricular activities. Drawing is the best form of expression, which reveals true imagination.",
+        "price": "100",
+        "address": "Academic Auditorium",
+        "email": "solution@tmkmt.com",
+        "content": [
+            {
+                "content": "To participate in International Drawing Olympiad (IDO) exams, students can contact their art teacher in respective schools."
+            },
+            {
+                "content": "Indian Talent Olympiad is one such organization which believes in bringing out the hidden talent in students through Drawing Competition."
+            },
+            {
+                "content": " The ITO is based in Mumbai, but has collaborated with schools across the country. Schools can register online and opt for Olympiad exams. This is the right platform for talented students to showcase their interest and aptitude for art."
+            },
+            {
+                "content": "Olympiad exams play an important role in nurturing child’s future. It makes them ready to face national level competitions. The exam is conducted in their respective schools."
+            },
+            {
+                "content": " Teachers should encourage students to participate in this exam as it is unique exam, to spread their imagination on the paper in the form of drawings and paintings."
+            }
+        ]
+    },
+    {
+        "start": "23/12/22",
+        "to": "26/12/22",
+        "title": "The Study Tour Program encourages students to immerse themselves in an overseas study environment, ",
+        "image": "https://images.unsplash.com/photo-1618831858668-ba2de5784b9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3R1ZHklMjB0b3VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "description": "The Study Tour Program encourages students to immerse themselves in an overseas study environment, exposing students to campus life and culture in hopes of broadening the student’s outlook towards world class institutions in Australia, UK, USA and Singapore among others. Apart from building academic capability, study tour also aims at building life skills such as team work, communication, problem solving skills and decision making that are only obtained through life experience. This program gives students the opportunity to live in a global community, exposed to different cultures, religions and ethnic backgrounds to truly broaden their horizons and become a global citizen.",
+        "price": "3000",
+        "address": "Student Union",
+        "email": "solution@tmkmt.com",
+        "content": [
+            {
+                "content": "Studying abroad and participating in Study tours can be a bit scary for students, "
+            },
+            {
+                "content": "While it’s reasonable to discuss concerns about finances, safety and academics with your child before they go overseas"
+            },
+            {
+                "content": "With the increasing globalization and internationalization happening everywhere, it is vital for your child to expand their worldview, "
+            },
+            {
+                "content": ". Through this environment, they will build a deeper understanding of global issues and start to think globally. "
+            },
+            {
+                "content": "This process of connecting to foreign places and building empathy with people from other nationalities will make your children better global citizens,"
+            }
+        ]
+    },
+    {
+        "start": "27/12/22",
+        "to": "29/12/22",
+        "title": "The University Physics Competition is an international contest for undergraduate students,",
+        "image": "https://media.istockphoto.com/id/1430005833/photo/set-of-supplies-for-mathematics-and-for-school-fractions-rulers-pencils-notepad-on-brown.jpg?b=1&s=170667a&w=0&k=20&c=qQoomJkQJT-DgeZ6NgC3AdWd8gSl1Y1vXQSUasPMA8w=",
+        "description": "At the start of the contest, each team selects one of two problems which appear on this website.  Problems are written to be accessible to students who have had at least one year of university physics but are designed to be conceptually rich and open-ended in nature, so that they are still challenging to senior level students.  The problems may contain incomplete information, so the students have to do background research and make some reasonable assumptions in order to proceed with the analysis.  This means that there may not be one unambiguously correct method, but instead there may be many useful approaches and approximations.",
+        "price": "1000",
+        "address": "Bangladesh, Dhaka",
+        "email": "solution@tmkmt.com",
+        "content": [
+            {
+                "content": "During the contest, teams may use books, journals, computers, the Internet, programs that they write, or any other nonliving resources, but they may not consult with any people outside of their team."
+            },
+            {
+                "content": "Teams must perform a theoretical analysis of the scenario presented using the principles of physics, and write a formal paper, in English, detailing their work. "
+            },
+            {
+                "content": "Each paper must begin with a 300 word summary, providing key details and results of the work performed. Each paper must include a list of references used, as well as make in-text citations to these resources."
+            },
+            {
+                "content": "All registrations must be submitted at least 6 hours before the contest begins."
+            },
+            {
+                "content": "At the end of the contest, all papers must be received via e-mail at solutions@tmkmt.com before the 48 hours have elapsed."
+            }
+        ]
+    }
+]

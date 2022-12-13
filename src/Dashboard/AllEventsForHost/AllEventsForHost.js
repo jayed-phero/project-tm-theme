@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
+import ScrollToTop from '../../hooks/Scrool-to-top';
 
 const AllEventsForHost = () => {
     const [eventData , setEventData] = useState([])
@@ -12,6 +13,7 @@ const AllEventsForHost = () => {
     })
     return (
         <div>
+            <ScrollToTop/>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* <!-- head --> */}

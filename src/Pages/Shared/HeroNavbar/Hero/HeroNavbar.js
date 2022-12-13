@@ -27,21 +27,22 @@ const HeroNavbar = () => {
         <div className={`shadow-lg navbarHero ${nav && 'navbar-active'}`}>
             <div className="containerHero px-5 lg:px-52 ">
                 <div className='flex items-center gap-5'>
-                    <div className="menu-btn">
-                        <i className="fa-solid fa-bars" onClick={menuToggle}></i>
-                    </div>
                     <div className='flex items-center gap-3'>
-                        <i className=" text-5xl text-regal-orange fa-solid fa-graduation-cap"></i>
+                        <i className="text-3xl md:text-5xl text-regal-orange fa-solid fa-graduation-cap"></i>
                         <div>
-                            <h3 className='text-2xl text-regal-orange'>Eduma</h3>
-                            <p>Univercity of Eduma</p>
+                            <h3 className=' text-xl lg:text-2xl text-regal-orange'>TMKMT</h3>
+                            <p>Univercity of TMKMT</p>
                         </div>
                     </div>
                 </div>
                 <Menu menuOpen={menuOpen}
                     menuToggle={menuToggle}
                 />
-                <div className='hiddden md:block'>
+                <div className="menu-btn">
+                    <i className="fa-solid fa-bars" onClick={menuToggle}></i>
+                </div>
+
+                <div className='hidden md:block'>
                     <Link to='/loginpage'
                         className='hover:bg-regal-orange border-2 border-regal-orange text-regal-orange hover:text-white font-semibold px-5 lg:px-11 py-2 lg:py-3 rounded'
                     >

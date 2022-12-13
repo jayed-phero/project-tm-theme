@@ -1,4 +1,4 @@
-body{
+body {
     font-family: sans-serif;
 }
 
@@ -18,17 +18,17 @@ body{
     padding: 1em 0;
 } */
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
-.navbarHero{
+.navbarHero {
     background: white;
     width: 100%;
     padding: 23px 0px;
@@ -48,7 +48,7 @@ ul{
     z-index: 999;
 }
 
-.navbarHero a{
+.navbarHero a {
     /* text-decoration: none; */
     /* color: #222; */
     transition: 0.3s;
@@ -86,7 +86,7 @@ ul{
 }
 
 /* Daynamic class added later with js */
-.navbar-active{
+.navbar-active {
     top: 0;
     position: fixed;
     background: white;
@@ -103,26 +103,37 @@ ul{
         display: block;
     }
 
-    .menuHero{
+    .menuHero {
         position: absolute;
         top: 0;
-        right: -321px;
+        right: 0;
+        width: 0px;
         justify-content: flex-start;
-        width: 300px;
+        /* width: 300px; */
         height: 100vh;
-        background: #222;
+        background: white;
         flex-direction: column;
         text-align: left;
         overflow-y: hidden;
+        --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     }
 
     /* Daynamic class added later with js */
     .navbarHero .menu-open {
         right: 0;
-    } 
+        width: 301px;
+    }
 }
 
-.menudaisiUI ul li a{
+.menudaisiUIMini ul li {
+    margin-bottom: 11px;
+}
+
+.menudaisiUIMini ul li:hover{
+    color: rgb(22, 22, 220);
+}
+
+.menudaisiUI ul li a {
     border-radius: 7px;
     font-size: 17px;
     font-weight: 400;
@@ -132,6 +143,6 @@ ul{
     color: white;
 }
 
-.submanu li a:hover{
+.submanu li a:hover {
     color: orange;
 }

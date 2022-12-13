@@ -1,40 +1,47 @@
 import { Tabs } from 'flowbite-react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './BlogPage.css';
+import { Link, useLoaderData } from 'react-router-dom';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 
 const BloogDetails = () => {
+    const blogData = useLoaderData()
+    console.log(blogData)
+    const {title, image, role, category, description, desc2, desc3, coute } = blogData
 
     return (
         <div className='xl:px-52 px-5'>
+            <ScrollToTop/>
             <div>
                 <div className='flex flex-col xl:flex-row items-start gap-11 relative lg:pt-11'>
                     <div className='flex-1'>
                         <div className='relative flex flex-col items-center justify-center'>
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp"
+                                src={image}
                                 alt=""
                                 className='w-full h-64 md:h-96' />
+                                <h3 className='w-32 h-12 font-semibold flex items-center justify-center bg-black text-white absolute top-0 right-0 lg:top-48 lg:-left-9'>25-12-22</h3>
                             <div className=' pt-7 '>
                                 <div className='flex-1'>
                                     <div className='lg:pl-16'>
-                                        <h3 className='text-xl font-bold '>ipsum may be used as a placeholder before final...</h3>
+                                        <h3 className='text-xl font-bold '>{title.slice(0, 65)}...</h3>
                                         <div className='flex items-center text-sm gap-4 pt-2 pb-7'>
-                                            <p className='border-r-2 pr-5 border-black'><i className=" pr-2 fa-solid fa-user text-regal-orange"></i> Admin</p>
-                                            <p> <i className="pr-2  fa-solid fa-comments  text-regal-orange "></i>Education</p>
+                                            <p className='border-r-2 pr-5 border-black'><i className=" pr-2 fa-solid fa-user text-regal-orange"></i>{role}</p>
+                                            <p> <i className="pr-2  fa-solid fa-comments  text-regal-orange "></i>{category}</p>
                                         </div>
-                                        <p className='text-base'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                                        <p className='text-base'>{description}</p>
                                     </div>
                                     <div className='px-11 py-7 blogDetails-bg my-7'>
                                         <i className="text-4xl fa-solid fa-quote-left"></i>
-                                        <h3 className='px-9 font-semibold italic'>used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available</h3>
+                                        <h3 className='px-9 font-semibold italic'>{coute}</h3>
                                         <div className='flex justify-end'>
                                             <i className="text-4xl fa-solid fa-quote-right text-end"></i>
                                         </div>
                                     </div>
                                     <div className='lg:pl-16 my-7'>
-                                        <p className='text-base lg:pr-16'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                                        <p className='text-base lg:pr-16'>{desc2}</p>
 
-                                        <p className='pt-5 underlined text-semibold lg:pr-16'>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate.</p>
+                                        <p className='pt-5 underlined text-semibold lg:pr-16'>{desc3}</p>
 
                                         <div className='flex justify-end border-t border-b border-gray-300 my-5 py-2'>
                                             <div className='flex items-center gap-5'>
@@ -170,7 +177,7 @@ const BloogDetails = () => {
                             <button className='bg-regal-orange text-white w-full lg:w-32  h-11 uppercase'>Search</button>
                         </div>
                         <div className='mt-7'>
-                            <h3 className='text-2xl font-semibold pb-5'>Category</h3>
+                            <h3 className='text-2xl font-semibold pb-5'> Blog Category</h3>
                             <div>
                                 {
                                     [1, 2, 3, 4, 5].map(i =>
@@ -183,7 +190,7 @@ const BloogDetails = () => {
                             </div>
                         </div>
                         <div className='mt-11'>
-                            <h3 className='text-2xl font-semibold pb-4'>Category</h3>
+                            <h3 className='text-2xl font-semibold pb-4'>Recent Blog</h3>
                             <div>
                                 {
                                     [1, 2, 3].map(i =>
@@ -200,8 +207,17 @@ const BloogDetails = () => {
                                 }
                             </div>
                         </div>
-                        <div className='mt-9'>
-                            <h3 className='text-2xl font-semibold pb-4'>Category</h3>
+                        <div className='mt-12 '>
+                            <h3 className='text-2xl font-semibold pb-4'>Tags</h3>
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                {
+                                    [1, 2, 3, 4, 5, 6].map(i =>
+                                        <div className="w-full h-9 flex items-center border-2 border-gray-300 justify-center">
+                                            Education
+                                        </div>
+                                    )
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,63 +1,54 @@
 import axios from 'axios';
-import { format } from 'date-fns';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { postAndGetImageUrl } from '../../api/GetImageUrl';
 import { AuthContext } from '../../Context/AuthProvider';
 import ScrollToTop from '../../hooks/Scrool-to-top';
-import AddEventForm from './AddEventForm';
+import AddBlogForm from './AddBlogForm';
 
-const AddEventt = () => {
+const AddABlog = () => {
+    const [loading, setLoading] = useState(true)
     const { user } = useContext(AuthContext)
     const { register, handleSubmit } = useForm()
-    const [startingDate, setStartingDate] = useState(new Date())
-    const [finishingDate, setFinishingDate] = useState(new Date(startingDate.getTime() + 24 * 60 * 60 * 1000))
-
-    const handleAddEvent = data => {
+    const handleAddBlog = data => {
         console.log(data)
-        const start = format(startingDate, 'P')
-        const to = format(finishingDate, 'P')
         const title = data.title;
         const image = data.image[0]
         const description = data.description
-        const price = data.price
-        const address = data.address
-        const content1 = data.content1
-        const content2 = data.content2
-        const content3 = data.content3
-        const content4 = data.content4
-        const content5 = data.content5
+        const blogcoute = data.blogcoute
+        const middledesc = data.middledesc
+        const lastspeech = data.lastspeech
+        const categoryName = data.category
 
         postAndGetImageUrl(image)
-            .then(data => {
-                console.log(data)
-                const eventData = {
-                    start,
-                    to,
+            .then(imgLink => {
+                // console.log(imgLink)
+                const blogData = {
                     title,
-                    image: data,
+                    banner: imgLink,
                     description,
-                    price,
-                    address,
-                    email: user.email,
-                    content: [
-                        { content: content1 },
-                        { content: content2 },
-                        { content: content3 },
-                        { content: content4 },
-                        { content: content5 }
-                    ]
-                }
+                    blogcoute,
+                    middledesc,
+                    lastspeech,
+                    categoryName,
+                    image: user?.photoURL,
+                    name: user?.displayName,
+                    email: user?.email
 
-                axios.post(`${process.env.REACT_APP_API_URL}/events`, eventData)
-                .then(data => {
-                    console.log(data)
-                    toast.success("Event post Successfully")
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+                }
+                console.log(blogData)
+                setLoading(true)
+                axios.post(`${process.env.REACT_APP_API_URL}/blogs`, blogData)
+                    .then(postData => {
+                        console.log(postData)
+                        // data.reset()
+                        toast.success("Blog posted Successfully")
+                        setLoading(false)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
             })
             .catch(err => console.log(err))
 
@@ -112,21 +103,17 @@ const AddEventt = () => {
                     </div>
 
                     <div class="w-full">
-                        {/* <img class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl" src="https://images.unsplash.com/photo-1543269664-7eef42226a21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="glasses photo" /> */}
-                        <AddEventForm
+                        <AddBlogForm
+                            loading={loading}
                             register={register}
                             handleSubmit={handleSubmit}
-                            handleAddEvent={handleAddEvent}
-                            startingDate={startingDate}
-                            finishingDate={finishingDate}
-                            setStartingDate={setStartingDate}
-                            setFinishingDate={setFinishingDate}
-                        ></AddEventForm>
+                            handleAddBlog={handleAddBlog}
+                        />
                     </div>
                 </div>
             </section >
-        </div >
+        </div>
     );
 };
 
-export default AddEventt;
+export default AddABlog;

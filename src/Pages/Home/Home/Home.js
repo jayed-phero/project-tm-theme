@@ -1,8 +1,9 @@
 // import { Footer } from 'flowbite-react';
 import React from 'react';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 import About from '../About/About';
 import HomeCarosel from '../Carousel/HomeCarosel';
-import Events from '../Events/Events';
+import Blogs from '../Events/Blogs';
 import FreequrntlyAQ from '../FreequentlyAQ/FreequrntlyAQ';
 import Gallery from '../Gallery/Gallery';
 import PrincipalSpeech from '../PrincipalSpeech/PrincipalSpeech';
@@ -13,6 +14,7 @@ import UpcommingEvents from '../UpcommingEvents/UpcommingEvents';
 const Home = () => {
     return (
         <div className=''>
+            <ScrollToTop/>
             <HomeCarosel/>
             {/* <Bar/> */}
             <PrincipalSpeech></PrincipalSpeech>
@@ -23,7 +25,7 @@ const Home = () => {
             <FreequrntlyAQ/>
             <Gallery/>
             {/* <ClientSays/> */}
-            <Events></Events>
+            <Blogs/>
             {/* <Footer/> */}
         </div>
     );

@@ -3,17 +3,12 @@ import { Link } from 'react-router-dom';
 import './HeroNavbar.css';
 
 const Menu = ({ menuOpen, menuToggle }) => {
-    const linksNames = [
-        'Home',
-        'About',
-        'Service',
-        'Blogs',
-        'Contact'
-    ]
     // className={`menuHero ${menuOpen && 'menu-open'}`} 
     return (
         <ul className={`menuHero z-50 ${menuOpen && 'menu-open'}`} >
-            <button className='text-xl text-black font-bold md:hidden' onClick={menuToggle}>X</button>
+            <div className='flex justify-end '>
+                <button className='text-xl text-black font-bold md:hidden border-2 border-regal-orange mt-5 px-2 py-1 rounded-lg' onClick={menuToggle}>X</button>
+            </div>
             <div className="navbar-center hidden lg:flex menudaisiUI">
                 <ul className="menu menu-horizontal p-0">
                     <Link to='/'><li><a>Home</a></li></Link>
@@ -38,6 +33,16 @@ const Menu = ({ menuOpen, menuToggle }) => {
                             <li><a>Courses</a></li>
                         </ul>
                     </li>
+                    <li><a>Faculties</a></li>
+                    <li><a>Gallery</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+            <div className="navbar-start lg:hidden menudaisiUIMini">
+                <ul className="p-0">
+                    <Link to='/'><li><a>Home</a></li></Link>
+                    <li><a> About Us</a> </li>
+                    <li><a>Users Corner</a> </li>
                     <li><a>Faculties</a></li>
                     <li><a>Gallery</a></li>
                     <li><a>Contact</a></li>

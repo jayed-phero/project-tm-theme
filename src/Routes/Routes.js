@@ -5,7 +5,6 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import AddEventt from "../Dashboard/AddEvent/AddEventt";
 import Admission from "../Pages/Home/Admission/Admission";
-import Events from "../Pages/Home/Events/Events";
 import Home from "../Pages/Home/Home/Home";
 import UEventDetails from "../Pages/Home/UpcommingEvents/UEventDetails";
 import BecomeAHost from "../Pages/Login/BecomeAHost/BecomeAHost";
@@ -14,6 +13,9 @@ import LoginPage from "../Pages/Login/LoginPage";
 import StudentLogin from "../Pages/Login/StudentLogin/StudentLogin";
 import Payment from "../Pages/Payment/Payment";
 import BloogDetails from "../Pages/Home/Events/BloogDetails";
+import AddABlog from "../Dashboard/AddABlog/AddABlog";
+import AllBlogForHost from "../Dashboard/AllBlogForHost/AllBlogForHost";
+import Resume from "../App-resume/Resume";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -48,17 +50,13 @@ const routes = createBrowserRouter([
                 element: <HostLogin />
             },
             {
-                path: '/events',
-                element: <Events></Events>
-            },
-            {
                 path: '/blogdetails/:id',
-                // loader: ({ params }) => fetch(`http://localhost:8000/allevents/${params.id}`),
-                element: <BloogDetails/>
+                element: <BloogDetails />,
+                loader: ({ params }) => fetch(`${process.env.REACT_APP_API_URL}/detailsblog/${params.id}`)
             },
             {
                 path: '/eventdetails/:id',
-                loader: ({ params }) => fetch(`http://localhost:8000/allevents/${params.id}`),
+                loader: ({ params }) => fetch(`${process.env.REACT_APP_API_URL}/allevents/${params.id}`),
                 element: <UEventDetails></UEventDetails>
             }
         ]
@@ -79,11 +77,20 @@ const routes = createBrowserRouter([
                 path: '/dashboard/addevent',
                 element: <AddEventt></AddEventt>
             },
-            // {
-            //     path: '/dashboard/my-posted-event',
-            //     element: <AllEvent></AllEvent>
-            // }
+            {
+                path: '/dashboard/addblog',
+                element: <AddABlog/>
+            },
+            {
+                path: '/dashboard/blogsbyhost',
+                element: <AllBlogForHost/>
+            },
+
         ]
+    },
+    {
+        path: '/resume',
+        element: <Resume/>
     }
 ])
 

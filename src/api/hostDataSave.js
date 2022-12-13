@@ -9,7 +9,7 @@ const authTkenAndSaveHostData =  (hostData) => {
         verify: "unverify"
     }
 
-    axios.put(`${process.env.REACT_APP_API_LINK}/host/${hostData.email}`, currentUser)
+    axios.put(`${process.env.REACT_APP_API_URL}/host/${hostData.email}`, currentUser)
     .then(data => {
         console.log(data)
         localStorage.setItem('tmtToken', data.token)
