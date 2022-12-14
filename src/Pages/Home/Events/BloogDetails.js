@@ -1,17 +1,65 @@
 import { Tabs } from 'flowbite-react';
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './BlogPage.css';
 import { Link, useLoaderData } from 'react-router-dom';
 import ScrollToTop from '../../../hooks/Scrool-to-top';
+import { AuthContext } from '../../../Context/AuthProvider';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const BloogDetails = () => {
+    const { user } = useContext(AuthContext)
+    const currTime = new Date().toLocaleTimeString();
+    console.log(currTime)
+    // const currDate = new Date().toLocaleDateString();
+    // console.log(currDate)
+    const current = new Date();
+    const currDate = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+    const [comments, setComments] = useState([])
+    const { handleSubmit, register } = useForm()
     const blogData = useLoaderData()
     console.log(blogData)
-    const {title, image, role, category, description, desc2, desc3, coute } = blogData
+    const { title, image, role, category, description, desc2, desc3, coute, _id } = blogData
+
+    const onSubmit = e => {
+        console.log(e)
+        const commentData = {
+            name: user?.displayName,
+            email: user?.email,
+            image: user?.photoURL,
+            date: currDate,
+            commentID: _id,
+            message: e.message,
+        }
+        console.log(commentData)
+        axios.post(`${process.env.REACT_APP_API_URL}/comment`, commentData)
+            .then(res => {
+                console.log(res.data)
+                toast.success("Thank You for Commenting")
+                getComments()
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        getComments()
+    }, [])
+
+    const getComments = () => {
+        axios.get(`${process.env.REACT_APP_API_URL}/commentsbyid?commentID=${_id}`)
+            .then(data => {
+                console.log(data)
+                setComments(data.data)
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
         <div className='xl:px-52 px-5'>
-            <ScrollToTop/>
+            <ScrollToTop />
             <div>
                 <div className='flex flex-col xl:flex-row items-start gap-11 relative lg:pt-11'>
                     <div className='flex-1'>
@@ -20,7 +68,7 @@ const BloogDetails = () => {
                                 src={image}
                                 alt=""
                                 className='w-full h-64 md:h-96' />
-                                <h3 className='w-32 h-12 font-semibold flex items-center justify-center bg-black text-white absolute top-0 right-0 lg:top-48 lg:-left-9'>25-12-22</h3>
+                            <h3 className='w-32 h-12 font-semibold flex items-center justify-center bg-black text-white absolute top-0 right-0 lg:top-48 lg:-left-9'>25-12-22</h3>
                             <div className=' pt-7 '>
                                 <div className='flex-1'>
                                     <div className='lg:pl-16'>
@@ -65,21 +113,27 @@ const BloogDetails = () => {
                                                 title="Comments">
                                                 <div className='mt-5'>
                                                     {
-                                                        [1, 2].map(i =>
-                                                            <div className='flex items-start gap-9 border-b-2 border-gray-300 pb-5 mb-5'>
-                                                                <img
-                                                                    className='h-16 w-16 rounded-full'
-                                                                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(76).webp" alt="" />
-                                                                <div>
-                                                                    <h3 className='textxl text-regal-orange fontsemibold pb-2'>Hanna Gover</h3>
-                                                                    <p>used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available</p>
-                                                                    <div className='flex items-center gap-2 pt-2'>
-                                                                        <p className='font-semibold underlined'>Reply</p>
-                                                                        <p className='text-gray-400'>few hours ago</p>
+                                                        comments.length === 0 ?
+
+                                                            <div>
+                                                                <h3 className='px-5 py-11 text-center font-semibold'>There are no Comment Releted to {category} based-post.</h3>
+                                                            </div>
+                                                            :
+                                                            comments?.map(comment =>
+                                                                <div className='flex items-start gap-9 border-b-2 border-gray-300 pb-5 mb-5'>
+                                                                    <img
+                                                                        className='h-16 w-16 rounded-full'
+                                                                        src={comment.image} alt="" />
+                                                                    <div>
+                                                                        <h3 className='textxl text-regal-orange fontsemibold pb-2'>{comment.name}</h3>
+                                                                        <p>{comment.message}</p>
+                                                                        <div className='flex items-center gap-2 pt-2'>
+                                                                            <p className='font-semibold underlined'>Reply</p>
+                                                                            <p className='text-gray-400'>{comment.date}</p>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        )
+                                                            )
                                                     }
                                                 </div>
                                             </Tabs.Item>
@@ -88,29 +142,46 @@ const BloogDetails = () => {
                                                 title="Write a Comment"
                                             >
                                                 <div>
-                                                    <form action="" method="post">
-                                                        <div className='flex items-center gap-5 mb-3'>
-                                                            <div className="w-full">
-                                                                <label className="label">
-                                                                    <span className="label-text">Full Name</span>
-                                                                </label>
-                                                                <input type="text" className="border-2 border-gray-300 w-full rounded" />
+                                                    {
+                                                        user?.uid ?
+                                                            <form onSubmit={handleSubmit(onSubmit)} >
+                                                                <div className='flex items-center gap-5 mb-3'>
+                                                                    <div className="w-full">
+                                                                        <label className="label">
+                                                                            <span className="label-text">Full Name</span>
+                                                                        </label>
+                                                                        <input type="text" className="border-2 border-gray-300 w-full rounded"
+                                                                            {...register("name")}
+                                                                            defaultValue={user?.displayName}
+                                                                            disabled
+                                                                        />
+                                                                    </div>
+                                                                    <div className="w-full">
+                                                                        <label className="label">
+                                                                            <span className="label-text">Email ID</span>
+                                                                        </label>
+                                                                        <input type="text" className="border-2 border-gray-300 w-full rounded"
+                                                                            {...register("email")}
+                                                                            defaultValue={user?.email}
+                                                                            disabled
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                                <div className="w-full mb-5">
+                                                                    <label className="label">
+                                                                        <span className="label-text"> Your Comment</span>
+                                                                    </label>
+                                                                    <textarea type="text" className="border-2 border-gray-300 w-full h-40 rounded "
+                                                                        {...register("message")}
+                                                                    />
+                                                                </div>
+                                                                <button type='submit' className='border-2 border-regal-orange w-full lg:w-44 flex items-center justify-center bg-regal-orange hover:bg-blue-600 rounded h-11 text-white'>Submit Comment</button>
+                                                            </form>
+                                                            :
+                                                            <div>
+                                                                <h3 className='px-5 py-11 text-xl font-semibold'>Please be a Registered person of TMKMT for comment.</h3>
                                                             </div>
-                                                            <div className="w-full">
-                                                                <label className="label">
-                                                                    <span className="label-text">Email ID</span>
-                                                                </label>
-                                                                <input type="text" className="border-2 border-gray-300 w-full rounded" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="w-full mb-5">
-                                                            <label className="label">
-                                                                <span className="label-text"> Your Comment</span>
-                                                            </label>
-                                                            <textarea type="text" className="border-2 border-gray-300 w-full h-40 rounded " />
-                                                        </div>
-                                                        <button className='border-2 border-regal-orange w-full lg:w-44 flex items-center justify-center bg-regal-orange hover:bg-blue-600 rounded h-11 text-white'>Submit Comment</button>
-                                                    </form>
+                                                    }
                                                 </div>
                                             </Tabs.Item>
                                         </Tabs.Group>

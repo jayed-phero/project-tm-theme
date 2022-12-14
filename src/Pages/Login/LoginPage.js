@@ -23,7 +23,7 @@ const LoginPage = () => {
                         <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates.</p>
 
                         <div class="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
-                            <Link to='/studentlogin' class="block px-6 py-2.5 text-sm font-medium tracking-wider text-center text-white uppercase transition-colors duration-300 transform bg-gray-900 rounded-md hover:bg-gray-700">User Login</Link>
+                            <Link to='/studentlogin' class="block px-6 py-2.5 text-sm font-medium tracking-wider text-center text-white uppercase transition-colors duration-300 transform bg-regal-orange rounded-md ">Student Login</Link>
                             <Link to='/becomeahost' class="block px-6 py-2.5 text-sm font-medium tracking-wider text-center text-gray-700 uppercase transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">Become Host</Link>
                         </div>
                     </div>

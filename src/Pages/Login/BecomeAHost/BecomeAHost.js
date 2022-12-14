@@ -30,6 +30,7 @@ const BecomeAHost = () => {
                         name: name ,
                         image: imgLink ,
                         designation: designation,
+                        role: "employee"
                     }
                     authTkenAndSaveHostData(hostData)
                 })

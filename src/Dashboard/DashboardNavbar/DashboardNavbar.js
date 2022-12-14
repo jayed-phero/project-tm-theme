@@ -1,9 +1,18 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import ScrollToTop from '../../hooks/Scrool-to-top';
 
 const DashboardNavbar = () => {
     const {user, logout} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        logout()
+        .then(() => {
+             navigate('/')
+        })
+    }
     return (
         <div className=''>
             <ScrollToTop/>
@@ -38,7 +47,7 @@ const DashboardNavbar = () => {
                                 </a>
                             </li>
                             <li><a>Settings</a></li>
-                            <li onClick={logout}><a>Logout</a></li>
+                            <li onClick={handleLogout}><a>Logout</a></li>
                         </ul>
                     </div>
                 </div>

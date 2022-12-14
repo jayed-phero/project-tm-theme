@@ -146,9 +146,9 @@ const AddBlogForm = ({ register,
                                 required
                             >
                                 <option>Select</option>
-                                <option value="education">Education</option>
-                                <option value="islamic">Islamic</option>
-                                <option value="recent">Recent</option>
+                                <option value="Education">Education</option>
+                                <option value="Islamic">Islamic</option>
+                                <option value="Recent">Recent</option>
                             </select>
                         </div>
 

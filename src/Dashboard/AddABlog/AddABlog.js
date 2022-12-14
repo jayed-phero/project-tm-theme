@@ -11,31 +11,34 @@ const AddABlog = () => {
     const [loading, setLoading] = useState(true)
     const { user } = useContext(AuthContext)
     const { register, handleSubmit } = useForm()
+    const current = new Date();
+    const currDate = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
     const handleAddBlog = data => {
         console.log(data)
         const title = data.title;
         const image = data.image[0]
         const description = data.description
-        const blogcoute = data.blogcoute
-        const middledesc = data.middledesc
-        const lastspeech = data.lastspeech
-        const categoryName = data.category
+        const coute = data.blogcoute
+        const desc2 = data.middledesc
+        const desc3 = data.lastspeech
+        const category = data.category
+
 
         postAndGetImageUrl(image)
             .then(imgLink => {
                 // console.log(imgLink)
                 const blogData = {
                     title,
-                    banner: imgLink,
+                    image: imgLink,
                     description,
-                    blogcoute,
-                    middledesc,
-                    lastspeech,
-                    categoryName,
+                    coute,
+                    desc2,
+                    desc3,
+                    category,
                     image: user?.photoURL,
                     name: user?.displayName,
-                    email: user?.email
-
+                    email: user?.email,
+                    date: currDate
                 }
                 console.log(blogData)
                 setLoading(true)
