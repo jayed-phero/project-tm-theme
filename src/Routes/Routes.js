@@ -16,6 +16,9 @@ import BloogDetails from "../Pages/Home/Events/BloogDetails";
 import AddABlog from "../Dashboard/AddABlog/AddABlog";
 import AllBlogForHost from "../Dashboard/AllBlogForHost/AllBlogForHost";
 import Resume from "../App-resume/Resume";
+import Notice from "../Pages/Notice/Notice";
+import NoticeDetails from "../Pages/Notice/NoticeDetails";
+import CommingSoon from "../Pages/Shared/CommingSoon/CommingSoon";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -48,6 +51,18 @@ const routes = createBrowserRouter([
             {
                 path: 'hostlogin',
                 element: <HostLogin />
+            },
+            {
+                path: 'notice',
+                element: <Notice/>
+            },
+            {
+                path: '/noticedetails/:id',
+                element: <NoticeDetails/>
+            },
+            {
+                path: 'commingsoon',
+                element: <CommingSoon/>
             },
             {
                 path: '/blogdetails/:id',

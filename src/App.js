@@ -3,15 +3,15 @@ import './App.css';
 import { Toaster } from 'react-hot-toast';
 import { RouterProvider } from 'react-router-dom';
 import routes from './Routes/Routes';
-import DataProvider from './Context/DataProvider';
+// import DataProvider from './Context/DataProvider';
 
 function App() {
   return (
     <div className="App">
-      <DataProvider>
+      {/* <DataProvider> */}
         <RouterProvider router={routes}></RouterProvider>
         <Toaster></Toaster>
-      </DataProvider>
+      {/* </DataProvider> */}
     </div>
   );
 }

@@ -6,7 +6,8 @@ export const authTkenAndSaveHostData =  (hostData) => {
         name: hostData.name ,
         image: hostData.imgLink,
         designation: hostData.designation,
-        verify: "unverified"
+        verify: "unverified",
+        role: "employee"
     }
 
     axios.put(`${process.env.REACT_APP_API_URL}/host/${hostData.email}`, currentUser)
