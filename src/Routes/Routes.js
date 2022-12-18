@@ -45,11 +45,11 @@ const routes = createBrowserRouter([
                 element: <StudentLogin />
             },
             {
-                path: 'becomeahost',
+                path: 'employeesignup',
                 element: <BecomeAHost />
             },
             {
-                path: 'hostlogin',
+                path: 'employeelogin',
                 element: <HostLogin />
             },
             {

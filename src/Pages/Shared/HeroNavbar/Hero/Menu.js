@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './HeroNavbar.css';
 
-const Menu = ({ menuOpen, menuToggle }) => {
+const Menu = ({ menuOpen, menuToggle ,handleLogout }) => {
     // className={`menuHero ${menuOpen && 'menu-open'}`} 
     return (
         <ul className={`menuHero z-50 ${menuOpen && 'menu-open'}`} >
@@ -31,11 +31,11 @@ const Menu = ({ menuOpen, menuToggle }) => {
                             <li><a>Users Login</a></li>
                             <li><a>Academic Result</a></li>
                             <li><a>Courses</a></li>
+                            <li onClick={handleLogout}><a>Logout</a></li>
                         </ul>
                     </li>
                     <li><a>Faculties</a></li>
                     <li><a>Gallery</a></li>
-                    <li><a>Contact</a></li>
                 </ul>
             </div>
             <div className="navbar-start lg:hidden menudaisiUIMini">

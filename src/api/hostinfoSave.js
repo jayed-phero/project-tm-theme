@@ -6,13 +6,13 @@ export const authTkenAndSaveHostData =  (hostData) => {
         name: hostData.name ,
         image: hostData.imgLink,
         designation: hostData.designation,
-        verify: "unverified",
-        role: "employee"
+        role: hostData.role 
     }
 
-    axios.put(`${process.env.REACT_APP_API_URL}/host/${hostData.email}`, currentUser)
-    .then(data => {
-        console.log(data)
-        localStorage.setItem('tmtToken', data.token)
-    } )
+    axios.put(`${process.env.REACT_APP_API_URL}/tmuser/${hostData?.email}`, currentUser)
+    .then(res => {
+        console.log(res)
+        const accessToken = res?.data?.data
+        localStorage.setItem("accessToken", accessToken);
+    })
 }

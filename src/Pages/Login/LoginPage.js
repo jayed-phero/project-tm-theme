@@ -24,7 +24,7 @@ const LoginPage = () => {
 
                         <div class="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
                             <Link to='/studentlogin' class="block px-6 py-2.5 text-sm font-medium tracking-wider text-center text-white uppercase transition-colors duration-300 transform bg-regal-orange rounded-md ">Student Login</Link>
-                            <Link to='/becomeahost' class="block px-6 py-2.5 text-sm font-medium tracking-wider text-center text-gray-700 uppercase transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">Become Host</Link>
+                            <Link to='/employeelogin' class="block px-6 py-2.5 text-sm font-medium tracking-wider text-center text-gray-700 uppercase transition-colors duration-300 transform bg-gray-200 rounded-md lg:mx-4 hover:bg-gray-300">Employee Login</Link>
                         </div>
                     </div>
                 </div>

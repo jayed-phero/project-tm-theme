@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { setAuthTokenForStudent } from '../../../api/auth';
 import { postAndGetImageUrl } from '../../../api/GetImageUrl';
 import { AuthContext } from '../../../Context/AuthProvider';
+// import useToken from '../../../hooks/useToken';
 import AdmissionForm from './AdmissionForm';
 
 const Admission = () => {
@@ -12,6 +14,8 @@ const Admission = () => {
     //     console.log(data)
 
     // }
+    // const [token] = useToken(user)
+    // console.log('token from db', token)
 
     const [studentId, setStudentId] = useState(0)
     const getId = () => {
@@ -75,6 +79,7 @@ const Admission = () => {
         const presentAddress = event.presentAddress;
         const studentGender = event.studentGender;
         const image = event.image[0]
+        // const [token] = useToken()
 
 
 
@@ -86,8 +91,6 @@ const Admission = () => {
                         const user = result.user
                         console.log(user)
                         updateUserProfile(name, imgLink)
-
-
                         const studentInfo = {
                             studentId,
                             name,
@@ -115,24 +118,7 @@ const Admission = () => {
                             fatherAnualSallery,
                             role: "student"
                         }
-
-                        console.log(studentInfo)
-
-                        fetch(`${process.env.REACT_APP_API_URL}/usersdata`, {
-                            method: 'POST',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(studentInfo)
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data)
-                                if (data.acknowledged) {
-                                    toast.success('Admission form submitted successfully.')
-                                }
-                            })
-                            .catch(err => console.error(err))
+                       setAuthTokenForStudent(studentInfo)
                     })
 
             })
