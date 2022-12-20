@@ -1,20 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import UCHSkeleton from '../../Shared/Skeleton/UCHSkeleton';
+import UCSkeleton from '../../Shared/Skeleton/UCSkeleton';
 import './UpcommingEvents.css'
 const UpcommingEvents = () => {
 
-    const { data: eventsData = [] } = useQuery({
+    const { data: eventsData = [], isLoading } = useQuery({
         queryKey: ['ucevents'],
         queryFn: () => fetch(`${process.env.REACT_APP_API_URL}/ucevents`)
             .then(res => res.json())
 
-    })
-
-    const { data: commingEventData = [] } = useQuery({
-        queryKey: ['cevents'],
-        queryFn: () => fetch(`${process.env.REACT_APP_API_URL}/cevents`)
-            .then(res => res.json())
     })
 
     return (
@@ -33,9 +30,12 @@ const UpcommingEvents = () => {
             <div className='flex flex-col  items-center md:flex-row gap-7 relative '>
                 <div className='w-full'>
                     {
-                        commingEventData.map(cEvent =>
-                            <div key={cEvent._id}>
-                                <img className='w-full h-56 md:h-96 upcommingImg' src={cEvent.image} alt="" />
+                        isLoading ?
+                        <UCHSkeleton/>
+                        :
+                        eventsData.slice(0, 1).map(event =>
+                            <div key={event._id}>
+                                <img className='w-full h-56 md:h-96 upcommingImg' src={event.image} alt="" />
                                 <div className='absolute top-7 left-7 bg-white h-20 w-20 shadow-lg rounded-lg flex items-center justify-center flex-col'>
                                     <h3 className='text-4xl font-bold text-regal-orange'>30</h3>
                                     <p className='-mt-1'>Sep</p>
@@ -46,8 +46,11 @@ const UpcommingEvents = () => {
                 </div>
                 <div className='w-full'>
                     {
-                        eventsData.map((data, i) =>
-                            <div key={i} className='flex gap-5 items-start py-5  border-b border-gray-300 border-b-gray-400 w-full'>
+                        isLoading ?
+                        <UCSkeleton/>
+                        :
+                        eventsData.map((ucData) =>
+                            <div key={ucData._id} className='flex gap-5 items-start py-5  border-b border-gray-300 border-b-gray-400 w-full'>
                                 <div className=''>
                                     <div className='px-3 py-1 border-2 border-regal-orange text-center'>
                                         <h3 className='text-2xl font-semibold'>05</h3>
@@ -57,8 +60,8 @@ const UpcommingEvents = () => {
                                     </div>
                                 </div>
                                 <div className='UpCommingTime'>
-                                    <Link to={`eventdetails/${data._id}`}>
-                                        <h1 className='text-sm hover:text-regal-orange ease-in-out duration-500 uppercase'>{data.title.slice(0, 67)}</h1>
+                                    <Link to={`eventdetails/${ucData._id}`}>
+                                        <h1 className='text-sm hover:text-regal-orange ease-in-out duration-500 uppercase'>{ucData.title.slice(0, 67)}</h1>
                                     </Link>
                                     <div className='flex flex-col text-base text-gray-400 mt-3'>
                                         {/* <div className='flex items-center gap-3'>

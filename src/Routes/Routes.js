@@ -19,6 +19,7 @@ import Resume from "../App-resume/Resume";
 import Notice from "../Pages/Notice/Notice";
 import NoticeDetails from "../Pages/Notice/NoticeDetails";
 import CommingSoon from "../Pages/Shared/CommingSoon/CommingSoon";
+import AdmissionNewForm from "../Pages/Home/Admission/AdmissionNewForm";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -73,6 +74,10 @@ const routes = createBrowserRouter([
                 path: '/eventdetails/:id',
                 loader: ({ params }) => fetch(`${process.env.REACT_APP_API_URL}/allevents/${params.id}`),
                 element: <UEventDetails></UEventDetails>
+            },
+            {
+                path: 'newadmission',
+                element: <AdmissionNewForm/>
             }
         ]
     },
