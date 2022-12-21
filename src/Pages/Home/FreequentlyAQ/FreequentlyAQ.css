@@ -2,6 +2,11 @@
     background: #0d0b3a;
 }
 
+.freeQuently{
+    height: auto;
+    width: 100%;
+}
+
 .videoUrl{
     background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
     height: 100%;

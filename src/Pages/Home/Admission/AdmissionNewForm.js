@@ -1,9 +1,7 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
 import logotm from '../../../assets/logotm.png';
 
-const AdmissionNewForm = () => {
-    const { register, handlesubmit } = useForm()
+const AdmissionNewForm = ({ onSubmit, handleSubmit, register, authError, errors }) => {
     return (
         <div className='px-5 md:px-20 lg-px-32 xl:px-52 py-11 md:py-20'>
             <div className='flex items-center flex-col md:flex-row gap-11 mx-auto md:w-[55rem]'>
@@ -36,33 +34,71 @@ const AdmissionNewForm = () => {
                     <i className="fa-solid fa-school pr-3 text-regal-orange"></i>
                     Admission Form
                 </h3>
+                <div className='mt-7'>
+                    <p className='pl-5 text-semibold text-red-500'>{authError?.message}</p>
+                    {
+                        errors.name &&
+                        <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.name?.message}</p>
+                    }
+                    {
+                        errors.email &&
+                        <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.email?.message}</p>
+                    }
+                    {
+                        errors.image &&
+                        <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.image?.message}</p>
+                    }
+                    {
+                        errors.class &&
+                        <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.class?.message}</p>
+                    }
+                    {
+                        errors.password &&
+                        <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.password?.message}</p>
+                    }
+                    {
+                        errors.barthNumber &&
+                        <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.barthNumber?.message}</p>
+                    }
+                    {
+                        errors.section &&
+                        <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.section?.message}</p>
+                    }
+                </div>
             </div>
             <div>
-                <form action="">
+                <form action="" onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex items-start flex-col justify-start md:flex-row gap-5'>
                         <div className='w-full'>
                             <div className='flex flex-col md:flex-row md:items-center'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700'>Student Name :</h3>
                                 <input type="text" name="email-address" id="email-address" autocomplete="email" class=" block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("name")}
+                                    {...register("name", { required: "Student Name is required." })}
                                 />
                             </div>
                             <div className='flex flex-col md:flex-row md:items-center mt-3'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700'>Email Address :</h3>
                                 <input type="text" name="email-address" id="email-address" autocomplete="email" class=" block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("email")}
+                                    {...register("email", { required: "Email is required." })}
                                 />
                             </div>
                             <div className='flex flex-col md:flex-row md:items-center mt-3'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700'>Password :</h3>
-                                <input type="text" name="email-address" id="email-address" autocomplete="email" class=" block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("password")}
+                                <input type="password" name="email-address" id="email-address" autocomplete="email" class=" block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                    {...register("password",
+                                        {
+                                            required: "Password is required.",
+                                            minLength: {
+                                                value: 8,
+                                                message: "Password must be 8 characters or Longer"
+                                            }
+                                        })}
                                 />
                             </div>
                             <div className='flex flex-col md:flex-row md:items-center mt-3'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700'>Blood Group :</h3>
                                 <select id="country" name="country" autocomplete="country-name" class=" block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                    {...register("bloodGroup")}
+                                    {...register("bloodGroup", { required: "Blood Group is required." })}
                                 >
                                     <option>Select Group</option>
                                     <option value='O+'>O+ ive</option>
@@ -99,7 +135,10 @@ const AdmissionNewForm = () => {
                                             <input
                                                 id="file-upload" name="file-upload"
                                                 type="file"
-                                                className="sr-only" />
+                                                className="sr-only"
+                                                {...register("image", { required: "Student Photo is required." })}
+                                            />
+
                                         </label>
                                         <p className="pl-1">or drag and drop</p>
                                     </div>
@@ -112,7 +151,7 @@ const AdmissionNewForm = () => {
                         <div className='flex flex-col md:flex-row md:items-center w-full'>
                             <h3 className='md:w-44 block text-sm font-medium text-gray-700 mr-5'>Student Section :</h3>
                             <select id="country" name="country" autocomplete="country-name" class=" block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                {...register("studentGender")}
+                                {...register("studentGender", { required: "Student Section is required." })}
                             >
                                 <option>Select</option>
                                 <option value='Boys'>Boys Section</option>
@@ -122,7 +161,7 @@ const AdmissionNewForm = () => {
                         <div className='mt-3 md:mt-0 flex flex-col md:flex-row md:items-center w-full'>
                             <h3 className='md:w-44 block text-sm font-medium text-gray-700'>Date of Birth :</h3>
                             <input type="date" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                {...register("dob")}
+                                {...register("dob", { required: "Date of Birth is required." })}
                             />
                         </div>
                     </div>
@@ -130,7 +169,7 @@ const AdmissionNewForm = () => {
                         <div className='flex flex-col md:flex-row md:items-center w-full'>
                             <h3 className='md:w-44 block text-sm font-medium text-gray-700 mr-5'>Admission Class :</h3>
                             <select id="country" name="country" autocomplete="country-name" class=" block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                {...register("class")}
+                                {...register("class", { required: "Class Name is required." })}
                             >
                                 <option>Select Class</option>
                                 <option value='Hifz (1st)'>Hifz (1st)</option>
@@ -148,7 +187,7 @@ const AdmissionNewForm = () => {
                         <div className='mt-3 md:mt-0 flex flex-col md:flex-row md:items-center w-full'>
                             <h3 className='md:w-44 block text-sm font-medium text-gray-700'>Birth Certificate Number :</h3>
                             <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                {...register("barthNumber")}
+                                {...register("barthNumber", { required: "Birth Certificate Number is required." })}
                             />
                         </div>
                     </div>
@@ -242,20 +281,20 @@ const AdmissionNewForm = () => {
                             <div className='flex flex-col md:flex-row md:items-center w-full'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700 mr-5'>Divition:</h3>
                                 <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("divition")}
+                                    {...register("presentDivition")}
                                 />
                             </div>
                             <div className='mt-3 md:mt-0 flex flex-col md:flex-row md:items-center w-full'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700'>District :</h3>
                                 <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("district")}
+                                    {...register("presentDistrict")}
                                 />
                             </div>
                         </div>
                         <div className='mt-3  flex flex-col md:flex-row md:items-center w-full'>
                             <h3 className='md:w-44 block text-sm font-medium text-gray-700 md:-mr-2'>Address :</h3>
                             <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                {...register("address")}
+                                {...register("presentAddress")}
                             />
                         </div>
                     </div>
@@ -267,20 +306,20 @@ const AdmissionNewForm = () => {
                             <div className='flex flex-col md:flex-row md:items-center w-full'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700 mr-5'>Divition:</h3>
                                 <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("divition")}
+                                    {...register("permenentDivition")}
                                 />
                             </div>
                             <div className='mt-3 md:mt-0 flex flex-col md:flex-row md:items-center w-full'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700'>District :</h3>
                                 <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("district")}
+                                    {...register("permenentDistrict")}
                                 />
                             </div>
                         </div>
                         <div className='mt-3  flex flex-col md:flex-row md:items-center w-full'>
                             <h3 className='md:w-44 block text-sm font-medium text-gray-700 md:-mr-2'>Address :</h3>
                             <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                {...register("address")}
+                                {...register("permenentAddress")}
                             />
                         </div>
                     </div>
@@ -292,13 +331,13 @@ const AdmissionNewForm = () => {
                             <div className='flex flex-1 flex-col md:flex-row md:items-center w-full'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700'>Institution Name:</h3>
                                 <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("pre-institution-name")}
+                                    {...register("preInstitutionName")}
                                 />
                             </div>
                             <div className='mt-3 w-full md:w-64 md:mt-0 flex flex-col md:flex-row md:items-center w-full'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700'>EIN Number :</h3>
                                 <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("pre-ein-number")}
+                                    {...register("preEinNumber")}
                                 />
                             </div>
                         </div>
@@ -306,13 +345,13 @@ const AdmissionNewForm = () => {
                             <div className='flex flex-col md:flex-row md:items-center w-full'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700 mr-5'>Testimonials Date:</h3>
                                 <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("testimonials-date")}
+                                    {...register("testimonialsDate")}
                                 />
                             </div>
                             <div className='mt-3 w-full md:mt-0 flex flex-col md:flex-row md:items-center w-full'>
                                 <h3 className='md:w-44 block text-sm font-medium text-gray-700'>Testimonials Number:</h3>
                                 <input type="text" name="Father Name" id="last-name" autocomplete="family-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                    {...register("testimonials-number")}
+                                    {...register("testimonialsNumber")}
                                 />
                             </div>
                         </div>
@@ -321,7 +360,7 @@ const AdmissionNewForm = () => {
                     <div className='mt-3  flex flex-col md:flex-row md:items-center w-full md:justify-start'>
                         <h3 className='flex-1 block text-xl font-medium text-gray-700 md:-mr-2'>Are you willing to be admitted to the hostel:</h3>
                         <select id="hostel" name="hostel" autocomplete="country-name" class="mt-1 block md:w-64 w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                            {...register("hostel-admission")}
+                            {...register("hostelAdmission")}
                         >
                             <option>Select Choice</option>
                             <option value='yes'>Yes</option>
@@ -331,7 +370,38 @@ const AdmissionNewForm = () => {
                     <div>
 
                     </div>
-                    <div class="bg-gray-50 my-9 py-3 text-right">
+                    <div class="bg-gray-50 my-9 py-3 flex  items-center justify-between">
+                        <div>
+                            <p className='pl-5 text-semibold text-red-500'>{authError?.message}</p>
+                            {
+                                errors.name &&
+                                <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.name?.message}</p>
+                            }
+                            {
+                                errors.email &&
+                                <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.email?.message}</p>
+                            }
+                            {
+                                errors.image &&
+                                <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.image?.message}</p>
+                            }
+                            {
+                                errors.email &&
+                                <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.email?.message}</p>
+                            }
+                            {
+                                errors.password &&
+                                <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.password?.message}</p>
+                            }
+                            {
+                                errors.barthNumber &&
+                                <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.barthNumber?.message}</p>
+                            }
+                            {
+                                errors.section &&
+                                <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.section?.message}</p>
+                            }
+                        </div>
                         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-7 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
                     </div>
                 </form>

@@ -12,7 +12,7 @@ const Footer = () => {
         { img: "1", img: "https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?auto=compress&cs=tinysrgb&w=600" },
     ]
     return (
-        <div className='footerBt'>
+        <div className='footerBt print:hidden'>
             <div className='border-b-2 border-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:px-52 gap-7 px-5 md:px-20 py-11'>
                 <div>
                     <h3 className='uppescase pb-7 text-3xl font-semibold font-semibold text-white'><i class="text-4xl fa-solid fa-graduation-cap text-regal-orange"></i> Eduma</h3>

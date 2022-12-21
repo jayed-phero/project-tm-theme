@@ -9,7 +9,7 @@ const UEventDetails = () => {
 
     const eventData = useLoaderData()
     console.log(eventData)
-    const { image, title, description, start, to, content, address } = eventData;
+    const { image, title, description, start, to, content, address , price, _id} = eventData;
 
     const timing = [
         {
@@ -32,7 +32,7 @@ const UEventDetails = () => {
 
 
     return (
-        <div className='xl:px-52 px-5'>
+        <div className='xl:px-52 px-5 md:px-20 lg:px-32'>
             <ScrollToTop/>
             <div>
                 <div className='flex flex-col xl:flex-row items-start gap-11 relative lg:pt-11'>
@@ -168,7 +168,7 @@ const UEventDetails = () => {
                         <div className='px-5 py-7'>
                             <div className='text-lg border-b border-gray-300 py-4 flex items-center justify-between text-gray-500'>
                                 <h3>Total Fee</h3>
-                                <p className='font-semibold '>3000</p>
+                                <p className='font-semibold '>{price}</p>
                             </div>
                             <div className='text-lg border-b border-gray-300 py-4 flex items-center justify-between text-gray-500'>
                                 <h3>Booked Slots</h3>
@@ -188,17 +188,17 @@ const UEventDetails = () => {
                             {
                                 user ?
                                     <div className='flex-col flex items-center'>
-                                        <Link>
+                                        <Link to={`/eventpaymentinfo/${_id}`}>
                                             <h3 className='w-32 py-2 text-center text-white
-                                            bg-regal-orange font-semibold mt-2'>BOOK NOW</h3>
+                                            bg-regal-orange font-semibold mt-2 text-white'>BOOK NOW</h3>
                                         </Link>
                                     </div>
                                     :
-                                    <div className='flex-col flex items-center'>
-                                        <Link>
-                                            <h3 className='w-32 py-2 text-center bg-regal-orange font-semibold mt-2'>LOGIN NOW</h3>
+                                    <div className='flex-col flex items-center justify-center'>
+                                        <Link to='/studentlogin'>
+                                            <h3 className='w-32 py-2 text-center bg-regal-orange font-semibold mt-2 text-white'>LOGIN NOW</h3>
                                         </Link>
-                                        <p className='text-gray-500 pt-5'>You must login to our site to book this event!</p>
+                                        <p className='text-gray-500 pt-5 w-2/3 mx-auto text-center'>You must login to our site to book this event!</p>
                                     </div>
                             }
                         </div>

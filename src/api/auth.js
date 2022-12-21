@@ -23,9 +23,10 @@ export const setAuthTokenForStudent = userData => {
         gurdianAddress: userData?.gurdianAddress,
         gurdianWithRelation: userData?.gurdianWithRelation,
         presentAddress: userData?.presentAddress,
-        district: userData?.district,
-        division: userData?.division,
-        fatherAnualSallery: userData?.fatherAnualSallery,
+        permenentAddress: userData?.permenentAddress,
+        preInstitutionInfo: userData?.preInstitutionInfo,
+        fatherAnualSalary: userData?.fatherAnualSalary,
+        admittedInHostel: userData?.admittedInHostel,
         role: userData?.role
     }
 

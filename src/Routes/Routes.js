@@ -20,6 +20,8 @@ import Notice from "../Pages/Notice/Notice";
 import NoticeDetails from "../Pages/Notice/NoticeDetails";
 import CommingSoon from "../Pages/Shared/CommingSoon/CommingSoon";
 import AdmissionNewForm from "../Pages/Home/Admission/AdmissionNewForm";
+import PaymentDetails from "../Pages/Payment/PaymentDetails";
+import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -76,8 +78,13 @@ const routes = createBrowserRouter([
                 element: <UEventDetails></UEventDetails>
             },
             {
-                path: 'newadmission',
-                element: <AdmissionNewForm/>
+                path: '/eventpaymentinfo/:id',
+                loader: ({ params }) => fetch(`${process.env.REACT_APP_API_URL}/allevents/${params.id}`),
+                element: <PaymentDetails/>
+            },
+            {
+                path: '/payment/success',
+                element: <PaymentSuccess/>
             }
         ]
     },
