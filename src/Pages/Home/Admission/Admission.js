@@ -10,8 +10,9 @@ import AdmissionNewForm from './AdmissionNewForm';
 
 const Admission = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { user, createUser, updateUserProfile, loading, setLoading } = useContext(AuthContext)
+    const { user, createUser, updateUserProfile } = useContext(AuthContext)
     const [authError, setAuthError] = useState(' ')
+    const [loading, setLoading] = useState(false)
     // console.log(authError)
     // const onSubmit = data => {
     //     console.log(data)
@@ -103,6 +104,7 @@ const Admission = () => {
         postAndGetImageUrl(image)
             .then(imgLink => {
                 console.log(imgLink)
+                setLoading(true)
                 createUser(email, password)
                     .then(result => {
                         const user = result.user
@@ -137,6 +139,7 @@ const Admission = () => {
                             role: "student"
                         }
                        setAuthTokenForStudent(studentInfo)
+                       setLoading(false)
                     })
                     .catch(err => {
                         setAuthError(err)

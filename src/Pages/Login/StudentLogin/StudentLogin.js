@@ -53,11 +53,12 @@ const StudentLogin = () => {
 
 
     return (
-        <div className='xl:px-52 py-9'>
-            <div className='flex items-start gap-7'>
-                <div className='flex flex-col sm:px-10 flex-col md:flex-row  rounded-md p-5 bg-gray-100 text-gray-900 md:w-[25rem] w-full'>
+        <div className='xl:px-52 py-9 px-6 md:px-20 lg:px-32'>
+            <div className='flex items-start gap-7 flex-col md:flex-row '>
+                <div className='flex flex-col sm:px-10 rounded-md p-5 bg-gray-100 text-gray-900 md:w-[25rem] w-full'>
                     <div className='text-center'>
                         <h1 className='my-3 text-2xl font-bold'>Student Login</h1>
+                        <p className='text-red-500 text-seimibold'>{authError}</p>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)}
                         noValidate=''
@@ -132,7 +133,7 @@ const StudentLogin = () => {
                         <div>
                             <button
                                 type='submit'
-                                className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                                className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 w-full text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                             >
                                 {
                                     loading ? <SmallSpinner/> : 'Student Login'
@@ -142,9 +143,9 @@ const StudentLogin = () => {
                     </form>
                 </div>
                 <div className='flex-1'>
-                    <div class="container px-6 mx-auto">
+                    <div class="container mx-auto">
                         <div class="grid gap-8 grid-cols-1 lg:grid-cols-2 ">
-                            <div class="w-full max-w-xs text-center">
+                            <div class="w-full w-full text-center">
                                 <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=739&q=80" alt="avatar" />
 
                                 <div class="mt-2">
@@ -158,7 +159,7 @@ const StudentLogin = () => {
                                 </div>
                             </div>
 
-                            <div class="w-full max-w-xs text-center">
+                            <div class="w-full text-center">
                                 <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=731&q=80" alt="avatar" />
 
                                 <div class="mt-2">
@@ -172,7 +173,7 @@ const StudentLogin = () => {
                                 </div>
                             </div>
 
-                            <div class="w-full max-w-xs text-center">
+                            <div class="w-full text-center">
                                 <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=731&q=80" alt="avatar" />
 
                                 <div class="mt-2">
@@ -186,7 +187,7 @@ const StudentLogin = () => {
                                 </div>
                             </div>
 
-                            <div class="w-full max-w-xs text-center">
+                            <div class="w-full text-center">
                                 <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=739&q=80" alt="avatar" />
 
                                 <div class="mt-2">

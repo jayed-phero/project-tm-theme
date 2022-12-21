@@ -4,12 +4,12 @@ import './FreequentlyAQ.css'
 const FreequrntlyAQ = () => {
     return (
         <div className='freeQuently'>
-            <div className='flex items-center flex-col md:flex-row'>
+            <div className='flex items-center flex-col md:flex-row gap-7 md:gap-0 '>
                 <div class="relative overflow-hidden bg-no-repeat bg-cover w-full h-full">
                     <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-full h-full" alt="Louvre" />
                     <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden opacity-50 bg-indigo-700"></div>
                 </div>
-                <div className='w-full p-12 h-full freeAQbg'>
+                <div className='w-full md:p-12 p-5 h-full freeAQbg'>
                     <h3 className='text-xl font-semibold text-regal-orange pb-5 uppercase'>Faquality ask question</h3>
                     <h1 className='text-3xl font-semibold text-white'>Some FAQ's</h1>
                     <div className='flex items-center gap-3 py-5'>

@@ -6,7 +6,7 @@ import './Carousel.css';
 const HomeCarosel = () => {
     return (
         <div>
-            <div className=" h-96 carouselHeight">
+            <div className=" h-96 carouselHeight md:h-[25rem] lg:h-[31rem] ">
                 <Carousel slideInterval={7000}>
                     <div className="flex h-full items-center justify-center">
                         <div
@@ -33,7 +33,7 @@ const HomeCarosel = () => {
                                             interval={0.06}
                                             duration={0.8}
                                             tag="p"
-                                            className="animated-paragraph font-semibold lg:text-6xl text-3xl mb-4 w-2/3 mx-auto"
+                                            className="animated-paragraph font-semibold lg:text-6xl text-3xl mb-6  w-2/3 mx-auto"
                                             includeWhiteSpaces
                                             threshold={0.1}
                                             rootMargin="20%"

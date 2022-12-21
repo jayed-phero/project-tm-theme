@@ -54,32 +54,34 @@ const HeroNavbar = () => {
                         <i className="fa-solid fa-bars" onClick={menuToggle}></i>
                     </div>
 
-                    <div className='hidden md:block'>
-                        {/* {
-                        !user?.uid ? */}
-                        {/* // <div className="dropdown dropdown-end">
-                            //     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            //         <div className="w-10 rounded-full">
-                            //             <img src={user?.photoURL} />
-                            //         </div>
-                            //     </label>
-                            //     <ul tabIndex={0} className="mt-3 p-2 shadow-xl menu menu-compact dropdown-content bg-regal-orange rounded-box w-52 text-white submanu">
-                            //         <li>
-                            //             <a className="justify-between">
-                            //                 Profile
-                            //                 <span className="badge">New</span>
-                            //             </a>
-                            //         </li>
-                            //         <li><a>Settings</a></li>
-                            //         <li onClick={handleLogout}><a>Logout</a></li>
-                            //     </ul>
-                            // </div> */}
+                    <div className=''>
+                        {
+                            user?.uid ?
+                                <div className="dropdown dropdown-end">
+                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img src={user?.photoURL} />
+                                        </div>
+                                    </label>
+                                    <ul tabIndex={0} className="mt-3 p-2 shadow-xl menu menu-compact dropdown-content bg-regal-orange rounded-box w-52 text-white submanu">
+                                        <li>
+                                            <a className="justify-between">
+                                                Profile
+                                                <span className="badge">New</span>
+                                            </a>
+                                        </li>
+                                        <li><a>Settings</a></li>
+                                        <li onClick={handleLogout}><a>Logout</a></li>
+                                    </ul>
+                                </div>
+                                :
 
-                        <Link to='/loginpage'
-                            className='hover:bg-regal-orange border-2 border-regal-orange text-regal-orange hover:text-white font-semibold px-5 lg:px-11 py-2 lg:py-3 rounded'
-                        >
-                            Sign In
-                        </Link>
+                                <Link to='/loginpage'
+                                    className='hover:bg-regal-orange border-2 border-regal-orange text-regal-orange hover:text-white font-semibold px-5 lg:px-11 py-2 lg:py-3 rounded'
+                                >
+                                    Sign In
+                                </Link>
+                        }
                     </div>
                 </div>
             </div>
