@@ -1,19 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './LoginPage.css'
+import './LoginPage.css';
+import loginImg from '../../assets/loginpage.png';
 
 const LoginPage = () => {
     return (
-        // <div className='h-[35rem] w-full flex items-center justify-center'>
-        //     <div className='flex items-center gap-5 flex-col md:flex-row'>
-        //         <Link className='h-20 w-44 flex items-center justify-center  rounded-lg bg-orange-400 text-white font-semibold border-4 border-gray-500'>
-        //             <h3>Users Login</h3>
-        //         </Link>
-        //         <Link className='h-20 w-44 flex items-center justify-center rounded-lg bg-orange-400 text-white font-semibold border-4 border-gray-500'>
-        //             <h3>Employee Login</h3>
-        //         </Link>
-        //     </div>
-        // </div> 
         <header class="bg-white dark:bg-gray-900 my-5">
             <div class="lg:flex items-center xl:px-52 md:px-20 lg:px-32 px-5">
                 <div class="flex items-center justify-center w-full py-8 lg:h-[32rem] lg:w-1/2">
@@ -34,7 +25,7 @@ const LoginPage = () => {
                         class="grow-0 shrink-1 md:shrink-0 basis-auto md:mb-0"
                     >
                         <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                            src={loginImg}
                             class="w-full"
                             alt="Sample image"
                         />

@@ -7,12 +7,14 @@ import { getTMTCode } from '../../../api/getTMTcode';
 import { authTkenAndSaveHostData } from '../../../api/hostinfoSave';
 import { getUserRole } from '../../../api/userRole';
 import { AuthContext } from '../../../Context/AuthProvider';
+import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 
 const BecomeAHost = () => {
-    const { user, createUser, updateUserProfile } = useContext(AuthContext)
+    const { user, createUser, updateUserProfile, loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit } = useForm()
     const [userRole, setUserRole] = useState('')
     const [tmtCode, setTMTCode] = useState('')
+    const [authError, setAuthError]  = useState(' ')
 
     useEffect(() => {
         getUserRole(user)
@@ -61,6 +63,8 @@ const BecomeAHost = () => {
                     })
                     .catch(err => {
                         console.log(err)
+                        setAuthError(err.message)
+                        setLoading(false)
                     })
             })
     }
@@ -80,6 +84,7 @@ const BecomeAHost = () => {
                                 <div className='mb-8 text-center'>
                                     <h1 className='my-3 text-4xl font-bold'>Employee Signup</h1>
                                     <p className='text-sm text-gray-400'>Create a new Employee Account</p>
+                                    <p className='text-red-500 text-semibold'>{authError?.message}</p>
                                 </div>
                                 <form
                                     noValidate=''
@@ -180,9 +185,9 @@ const BecomeAHost = () => {
                                         <div>
                                             <button
                                                 type='submit'
-                                                className='w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100'
+                                                className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                                             >
-                                                Sign up
+                                                { loading ? <SmallSpinner/> : "Sign Up" }
                                             </button>
                                         </div>
                                     </div>

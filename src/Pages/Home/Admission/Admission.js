@@ -10,7 +10,7 @@ import AdmissionNewForm from './AdmissionNewForm';
 
 const Admission = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { user, createUser, updateUserProfile } = useContext(AuthContext)
+    const { user, createUser, updateUserProfile, loading, setLoading } = useContext(AuthContext)
     const [authError, setAuthError] = useState(' ')
     // console.log(authError)
     // const onSubmit = data => {
@@ -141,6 +141,7 @@ const Admission = () => {
                     .catch(err => {
                         setAuthError(err)
                         console.error(err)
+                        setLoading(false)
                     })
 
             })
@@ -150,7 +151,7 @@ const Admission = () => {
     }
     return (
         <div>
-            <AdmissionNewForm onSubmit={onSubmit} handleSubmit={handleSubmit} register={register} authError={authError} errors={errors}/>
+            <AdmissionNewForm onSubmit={onSubmit} handleSubmit={handleSubmit} register={register} authError={authError} errors={errors} loading={loading}/>
         </div>
     );
 };

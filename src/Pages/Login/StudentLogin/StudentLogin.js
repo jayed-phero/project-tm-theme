@@ -1,14 +1,19 @@
 import axios from 'axios';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { setAuthTokenForStudentInSignIn } from '../../../api/auth';
 import { AuthContext } from '../../../Context/AuthProvider';
+import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 
 const StudentLogin = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { user, createUser } = useContext(AuthContext)
-
+    const { user, signInUser, loading, setLoading } = useContext(AuthContext)
+    const [authError, setAuthError] = useState(' ')
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     const onSubmit = (event) => {
         console.log(event)
@@ -22,29 +27,35 @@ const StudentLogin = () => {
             password
         }
 
-        axios.post(`${process.env.REACT_APP_API_URL}/studentlogin`, studentInfo)
-            .then(response => {
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        signInUser(email, password)
+        .then(result => {
+            const user = result.user
+            console.log(user)
+            toast.success('Login Successful.....!')
+            setAuthTokenForStudentInSignIn(result.user)
+            navigate(from, { replace: true })
+        })
+        .catch(err => {
+            toast.error(err.message)
+            console.log(err)
+            setAuthError(err.message)
+            setLoading(false)
+        })
+
+        // axios.post(`${process.env.REACT_APP_API_URL}/studentlogin`, studentInfo)
+        //     .then(response => {
+        //         console.log(response)
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //     })
     }
 
 
     return (
         <div className='xl:px-52 py-9'>
-            {/* <div class="container px-6 py-5 mx-auto">
-                <h1 class="text-3xl font-semibold text-center text-regal-orange capitalize lg:text-4xl dark:text-white">Student</h1>
-                <p className='text-center py-2 text-2xl font-semibold'>Student List Here</p>
-                <div className='flex justify-center mx-auto items-center gap-3 py-5'>
-                    <p className='h-1 w-16 bg-black'></p>
-                    <i className="fa-solid fa-graduation-cap text-black"></i>
-                    <p className='h-1 w-16 bg-black'></p>
-                </div>
-            </div> */}
             <div className='flex items-start gap-7'>
-                <div className='flex flex-col sm:px-10  rounded-md p-5 bg-gray-100 text-gray-900 md:w-[25rem] w-full'>
+                <div className='flex flex-col sm:px-10 flex-col md:flex-row  rounded-md p-5 bg-gray-100 text-gray-900 md:w-[25rem] w-full'>
                     <div className='text-center'>
                         <h1 className='my-3 text-2xl font-bold'>Student Login</h1>
                     </div>
@@ -61,8 +72,6 @@ const StudentLogin = () => {
                                 <input
                                     type='text'
                                     name='studentid'
-                                    id='email'
-                                    required
                                     placeholder='Enter Your ID'
                                     className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs'
                                     data-temp-mail-org='0'
@@ -81,14 +90,16 @@ const StudentLogin = () => {
                                     placeholder='Enter Your Email'
                                     className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs'
                                     data-temp-mail-org='0'
-                                    {...register("email")}
+                                    {...register("email", { required: "Email is required." })}
                                 />
                             </div>
                             <div>
                                 <label htmlFor='email' className='block mb-2 text-sm'>
                                     Class Name
                                 </label>
-                                <select className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs">
+                                <select className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs" 
+                                // {...register("class", { required: "Class is required." })}
+                                >
                                     <option>Select Class</option>
                                     <option>One to Ten</option>
                                     <option>Alim to Kamil</option>
@@ -108,7 +119,7 @@ const StudentLogin = () => {
                                     required
                                     placeholder='*******'
                                     className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs'
-                                    {...register("password")}
+                                    {...register("password", { required: "Password is required." })}
                                 />
                             </div>
                             <div className='-mt-2 flex justify-end'>
@@ -121,16 +132,18 @@ const StudentLogin = () => {
                         <div>
                             <button
                                 type='submit'
-                                className='w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100 max-w-xs'
+                                className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                             >
-                                Student Login
+                                {
+                                    loading ? <SmallSpinner/> : 'Student Login'
+                                }
                             </button>
                         </div>
                     </form>
                 </div>
                 <div className='flex-1'>
                     <div class="container px-6 mx-auto">
-                        <div class="grid gap-8 lg:grid-cols-2 ">
+                        <div class="grid gap-8 grid-cols-1 lg:grid-cols-2 ">
                             <div class="w-full max-w-xs text-center">
                                 <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=739&q=80" alt="avatar" />
 

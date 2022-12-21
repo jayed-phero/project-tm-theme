@@ -6,8 +6,8 @@ import './Carousel.css';
 const HomeCarosel = () => {
     return (
         <div>
-            <div className=" carouselHeight">
-                <Carousel>
+            <div className=" h-96 carouselHeight">
+                <Carousel slideInterval={7000}>
                     <div className="flex h-full items-center justify-center">
                         <div
                             class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover backImage"

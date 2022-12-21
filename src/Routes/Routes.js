@@ -22,6 +22,7 @@ import CommingSoon from "../Pages/Shared/CommingSoon/CommingSoon";
 import AdmissionNewForm from "../Pages/Home/Admission/AdmissionNewForm";
 import PaymentDetails from "../Pages/Payment/PaymentDetails";
 import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
+import PaymentFail from "../Pages/Payment/PaymentFail";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -85,6 +86,10 @@ const routes = createBrowserRouter([
             {
                 path: '/payment/success',
                 element: <PaymentSuccess/>
+            },
+            {
+                path: '/payment/fail',
+                element: <PaymentFail/>
             }
         ]
     },

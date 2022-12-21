@@ -38,3 +38,17 @@ export const setAuthTokenForStudent = userData => {
             localStorage.setItem("accessToken", accessToken);
         })
 }
+
+export const setAuthTokenForStudentInSignIn = userData => {
+    const currentUser = {
+        email: userData.email
+    }
+
+    //   Save user in db & get token
+    axios.put(`${process.env.REACT_APP_API_URL}/tmuser/${userData?.email}`, currentUser)
+        .then(res => {
+            console.log(res)
+            const accessToken = res?.data?.data
+            localStorage.setItem("accessToken", accessToken);
+        })
+}

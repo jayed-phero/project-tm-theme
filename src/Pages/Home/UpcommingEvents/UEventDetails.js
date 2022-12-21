@@ -32,10 +32,10 @@ const UEventDetails = () => {
 
 
     return (
-        <div className='xl:px-52 px-5 md:px-20 lg:px-32'>
+        <div className='xl:px-52 px-5 md:px-20 lg:px-32 py-7 md:py-16'>
             <ScrollToTop/>
             <div>
-                <div className='flex flex-col xl:flex-row items-start gap-11 relative lg:pt-11'>
+                <div className='flex flex-col xl:flex-row items-start gap-11 relative '>
                     <div className='flex-1'>
                         <div className='text-xl lg:text-2xl font-semibold pb-7'>
                             <h1>{title}</h1>

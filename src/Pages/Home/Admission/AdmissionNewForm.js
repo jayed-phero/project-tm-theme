@@ -1,7 +1,8 @@
 import React from 'react';
 import logotm from '../../../assets/logotm.png';
+import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 
-const AdmissionNewForm = ({ onSubmit, handleSubmit, register, authError, errors }) => {
+const AdmissionNewForm = ({ onSubmit, handleSubmit, register, authError, errors, loading }) => {
     return (
         <div className='px-5 md:px-20 lg-px-32 xl:px-52 py-11 md:py-20'>
             <div className='flex items-center flex-col md:flex-row gap-11 mx-auto md:w-[55rem]'>
@@ -402,7 +403,7 @@ const AdmissionNewForm = ({ onSubmit, handleSubmit, register, authError, errors 
                                 <p className=' pb-3 pl-5 text-bold text-red-500'>{errors.section?.message}</p>
                             }
                         </div>
-                        <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-7 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
+                        <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-7 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">{ loading ? <SmallSpinner/> : "Submit" }</button>
                     </div>
                 </form>
             </div>

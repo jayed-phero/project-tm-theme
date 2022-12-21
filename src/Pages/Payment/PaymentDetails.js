@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import ScrollToTop from '../../hooks/Scrool-to-top';
 
 const PaymentDetails = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -39,6 +40,7 @@ const PaymentDetails = () => {
         const paymentsInfo = {
             email: user?.email,
             eventData: _id,
+            name: user?.displayName,
             eventTitle: title,
             eventImg: image,
             name,
@@ -61,6 +63,7 @@ const PaymentDetails = () => {
     }
     return (
         <div className='xl:px-52 px-5 md:px-20 lg:px-32 py-9 md:py-16'>
+            <ScrollToTop/>
             <div className='flex flex-col lg:flex-row items-start gap-11 relative lg:pt-11'>
                 <div className='flex-1'>
                     <div className='text-xl lg:text-2xl font-semibold pb-7'>
@@ -113,6 +116,7 @@ const PaymentDetails = () => {
                                 <label for="country" class="block text-sm font-medium text-gray-700">Currency</label>
                                 <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                     {...register("currency")}
+                                    required
                                 >
                                     <option selected value='BDT'>BDT</option>
                                     <option value='USD'>USD</option>
@@ -132,6 +136,7 @@ const PaymentDetails = () => {
                             <label for="email-address" class="block text-sm font-medium text-gray-700">Mobile Number</label>
                             <input type="text" autocomplete="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                 {...register("phone")}
+                                required
                             />
                         </div>
                         <div class="bg-gray-50  py-5 ">
