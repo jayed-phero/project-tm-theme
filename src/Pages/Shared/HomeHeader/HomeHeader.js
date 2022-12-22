@@ -21,7 +21,7 @@ const HomeHeader = () => {
 
 
     return (
-        <div className='homeHeader print:hidden sm:px-20 md:px-32 lg:px-52 flex flex-col lg:flex-row px-5 md:py-2 py-3 items-center justify-center text-white'>
+        <div className='homeHeader print:hidden sm:px-20 md:px-32 lg:px-52 flex flex-col lg:flex-row px-5 md:py-2 pt-3 items-center justify-center text-white'>
             <div className='flex items-center lg:pr-16 justify-center md:justify-start'>
                 {
                     userRole && userRole !== 'admin' ?

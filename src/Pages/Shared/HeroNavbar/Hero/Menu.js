@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ScrollToTop from '../../../../hooks/Scrool-to-top';
 import './HeroNavbar.css';
 
-const Menu = ({ menuOpen, menuToggle ,handleLogout }) => {
-    // className={`menuHero ${menuOpen && 'menu-open'}`} 
+const Menu = ({ menuOpen, menuToggle, handleLogout, user }) => {
+    // className={`menuHero ${menuOpen && 'm
     return (
         <ul className={`menuHero z-50 ${menuOpen && 'menu-open'}`} >
+            <ScrollToTop/>
             <div className='flex justify-end '>
                 <button className='text-xl text-black font-bold md:hidden border-2 border-regal-orange mt-5 px-2 py-1 rounded-lg' onClick={menuToggle}>X</button>
             </div>
@@ -38,14 +40,24 @@ const Menu = ({ menuOpen, menuToggle ,handleLogout }) => {
                     <li><a>Gallery</a></li>
                 </ul>
             </div>
-            <div className="navbar-start lg:hidden menudaisiUIMini">
-                <ul className="p-0">
-                    <Link to='/'><li><a>Home</a></li></Link>
-                    <li><a> About Us</a> </li>
-                    <li><a>Users Corner</a> </li>
-                    <li><a>Faculties</a></li>
-                    <li><a>Gallery</a></li>
-                    <li><a>Contact</a></li>
+            <div className="navbar-start md:hidden menudaisiUIMini">
+                <ul className="p-0 mb-3">
+                    <Link to='/'><li onClick={menuToggle}><a>Home</a></li></Link>
+                    <li onClick={menuToggle}><a>About Us</a> </li>
+                    <li onClick={menuToggle}><a>Users Corner</a> </li>
+                    <li onClick={menuToggle}><a>Faculties</a></li>
+                    <li onClick={menuToggle}><a>Gallery</a></li>
+                    <li onClick={menuToggle} className='mb-5'><a>Contact</a></li>
+                    {
+                        user?.uid ?
+                            <li onClick={handleLogout}><a>Logout</a></li>
+                            :
+                            <Link onClick={menuToggle} to='/loginpage'
+                                className='hover:bg-regal-orange logini border-2 border-regal-orange mt-11 text-regal-orange hover:text-white font-semibold px-5 lg:px-11 py-2 lg:py-3 rounded'
+                            >
+                                Sign In
+                            </Link>
+                    }
                 </ul>
             </div>
         </ul>

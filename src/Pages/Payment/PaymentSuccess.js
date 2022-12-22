@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import ScrollToTop from '../../hooks/Scrool-to-top';
 
 const PaymentSuccess = () => {
     const location = useLocation()
+    const navigate = useNavigate()
     const query = new URLSearchParams(location.search)
     const transactionId = query.get("transactionId")
 
@@ -25,8 +27,13 @@ const PaymentSuccess = () => {
             </div>
         )
     }
+
+    const goHome = () => {
+        navigate('/')
+    }
     return (
         <div className='px-5 md:px-20 lg:px-32 xl:px-52 py-9 lg:py-16 min-h-screen'>
+            <ScrollToTop/>
             <div>
                 <div className='flex items-start flex-col md:flex-row gap-11'>
                     <div className='w-full'>
@@ -37,8 +44,9 @@ const PaymentSuccess = () => {
                     </div>
                     <img src={paymentInfo.eventImg} className='h-56 w-full  rounded-lg my-5' alt="" />
                 </div>
-                <div class="bg-gray-50 py-3  print:hidden">
+                <div class="bg-gray-50 py-3  print:hidden flex items-center gap-7">
                     <button onClick={() => window.print()} class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Print</button>
+                    <button onClick={ goHome()} class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Go Home</button>
                 </div>
             </div>
         </div>

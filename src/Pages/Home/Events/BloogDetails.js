@@ -58,7 +58,7 @@ const BloogDetails = () => {
     }
 
     return (
-        <div className='xl:px-52 px-5'>
+        <div className='xl:px-52 px-5 md:px-20 lg:px-32 py-9 md:py-16'>
             <ScrollToTop />
             <div>
                 <div className='flex flex-col xl:flex-row items-start gap-11 relative lg:pt-11'>
@@ -67,7 +67,7 @@ const BloogDetails = () => {
                             <img
                                 src={image}
                                 alt=""
-                                className='w-full h-64 md:h-96' />
+                                className='w-full h-52 md:h-96' />
                             <h3 className='w-32 h-12 font-semibold flex items-center justify-center bg-black text-white absolute top-0 right-0 lg:top-48 lg:-left-9'>25-12-22</h3>
                             <div className=' pt-7 '>
                                 <div className='flex-1'>
@@ -79,9 +79,9 @@ const BloogDetails = () => {
                                         </div>
                                         <p className='text-base'>{description}</p>
                                     </div>
-                                    <div className='px-11 py-7 blogDetails-bg my-7'>
+                                    <div className='lg:px-11 px-5 py-7 blogDetails-bg my-7'>
                                         <i className="text-4xl fa-solid fa-quote-left"></i>
-                                        <h3 className='px-9 font-semibold italic'>{coute}</h3>
+                                        <h3 className='px-5 lg:px-9 font-semibold italic'>{coute}</h3>
                                         <div className='flex justify-end'>
                                             <i className="text-4xl fa-solid fa-quote-right text-end"></i>
                                         </div>
@@ -102,7 +102,7 @@ const BloogDetails = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='mt-7 mb-7 lg:pl-16'>
+                                    <div className='mt-7 mb-3 lg:mb-7 lg:pl-16'>
                                         <Tabs.Group
                                             aria-label="Tabs with underline"
                                             style="underline"
@@ -116,7 +116,7 @@ const BloogDetails = () => {
                                                         comments.length === 0 ?
 
                                                             <div>
-                                                                <h3 className='px-5 py-11 text-center font-semibold'>There are no Comment Releted to {category} based-post.</h3>
+                                                                <h3 className='px-5 py-5 lg:py-11 text-center font-semibold'>There are no Comment Releted to {category} based-post.</h3>
                                                             </div>
                                                             :
                                                             comments?.map(comment =>
@@ -179,7 +179,7 @@ const BloogDetails = () => {
                                                             </form>
                                                             :
                                                             <div>
-                                                                <h3 className='px-5 py-11 text-xl font-semibold'>Please be a Registered person of TMKMT for comment.</h3>
+                                                                <h3 className='px-5 py-5 lg:py-11 text-xl font-semibold text-center'>Please be a Registered person of TMKMT, for comment.</h3>
                                                             </div>
                                                     }
                                                 </div>
@@ -242,7 +242,7 @@ const BloogDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-full lg:w-96'>
+                    <div className='w-full lg:w-96 -mt-5 lg:-mt-0'>
                         <div className="w-full flex gap-1 items-center flex-col lg:flex-row">
                             <input type="text" className="border-2 border-gray-300 w-full" />
                             <button className='bg-regal-orange text-white w-full lg:w-32  h-11 uppercase'>Search</button>
@@ -265,12 +265,13 @@ const BloogDetails = () => {
                             <div>
                                 {
                                     [1, 2, 3].map(i =>
-                                        <div className='flex items-start gap-3 border-b-2 border-gray-300 pb-2 mt-7'>
+                                        <div className='flex items-start lg:flex-row flex-col
+                                         gap-3 border-b-2 border-gray-300 pb-2 mt-7'>
                                             <img
                                                 className='lg:h-28 lg:w-32 w-full rounded'
                                                 src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp" alt="" />
                                             <div>
-                                                <h3 className='font-semibold text-regal-orange'>Heading</h3>
+                                                <h3 className='font-semibold text-regal-orange text-xl'>placeholder before final copy is available...</h3>
                                                 <p className='text-gray-400 pt-2'>Lorem ipsum may be used as a placeholder before final copy is available</p>
                                             </div>
                                         </div>

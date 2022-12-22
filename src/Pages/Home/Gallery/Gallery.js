@@ -1,10 +1,12 @@
 import { Carousel } from 'flowbite-react';
 import React from 'react';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 
 const Gallery = () => {
     return (
         <div>
             <section class="overflow-hidden text-gray-700 lg:mt-20 mt-5">
+                <ScrollToTop/>
                 <div class="container px-5 py-2 mx-auto pt-16 lg:pt-11 lg:px-52 ">
                     <div class="flex flex-wrap -m-1 md:-m-2">
                         <div class="flex flex-wrap w-1/2">

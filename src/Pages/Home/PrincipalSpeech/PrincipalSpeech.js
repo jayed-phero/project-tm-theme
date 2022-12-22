@@ -1,9 +1,11 @@
 import React from 'react';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 import './PrincipalSpeech.css';
 
 const PrincipalSpeech = () => {
     return (
         <section class="bg-white dark:bg-gray-900 px-6 xl:px-52">
+            <ScrollToTop/>
             <div class="container py-11 lg:py-20 mx-auto">
                 <div class="mt-8 lg:-mx-6 lg:flex lg:items-center">
                     <img class="object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 principalIntro md:h-96 lg:h-[31rem]  " src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" />

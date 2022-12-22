@@ -34,7 +34,7 @@ const HeroNavbar = () => {
             })
     }
     return (
-        <div className={`shadow-lg navbarHero print:hidden ${nav && 'navbar-active'}`}>
+        <div className={`shadow-lg navbarHero print:hidden ${nav && 'navbar-active ease-in duration-700'}`}>
             <div className="containerHero px-5 lg:px-52 ">
                 <div className='flex items-center gap-5'>
                     <div className='flex items-center gap-3'>
@@ -49,10 +49,8 @@ const HeroNavbar = () => {
                     <Menu menuOpen={menuOpen}
                         menuToggle={menuToggle}
                         handleLogout={handleLogout}
+                        user={user}
                     />
-                    <div className="menu-btn">
-                        <i className="fa-solid fa-bars" onClick={menuToggle}></i>
-                    </div>
 
                     <div className=''>
                         {
@@ -77,11 +75,14 @@ const HeroNavbar = () => {
                                 :
 
                                 <Link to='/loginpage'
-                                    className='hover:bg-regal-orange border-2 border-regal-orange text-regal-orange hover:text-white font-semibold px-5 lg:px-11 py-2 lg:py-3 rounded'
+                                    className='hover:bg-regal-orange border-2 border-regal-orange hidden md:block text-regal-orange hover:text-white font-semibold px-5 lg:px-11 py-2 lg:py-3 rounded'
                                 >
                                     Sign In
                                 </Link>
                         }
+                    </div>
+                    <div className="menu-btn">
+                        <i className="fa-solid fa-bars" onClick={menuToggle}></i>
                     </div>
                 </div>
             </div>

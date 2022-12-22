@@ -1,9 +1,11 @@
 import React from 'react';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 import './FreequentlyAQ.css'
 
 const FreequrntlyAQ = () => {
     return (
         <div className='freeQuently'>
+            <ScrollToTop/>
             <div className='flex items-center flex-col md:flex-row gap-7 md:gap-0 '>
                 <div class="relative overflow-hidden bg-no-repeat bg-cover w-full h-full">
                     <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-full h-full" alt="Louvre" />

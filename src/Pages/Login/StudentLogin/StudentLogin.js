@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setAuthTokenForStudentInSignIn } from '../../../api/auth';
 import { AuthContext } from '../../../Context/AuthProvider';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 
 const StudentLogin = () => {
@@ -54,6 +55,7 @@ const StudentLogin = () => {
 
     return (
         <div className='xl:px-52 py-9 px-6 md:px-20 lg:px-32'>
+            <ScrollToTop/>
             <div className='flex items-start gap-7 flex-col md:flex-row '>
                 <div className='flex flex-col sm:px-10 rounded-md p-5 bg-gray-100 text-gray-900 md:w-[25rem] w-full'>
                     <div className='text-center'>
@@ -142,11 +144,11 @@ const StudentLogin = () => {
                         </div>
                     </form>
                 </div>
-                <div className='flex-1'>
-                    <div class="container mx-auto">
-                        <div class="grid gap-8 grid-cols-1 lg:grid-cols-2 ">
+                <div className='flex-1 w-full'>
+                    <div class="container w-full">
+                        <div class="grid gap-8 grid-cols-1 lg:grid-cols-2 w-full ">
                             <div class="w-full w-full text-center">
-                                <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=739&q=80" alt="avatar" />
+                                <img class="object-cover object-center w-full h-48 rounded-lg" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=739&q=80" alt="avatar" />
 
                                 <div class="mt-2">
                                     <h3 class="text-lg font-semibold text-regal-orange dark:text-gray-200">Ahmed Omer</h3>
@@ -160,7 +162,7 @@ const StudentLogin = () => {
                             </div>
 
                             <div class="w-full text-center">
-                                <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=731&q=80" alt="avatar" />
+                                <img class="object-cover object-center w-full h-48 rounded-lg" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=731&q=80" alt="avatar" />
 
                                 <div class="mt-2">
                                     <h3 class="text-lg font-semibold text-regal-orange dark:text-gray-200">John Doe</h3>
@@ -174,7 +176,7 @@ const StudentLogin = () => {
                             </div>
 
                             <div class="w-full text-center">
-                                <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=731&q=80" alt="avatar" />
+                                <img class="object-cover object-center w-full h-48  rounded-lg" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=731&q=80" alt="avatar" />
 
                                 <div class="mt-2">
                                     <h3 class="text-lg font-semibold text-regal-orange dark:text-gray-200">Steve Ben</h3>
@@ -188,7 +190,7 @@ const StudentLogin = () => {
                             </div>
 
                             <div class="w-full text-center">
-                                <img class="object-cover object-center w-full h-48 mx-auto rounded-lg" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=739&q=80" alt="avatar" />
+                                <img class="object-cover object-center w-full h-48 rounded-lg" src="https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=739&q=80" alt="avatar" />
 
                                 <div class="mt-2">
                                     <h3 class="text-lg font-semibold text-regal-orange dark:text-gray-200">Patterson Jhonson</h3>

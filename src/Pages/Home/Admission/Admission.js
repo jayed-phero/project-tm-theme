@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { setAuthTokenForStudent } from '../../../api/auth';
 import { postAndGetImageUrl } from '../../../api/GetImageUrl';
 import { AuthContext } from '../../../Context/AuthProvider';
@@ -13,6 +14,7 @@ const Admission = () => {
     const { user, createUser, updateUserProfile } = useContext(AuthContext)
     const [authError, setAuthError] = useState(' ')
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
     // console.log(authError)
     // const onSubmit = data => {
     //     console.log(data)
@@ -139,6 +141,7 @@ const Admission = () => {
                             role: "student"
                         }
                        setAuthTokenForStudent(studentInfo)
+                       navigate('/')
                        setLoading(false)
                     })
                     .catch(err => {
