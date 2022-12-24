@@ -40,7 +40,7 @@ const Menu = ({ menuOpen, menuToggle, handleLogout, user }) => {
                     <li><a>Gallery</a></li>
                 </ul>
             </div>
-            <div className="navbar-start md:hidden menudaisiUIMini">
+            <div className="md:hidden menudaisiUIMini">
                 <ul className="p-0 mb-3">
                     <Link to='/'><li onClick={menuToggle}><a>Home</a></li></Link>
                     <li onClick={menuToggle}><a>About Us</a> </li>
@@ -50,7 +50,7 @@ const Menu = ({ menuOpen, menuToggle, handleLogout, user }) => {
                     <li onClick={menuToggle} className='mb-5'><a>Contact</a></li>
                     {
                         user?.uid ?
-                            <li onClick={handleLogout}><a>Logout</a></li>
+                            <li onClick={handleLogout}><a onClick={menuToggle}>Logout</a></li>
                             :
                             <Link onClick={menuToggle} to='/loginpage'
                                 className='hover:bg-regal-orange logini border-2 border-regal-orange mt-11 text-regal-orange hover:text-white font-semibold px-5 lg:px-11 py-2 lg:py-3 rounded'

@@ -1,15 +1,15 @@
 import { Carousel } from 'flowbite-react';
 import React from 'react';
 import AnimatedText from 'react-animated-text-content';
-import ScrollToTop from '../../../hooks/Scrool-to-top';
+import ScrollToTopOnMount from '../../../hooks/TabScrollToTop';
 import './Carousel.css';
 
 const HomeCarosel = () => {
     return (
         <div>
-            <div className=" h-[31rem] carouselHeight md:h-[35rem] lg:h-[51rem] ">
-                <ScrollToTop/>
-                <Carousel slideInterval={7000}>
+            <div className=" h-[37rem] carouselHeight md:h-[35rem] lg:h-[51rem] ">
+                <ScrollToTopOnMount/>
+                <Carousel slideInterval={6000}>
                     <div className="flex h-full items-center justify-center">
                         <div
                             class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover backImage"

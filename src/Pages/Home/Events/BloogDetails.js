@@ -58,7 +58,7 @@ const BloogDetails = () => {
     }
 
     return (
-        <div className='xl:px-52 px-5 md:px-20 lg:px-32 py-9 md:py-16'>
+        <div className='xl:px-52 px-5 md:px-20 lg:px-32 py-9'>
             <ScrollToTop />
             <div>
                 <div className='flex flex-col xl:flex-row items-start gap-11 relative lg:pt-11'>
@@ -103,7 +103,7 @@ const BloogDetails = () => {
                                         </div>
                                     </div>
                                     <div className='mt-7 mb-3 lg:mb-7 lg:pl-16'>
-                                        <Tabs.Group
+                                        {/* <Tabs.Group
                                             aria-label="Tabs with underline"
                                             style="underline"
                                         >
@@ -172,10 +172,11 @@ const BloogDetails = () => {
                                                                         <span className="label-text"> Your Comment</span>
                                                                     </label>
                                                                     <textarea type="text" className="border-2 border-gray-300 w-full h-40 rounded "
+                                                                        required
                                                                         {...register("message")}
                                                                     />
                                                                 </div>
-                                                                <button type='submit' className='border-2 border-regal-orange w-full lg:w-44 flex items-center justify-center bg-regal-orange hover:bg-blue-600 rounded h-11 text-white'>Submit Comment</button>
+                                                                <button type='submit' className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 w-full text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>Submit Comment</button>
                                                             </form>
                                                             :
                                                             <div>
@@ -184,7 +185,78 @@ const BloogDetails = () => {
                                                     }
                                                 </div>
                                             </Tabs.Item>
-                                        </Tabs.Group>
+                                        </Tabs.Group> */}
+                                        <div>
+                                            <div className='mt-5'>
+                                                {
+                                                    comments.length === 0 ?
+
+                                                        <div>
+                                                            <h3 className='px-5 py-5 lg:py-11 text-center font-semibold'>There are no Comment Releted to {category} based-post.</h3>
+                                                        </div>
+                                                        :
+                                                        comments?.map(comment =>
+                                                            <div className='flex items-start gap-9 border-b-2 border-gray-300 pb-5 mb-5'>
+                                                                <img
+                                                                    className='h-16 w-16 rounded-full'
+                                                                    src={comment.image} alt="" />
+                                                                <div>
+                                                                    <h3 className='textxl text-regal-orange fontsemibold pb-2'>{comment.name}</h3>
+                                                                    <p>{comment.message}</p>
+                                                                    <div className='flex items-center gap-2 pt-2'>
+                                                                        <p className='font-semibold underlined'>Reply</p>
+                                                                        <p className='text-gray-400'>{comment.date}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                }
+                                            </div>
+                                            {/* div */}
+                                            <div>
+                                                {
+                                                    user?.uid ?
+                                                        <form onSubmit={handleSubmit(onSubmit)} >
+                                                            <div className='flex items-center gap-5 mb-3'>
+                                                                <div className="w-full">
+                                                                    <label className="label">
+                                                                        <span className="label-text">Full Name</span>
+                                                                    </label>
+                                                                    <input type="text" className="border-2 border-gray-300 w-full rounded"
+                                                                        {...register("name")}
+                                                                        defaultValue={user?.displayName}
+                                                                        disabled
+                                                                    />
+                                                                </div>
+                                                                <div className="w-full">
+                                                                    <label className="label">
+                                                                        <span className="label-text">Email ID</span>
+                                                                    </label>
+                                                                    <input type="text" className="border-2 border-gray-300 w-full rounded"
+                                                                        {...register("email")}
+                                                                        defaultValue={user?.email}
+                                                                        disabled
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                            <div className="w-full mb-5">
+                                                                <label className="label">
+                                                                    <span className="label-text"> Your Comment</span>
+                                                                </label>
+                                                                <textarea type="text" className="border-2 border-gray-300 w-full h-40 rounded "
+                                                                    required
+                                                                    {...register("message")}
+                                                                />
+                                                            </div>
+                                                            <button type='submit' className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 w-full text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'>Submit Comment</button>
+                                                        </form>
+                                                        :
+                                                        <div>
+                                                            <h3 className='px-5 py-5 lg:py-11 text-xl font-semibold text-center'>Please be a Registered person of TMKMT, for comment.</h3>
+                                                        </div>
+                                                }
+                                            </div>
+                                        </div>
                                     </div>
                                     {/* <div className='pt-7'>
                                         <h3 className='text-xl font-bold pb-5'>EVENT CONTENT</h3>
