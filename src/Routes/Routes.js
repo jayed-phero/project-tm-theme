@@ -23,6 +23,7 @@ import AdmissionNewForm from "../Pages/Home/Admission/AdmissionNewForm";
 import PaymentDetails from "../Pages/Payment/PaymentDetails";
 import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
 import PaymentFail from "../Pages/Payment/PaymentFail";
+import DetailsCommingEvents from "../Pages/CommingEvent/DetailsCommingEvents";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -76,7 +77,7 @@ const routes = createBrowserRouter([
             {
                 path: '/eventdetails/:id',
                 loader: ({ params }) => fetch(`${process.env.REACT_APP_API_URL}/allevents/${params.id}`),
-                element: <UEventDetails></UEventDetails>
+                element: <DetailsCommingEvents/>
             },
             {
                 path: '/eventpaymentinfo/:id',

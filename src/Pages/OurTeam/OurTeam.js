@@ -34,23 +34,27 @@ const OurTeam = () => {
                     </div>
 
                     <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3">
-                        <div class="p-8 border rounded-lg dark:border-gray-700 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600">
-                            <p class="leading-loose text-gray-500 dark:text-gray-400 group-hover:text-white">
-                                “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore quibusdam ducimus libero ad
-                                tempora doloribus expedita laborum saepe voluptas perferendis delectus assumenda rerum, culpa
-                                aperiam dolorum, obcaecati corrupti aspernatur a.”.
-                            </p>
+                        {
+                            [1, 2, 3, 4, 5, 6, 7].map((item, i) =>
+                                <div key={i} class="p-8 border rounded-lg dark:border-gray-700 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600">
+                                    <p class="leading-loose text-gray-500 dark:text-gray-400 group-hover:text-white">
+                                        “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore quibusdam ducimus libero ad
+                                        tempora doloribus expedita laborum saepe voluptas perferendis delectus assumenda rerum, culpa
+                                        aperiam dolorum, obcaecati corrupti aspernatur a.”.
+                                    </p>
 
-                            <div class="flex items-center mt-8 -mx-2">
-                                <img class="object-cover mx-2 rounded-full w-14 shrink-0 h-14 ring-4 ring-gray-300 dark:ring-gray-700" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
+                                    <div class="flex items-center mt-8 -mx-2">
+                                        <img class="object-cover mx-2 rounded-full w-14 shrink-0 h-14 ring-4 ring-gray-300 dark:ring-gray-700" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
 
-                                <div class="mx-2">
-                                    <h1 class="font-semibold text-gray-800 dark:text-white group-hover:text-white">Robert</h1>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400">CTO, Robert Consultency</span>
+                                        <div class="mx-2">
+                                            <h1 class="font-semibold text-gray-800 dark:text-white group-hover:text-white">Robert</h1>
+                                            <span class="text-sm text-gray-500 dark:text-gray-400">CTO, Robert Consultency</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
+                            )
+                        }
+                        {/* <div class="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
                             <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
 
                             <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">arthur melo</h1>
@@ -67,7 +71,7 @@ const OurTeam = () => {
                                     </svg>
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>

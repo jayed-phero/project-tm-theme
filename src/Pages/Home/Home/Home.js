@@ -4,12 +4,15 @@ import ScrollToTop from '../../../hooks/Scrool-to-top';
 import CaroGrid from '../../CaroGrid/CaroGrid';
 import PreviousNextMethods from '../../CaroGrid/Gri';
 import CaroselSlider from '../../CaroselSlider/CaroselSlider';
+import CommingEvents from '../../CommingEvent/CommingEvents';
 import ImportantSpeech from '../../ImportantSpeech/ImportantSpeech';
 import LikePortfolio from '../../LikePortfolio/LikePortfolio';
+import OurTeacher from '../../OurTeacher/OurTeacher';
 import OurTeam from '../../OurTeam/OurTeam';
 import UCSkeleton from '../../Shared/Skeleton/UCSkeleton';
 import About from '../About/About';
 import HomeCarosel from '../Carousel/HomeCarosel';
+import NewCarosel from '../Carousel/NewCarosel';
 import Blogs from '../Events/Blogs';
 import FreequrntlyAQ from '../FreequentlyAQ/FreequrntlyAQ';
 import Gallery from '../Gallery/Gallery';
@@ -22,15 +25,18 @@ const Home = () => {
     return (
         <div className=''>
             <ScrollToTop/>
+            <NewCarosel/>
             {/* <CaroselSlider/> */}
-            <HomeCarosel/>
+            {/* <HomeCarosel/> */}
             {/* <Bar/> */}
             <PrincipalSpeech></PrincipalSpeech>
+            <OurTeacher/>
             {/* <ImportantSpeech/> */}
             {/* <CaroGrid/> */}
-            <PreviousNextMethods/>
+            {/* <PreviousNextMethods/> */}
             {/* <OurTeam/> */}
-            <UpcommingEvents></UpcommingEvents>
+            {/* <UpcommingEvents></UpcommingEvents> */}
+            <CommingEvents/>
             {/* <UCSkeleton/> */}
             <ShortDetails></ShortDetails>
             {/* <About/> */}
