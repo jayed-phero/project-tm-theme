@@ -20,11 +20,13 @@ import PrincipalSpeech from '../PrincipalSpeech/PrincipalSpeech';
 import ShortDetails from '../ShortDetails/ShortDetails';
 import TeamMembers from '../TeamMembers/TeamMembers';
 import UpcommingEvents from '../UpcommingEvents/UpcommingEvents';
+import Navbar from '../../Shared/NewNavbar/Navbar/Navbar'
 
 const Home = () => {
     return (
         <div className=''>
             <ScrollToTop/>
+            {/* <Navbar/> */}
             <NewCarosel/>
             {/* <CaroselSlider/> */}
             {/* <HomeCarosel/> */}

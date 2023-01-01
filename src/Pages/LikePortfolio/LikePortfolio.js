@@ -28,7 +28,7 @@ const LikePortfolio = () => {
             <section class="bg-white dark:bg-gray-900">
                 <div class="container mx-auto">
                     <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Our
-                        Portfolio</h1>
+                        Campus</h1>
 
                     <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 lg:grid-cols-2">
                         {

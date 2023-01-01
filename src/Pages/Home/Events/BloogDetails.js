@@ -90,14 +90,19 @@ const BloogDetails = () => {
                                         <p className='text-base lg:pr-16'>{desc2}</p>
 
                                         <p className='pt-5 underlined text-semibold lg:pr-16'>{desc3}</p>
-
-                                        <div className='flex justify-end border-t border-b border-gray-300 my-5 py-2'>
-                                            <div className='flex items-center gap-5'>
-                                                <h3 className=''>Share:</h3>
-                                                <div className='flex items-center gap-3'>
-                                                    <i class="fa-brands fa-facebook-f"></i>
-                                                    <i class="fa-brands fa-twitter"></i>
-                                                    <i class="fa-regular fa-paper-plane"></i>
+                                    </div>
+                                    <div className='flex my-9 py-2'>
+                                        <div className='flex items-center justify-between gap-11'>
+                                            <h3 className=''><i class="fa-solid fa-share-nodes text-xl text-regal-orange pr-2"></i> Share This Blog:</h3>
+                                            <div className='flex items-center gap-3'>
+                                                <div className="px-9 py-2 rounded bg-gray-100 hover:text-regal-orange ">
+                                                    <i class="fa-brands fa-facebook-f "></i>
+                                                </div>
+                                                <div className="px-9 py-2 rounded bg-gray-100 hover:text-regal-orange ">
+                                                    <i class="fa-brands fa-twitter "></i>
+                                                </div>
+                                                <div className="px-9 py-2 rounded bg-gray-100 hover:text-regal-orange ">
+                                                    <i class="fa-regular fa-paper-plane "></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -186,26 +191,28 @@ const BloogDetails = () => {
                                                 </div>
                                             </Tabs.Item>
                                         </Tabs.Group> */}
+                                        <h3 className="text-xl font-bold m">Comment</h3>
                                         <div>
                                             <div className='mt-5'>
                                                 {
                                                     comments.length === 0 ?
 
                                                         <div>
-                                                            <h3 className='px-5 py-5 lg:py-11 text-center font-semibold'>There are no Comment Releted to {category} based-post.</h3>
+                                                            <h3 className='border-2 border-gray-300 p-7 lg:my-11 text-center font-semibold rounded-xl'>There are no Comment Releted to {category} based-post.</h3>
                                                         </div>
                                                         :
                                                         comments?.map(comment =>
-                                                            <div className='flex items-start gap-9 border-b-2 border-gray-300 pb-5 mb-5'>
+                                                            <div className='flex items-start gap-9 pb-5 mb-7'>
                                                                 <img
-                                                                    className='h-16 w-16 rounded-full'
+                                                                    className='h-20 w-20 rounded-full'
                                                                     src={comment.image} alt="" />
                                                                 <div>
-                                                                    <h3 className='textxl text-regal-orange fontsemibold pb-2'>{comment.name}</h3>
-                                                                    <p>{comment.message}</p>
+                                                                    <h3 className='text-xl text-regal-orange fontsemibold pb-1'>{comment.name}</h3>
+                                                                    <p className='text-sm text-gray-500'>Student of tmkmt</p>
+                                                                    <p className='text-gray-400 text-sm pt-3'>{comment.message}</p>
                                                                     <div className='flex items-center gap-2 pt-2'>
-                                                                        <p className='font-semibold underlined'>Reply</p>
-                                                                        <p className='text-gray-400'>{comment.date}</p>
+                                                                        <p className='font-semibold underlined text-sm'>Reply</p>
+                                                                        <p className='text-gray-400 text-sm'>{comment.date}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -252,7 +259,7 @@ const BloogDetails = () => {
                                                         </form>
                                                         :
                                                         <div>
-                                                            <h3 className='px-5 py-5 lg:py-11 text-xl font-semibold text-center'>Please be a Registered person of TMKMT, for comment.</h3>
+                                                            <h3 className='p-7 border-2 border-gray-300 rounded-xl lg:py-11 text-xl font-semibold text-center'>Please be a Registered person of TMKMT, for comment.</h3>
                                                         </div>
                                                 }
                                             </div>

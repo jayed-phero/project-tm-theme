@@ -28,7 +28,7 @@ const CommingEvents = () => {
             <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-7  '>
                 {
                     eventsData.map(event =>
-                        <Link to={`eventdetails/${event._id}`}><div className='p-2.5 border rounded bg-white flex items-center gap-5 md:gap-7 shadow-xl hover:border-regal-orange'>
+                        <Link to={`eventdetails/${event._id}`}><div className='p-2.5 border rounded bg-white flex items-center gap-5 md:gap-7 shadow-lg hover:shadow-xl'>
                             <img src={event.image} className='h-44 w-32 md:h-36 md:w-36 rounded' alt="" />
                             <div>
                                 <div className='w-20 md:w-32 h-7 text-sm mb-2 rounded-2xl flex items-center justify-center bg-regal-orange text-white'>

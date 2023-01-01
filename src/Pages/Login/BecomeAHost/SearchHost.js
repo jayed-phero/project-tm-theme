@@ -7,7 +7,7 @@ import { getUserRole } from '../../../api/userRole';
 import { AuthContext } from '../../../Context/AuthProvider';
 import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 
-const HostLogin = () => {
+const SearchHost = () => {
     const { user, signInUser, loading, setLoading } = useContext(AuthContext)
     const { register, handleSubmit } = useForm()
     const [authError, setAuthError] = useState(' ')
@@ -51,9 +51,9 @@ const HostLogin = () => {
                     :
                     (
                         <div className='flex justify-center items-center py-5'>
-                            <div className='flex flex-col w-full rounded-md sm:p-20 bg-gray-100 text-gray-900'>
+                            <div className='flex flex-col w-full rounded-md sm:p-20  bg-gray-100 text-gray-900'>
                                 <div className='mb-8 text-center'>
-                                    <h1 className='my-3 text-4xl font-bold'>Employee Login</h1>
+                                    <h1 className='my-3 text-4xl font-bold'>Search Identity</h1>
                                     <p className='text-sm text-gray-400'>
                                         Sign in to access your account
                                     </p>
@@ -68,49 +68,40 @@ const HostLogin = () => {
                                     <div className='space-y-4'>
                                         <div>
                                             <label htmlFor='email' className='block mb-2 text-sm'>
-                                                Email address
+                                                Employee ID
                                             </label>
                                             <input
-                                                type='email'
+                                                type='text'
                                                 name='email'
                                                 id='email'
                                                 required
                                                 placeholder='Enter Your Email Here'
                                                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
                                                 data-temp-mail-org='0'
-                                                {...register("email")}
+                                                {...register("employeeid")}
                                             />
                                         </div>
                                         <div>
-                                            <div className='flex justify-between'>
-                                                <label htmlFor='password' className='text-sm mb-2'>
-                                                    Password
-                                                </label>
-                                            </div>
-                                            <input
-                                                type='password'
-                                                name='password'
-                                                id='password'
-                                                required
-                                                placeholder='*******'
-                                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
-                                                {...register("password")}
-                                            />
-                                        </div>
-
-                                        <div className='space-y-1'>
-                                            <button className='text-xs hover:underline text-gray-400'>
-                                                Forgot password?
-                                            </button>
+                                            <label htmlFor='email' className='block mb-2 text-sm'>
+                                                Designation
+                                            </label>
+                                            <select className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
+                                                {...register("designation")}
+                                            >
+                                                <option>Select</option>
+                                                <option value='administrative'>Administrative</option>
+                                                <option value='teacher'>Teachers</option>
+                                                <option value='user'>Users</option>
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div>
                                         <button
                                             type='submit'
-                                            className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 w-full text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                                            className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 w-1/2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                                         >
-                                            {loading ? <SmallSpinner /> : "Sign In"}
+                                            {loading ? <SmallSpinner /> : "Search"}
                                         </button>
                                     </div>
                                 </form>
@@ -132,4 +123,4 @@ const HostLogin = () => {
     );
 };
 
-export default HostLogin;
+export default SearchHost;

@@ -24,6 +24,7 @@ import PaymentDetails from "../Pages/Payment/PaymentDetails";
 import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
 import PaymentFail from "../Pages/Payment/PaymentFail";
 import DetailsCommingEvents from "../Pages/CommingEvent/DetailsCommingEvents";
+import TeachersRegistrationTab from "../Pages/Login/TeachersRegister/TeachersRegistrationTab";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -91,6 +92,10 @@ const routes = createBrowserRouter([
             {
                 path: '/payment/fail',
                 element: <PaymentFail/>
+            },
+            {
+                path: '/tmtsection',
+                element: <TeachersRegistrationTab/>
             }
         ]
     },

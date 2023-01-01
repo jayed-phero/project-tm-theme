@@ -59,7 +59,6 @@ const BecomeAHost = () => {
                             email: email,
                             name: name,
                             image: imgLink,
-                            designation: designation,
                             role: 'requested'
                         }
                         authTkenAndSaveHostData(hostData)
@@ -84,7 +83,7 @@ const BecomeAHost = () => {
                     :
                     (
                         <div className='flex justify-center items-center py-8'>
-                            <div className='flex flex-col w-full sm:w-[25rem] p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+                            <div className='flex flex-col w-full max-w-lg p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
                                 <div className='mb-8 text-center'>
                                     <h1 className='my-3 text-4xl font-bold'>Employee Signup</h1>
                                     <p className='text-sm text-gray-400'>Create a new Employee Account</p>
@@ -97,7 +96,7 @@ const BecomeAHost = () => {
                                     onSubmit={handleSubmit(onSubmit)}
                                 >
                                     <div className='space-y-4'>
-                                        <div>
+                                        {/* <div>
                                             <label htmlFor='email' className='block mb-2 text-sm'>
                                                 TMT Employee Code
                                             </label>
@@ -111,35 +110,59 @@ const BecomeAHost = () => {
                                                 {...register("name")}
                                                 onBlur={onBlur}
                                             />
+                                        </div> */}
+                                        <div className='flex items-center gap-5'>
+                                            <div className='w-full'>
+                                                <div>
+                                                    <label htmlFor='email' className='block mb-2 text-sm'>
+                                                        Name
+                                                    </label>
+                                                    <input
+                                                        type='text'
+                                                        name='name'
+                                                        id='name'
+                                                        required
+                                                        placeholder='Enter Your Name Here'
+                                                        className='w-full px-3 py-2 mb-3 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
+                                                        data-temp-mail-org='0'
+                                                        {...register("name")}
+                                                    />
+                                                </div>
+                                                <div className='flex flex-col'>
+                                                    <label htmlFor='image' className='mb-5 text-sm'>
+                                                        Select Image:
+                                                    </label>
+                                                    <label>
+                                                        <i class="fa-solid fa-image pr-3"></i>
+                                                        choose file
+                                                        <input
+                                                            type='file'
+                                                            id='image'
+                                                            name='image'
+                                                            accept='image/*'
+                                                            required
+                                                            {...register("image")}
+                                                            hidden
+                                                        />
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div className="px-16 py-16 rounded border border-regal-orange"></div>
                                         </div>
-                                        <div>
+
+                                        {/* <div>
                                             <label htmlFor='email' className='block mb-2 text-sm'>
-                                                Name
+                                                Designation
                                             </label>
-                                            <input
-                                                type='text'
-                                                name='name'
-                                                id='name'
-                                                required
-                                                placeholder='Enter Your Name Here'
-                                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
-                                                data-temp-mail-org='0'
-                                                {...register("name")}
-                                            />
-                                        </div>
-                                        <div>
-                                            <label htmlFor='image' className='block mb-2 text-sm'>
-                                                Select Image:
-                                            </label>
-                                            <input
-                                                type='file'
-                                                id='image'
-                                                name='image'
-                                                accept='image/*'
-                                                required
-                                                {...register("image")}
-                                            />
-                                        </div>
+                                            <select className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs"
+                                                {...register("designation")}
+                                            >
+                                                <option>Select</option>
+                                                <option value='administrative'>Administrative</option>
+                                                <option value='teacher'>Teachers</option>
+                                                <option value='user'>Users</option>
+                                            </select>
+                                        </div> */}
                                         <div>
                                             <label htmlFor='email' className='block mb-2 text-sm'>
                                                 Email address
@@ -154,19 +177,6 @@ const BecomeAHost = () => {
                                                 data-temp-mail-org='0'
                                                 {...register("email")}
                                             />
-                                        </div>
-                                        <div>
-                                            <label htmlFor='email' className='block mb-2 text-sm'>
-                                                Designation
-                                            </label>
-                                            <select className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs"
-                                                {...register("designation")}
-                                            >
-                                                <option>Select</option>
-                                                <option value='administrative'>Administrative</option>
-                                                <option value='teacher'>Teachers</option>
-                                                <option value='user'>Users</option>
-                                            </select>
                                         </div>
                                         <div>
                                             <div className='flex justify-between mb-2'>
