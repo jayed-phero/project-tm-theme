@@ -1,0 +1,17 @@
+[
+    {
+        "hostId": "TM99@01",
+        "classTeacher": "class-09",
+        "role": "searched"
+    },
+    {
+        "hostId": "TM99@02",
+        "classTeacher": "class-05",
+        "role": "searched"
+    },
+    {
+        "hostId": "TM99@03",
+        "classTeacher": "class-07",
+        "role": "searched"
+    }
+]

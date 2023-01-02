@@ -40,7 +40,7 @@ const HostLogin = () => {
             })
     }
     return (
-        <div>
+        <div className='px-6'>
             {
                 userRole && userRole === 'requested' ?
                     (
@@ -50,8 +50,8 @@ const HostLogin = () => {
                     )
                     :
                     (
-                        <div className='flex justify-center items-center py-5'>
-                            <div className='flex flex-col w-full rounded-md sm:p-20 bg-gray-100 text-gray-900'>
+                        <div className='flex justify-center items-center py-5 md:py-16'>
+                            <div className='flex flex-col w-full max-w-md rounded-md sm:p-20 bg-gray-100 text-gray-900'>
                                 <div className='mb-8 text-center'>
                                     <h1 className='my-3 text-4xl font-bold'>Employee Login</h1>
                                     <p className='text-sm text-gray-400'>
@@ -117,7 +117,7 @@ const HostLogin = () => {
 
                                 <p className='px-6 text-sm text-center text-gray-400 pt-3'>
                                     Don't have an account yet?{' '}
-                                    <Link to='/employeesignup' className='hover:underline text-gray-600'>
+                                    <Link to='/employeesearch' className='hover:underline text-gray-600'>
                                         Sign up
                                     </Link>
                                     .

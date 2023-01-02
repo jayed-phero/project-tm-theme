@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -9,32 +10,28 @@ import { getUserRole } from '../../../api/userRole';
 import { AuthContext } from '../../../Context/AuthProvider';
 import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 
-const BecomeAHost = () => {
+const BecomeAHost = ({ searchData }) => {
     const { user, createUser, updateUserProfile } = useContext(AuthContext)
     const { register, handleSubmit } = useForm()
-    const [userRole, setUserRole] = useState('')
-    const [tmtCode, setTMTCode] = useState('')
+    const [userRole, setUserRole] = useState({})
     const [authError, setAuthError] = useState(' ')
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        getUserRole(user)
-            .then(data => {
-                console.log(data)
-                setUserRole(data)
-            })
-    }, [])
 
-    const onBlur = e => {
-        console.log(e.target.value)
-
-    }
     useEffect(() => {
-        getTMTCode()
-            .then(data => {
-                console.log(data)
-                setTMTCode(data)
-            })
+        // getUserRole(user)
+        //     .then(data => {
+        //         console.log(data)
+        //         setUserRole(data)
+        //     })
+        axios.get(`${process.env.REACT_APP_API_URL}/hostrole/${user?.email}`)
+        .then(res => {
+            console.log(res)
+            setUserRole(res.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }, [])
 
     const onSubmit = event => {
@@ -43,13 +40,12 @@ const BecomeAHost = () => {
         const email = event.email
         const password = event.password
         const image = event.image[0]
-        const designation = event.designation
+        const hostId = event.hostId
 
+        setLoading(true)
         postAndGetImageUrl(image)
             .then(imgLink => {
                 console.log(imgLink)
-
-                setLoading(true)
                 createUser(email, password)
                     .then(result => {
                         const user = result.user
@@ -59,10 +55,13 @@ const BecomeAHost = () => {
                             email: email,
                             name: name,
                             image: imgLink,
-                            role: 'requested'
+                            hostId: hostId,
                         }
                         authTkenAndSaveHostData(hostData)
-                        setLoading(false)
+                        .then(data => {
+                            console.log(data)
+                            setLoading(false)
+                        })
                     })
                     .catch(err => {
                         console.log(err)
@@ -72,9 +71,9 @@ const BecomeAHost = () => {
             })
     }
     return (
-        <div>
+        <div className='px-6'>
             {
-                userRole && userRole === 'requested' ?
+                userRole && userRole === 'searched' ?
                     (
                         <div className='h-screen text-gray-600 flex flex-col justify-center items-center pb-16 text-xl lg:text-3xl'>
                             Request Sent, wait for admin approval
@@ -82,8 +81,8 @@ const BecomeAHost = () => {
                     )
                     :
                     (
-                        <div className='flex justify-center items-center py-8'>
-                            <div className='flex flex-col w-full max-w-lg p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+                        <div className='flex justify-center items-center py-7 md:py-16'>
+                            <div className='flex flex-col w-full max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
                                 <div className='mb-8 text-center'>
                                     <h1 className='my-3 text-4xl font-bold'>Employee Signup</h1>
                                     <p className='text-sm text-gray-400'>Create a new Employee Account</p>
@@ -128,23 +127,20 @@ const BecomeAHost = () => {
                                                         {...register("name")}
                                                     />
                                                 </div>
-                                                <div className='flex flex-col'>
-                                                    <label htmlFor='image' className='mb-5 text-sm'>
-                                                        Select Image:
+                                                <div>
+                                                    <label htmlFor='email' className='block mb-2 text-sm'>
+                                                        Employee ID
                                                     </label>
-                                                    <label>
-                                                        <i class="fa-solid fa-image pr-3"></i>
-                                                        choose file
-                                                        <input
-                                                            type='file'
-                                                            id='image'
-                                                            name='image'
-                                                            accept='image/*'
-                                                            required
-                                                            {...register("image")}
-                                                            hidden
-                                                        />
-                                                    </label>
+                                                    <input
+                                                        type='text'
+                                                        name='email'
+                                                        id='email'
+                                                        required
+                                                        placeholder='Type Employee ID'
+                                                        className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
+                                                        data-temp-mail-org='0'
+                                                        {...register("hostId")}
+                                                    />
                                                 </div>
                                             </div>
                                             <div className="px-16 py-16 rounded border border-regal-orange"></div>
@@ -163,6 +159,24 @@ const BecomeAHost = () => {
                                                 <option value='user'>Users</option>
                                             </select>
                                         </div> */}
+
+                                        <div className='flex flex-col'>
+                                            <label htmlFor='image' className='mb-5 text-sm'>
+                                                Select Image:
+                                            </label>
+                                            <label className='cursor-pointer'>
+                                                {/* <i class="fa-solid fa-image pr-3"></i>
+                                                choose file */}
+                                                <input
+                                                    type='file'
+                                                    id='image'
+                                                    name='image'
+                                                    accept='image/*'
+                                                    required
+                                                    {...register("image")}
+                                                />
+                                            </label>
+                                        </div>
                                         <div>
                                             <label htmlFor='email' className='block mb-2 text-sm'>
                                                 Email address
@@ -208,7 +222,7 @@ const BecomeAHost = () => {
                                 </form>
                                 <p className='px-6 py-3 text-sm text-center text-gray-400'>
                                     Already have an account yet?{' '}
-                                    <Link to='/employeelogin' className='hover:underline text-gray-600'>
+                                    <Link to='/tmtsection' className='hover:underline text-gray-600'>
                                         Sign In
                                     </Link>
                                 </p>

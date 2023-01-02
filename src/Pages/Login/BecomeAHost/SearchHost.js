@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -6,15 +7,21 @@ import { setAuthTokenForStudentInSignIn } from '../../../api/auth';
 import { getUserRole } from '../../../api/userRole';
 import { AuthContext } from '../../../Context/AuthProvider';
 import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
+import TeachersRegistrationTab from '../TeachersRegister/TeachersRegistrationTab';
+import BecomeAHost from './BecomeAHost';
 
 const SearchHost = () => {
-    const { user, signInUser, loading, setLoading } = useContext(AuthContext)
+    const { user, signInUser } = useContext(AuthContext)
     const { register, handleSubmit } = useForm()
     const [authError, setAuthError] = useState(' ')
     const [userRole, setUserRole] = useState('')
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
+    const [searchData, setSearchData] = useState({})
+
+    console.log(searchData)
 
     useEffect(() => {
         getUserRole(user)
@@ -24,23 +31,42 @@ const SearchHost = () => {
             })
     }, [])
 
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/`)
+    }, [])
     const onSubmit = event => {
-        signInUser(event.email, event.password)
-            .then(result => {
-                const user = result.user;
-                console.log(user)
-                setAuthTokenForStudentInSignIn(user)
-                toast.success("Employee SignIn successfully")
-                navigate(from, { replace: true })
+        const hostId = event.hostId
+        const classTeacher = event.classTeacher
+
+        const searchData = {
+            hostId,
+            classTeacher
+        }
+        setSearchData(searchData)
+
+        setLoading(true)
+        axios.post(`${process.env.REACT_APP_API_URL}/hostsearch`, searchData)
+            .then(res => {
+                console.log(res)
+                if (res.data.status === "success") {
+                    navigate('/employeesignup')
+                    const accessToken = res?.data?.token
+                    localStorage.setItem("accessToken", accessToken);
+                } else {
+                    toast.error(res.data.message)
+                }
+                setLoading(false)
             })
             .catch(err => {
                 console.log(err)
-                setAuthError(err.message)
                 setLoading(false)
             })
     }
+
+    console.log(searchData)
     return (
-        <div>
+        <div className='px-6'>
             {
                 userRole && userRole === 'requested' ?
                     (
@@ -50,8 +76,8 @@ const SearchHost = () => {
                     )
                     :
                     (
-                        <div className='flex justify-center items-center py-5'>
-                            <div className='flex flex-col w-full rounded-md sm:p-20  bg-gray-100 text-gray-900'>
+                        <div className='flex justify-center items-center py-5 md:py-16'>
+                            <div className='flex flex-col w-full rounded-md max-w-md sm:p-20  bg-gray-100 text-gray-900'>
                                 <div className='mb-8 text-center'>
                                     <h1 className='my-3 text-4xl font-bold'>Search Identity</h1>
                                     <p className='text-sm text-gray-400'>
@@ -75,23 +101,29 @@ const SearchHost = () => {
                                                 name='email'
                                                 id='email'
                                                 required
-                                                placeholder='Enter Your Email Here'
+                                                placeholder='Type Employee ID'
                                                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
                                                 data-temp-mail-org='0'
-                                                {...register("employeeid")}
+                                                {...register("hostId")}
                                             />
                                         </div>
                                         <div>
                                             <label htmlFor='email' className='block mb-2 text-sm'>
-                                                Designation
+                                                Class Teacher OF
                                             </label>
                                             <select className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900"
-                                                {...register("designation")}
+                                                {...register("classTeacher")}
                                             >
-                                                <option>Select</option>
-                                                <option value='administrative'>Administrative</option>
-                                                <option value='teacher'>Teachers</option>
-                                                <option value='user'>Users</option>
+                                                <option>Select Class</option>
+                                                <option value='class-03'>Class 03</option>
+                                                <option value='class-05'>Class 05</option>
+                                                <option value='class-06'>Class 06</option>
+                                                <option value='class-07'>Class 07</option>
+                                                <option value='class-08'>Class 08</option>
+                                                <option value='class-09'>Class 09</option>
+                                                <option value='class-10'>Class 09</option>
+                                                <option value='class-11'>Alim 1st</option>
+                                                <option value='class-12'>Alim 2nd</option>
                                             </select>
                                         </div>
                                     </div>
@@ -117,7 +149,6 @@ const SearchHost = () => {
                         </div>
                     )
             }
-
 
         </div>
     );

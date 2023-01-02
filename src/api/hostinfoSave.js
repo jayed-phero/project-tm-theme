@@ -2,17 +2,19 @@ import axios from "axios";
 
 export const authTkenAndSaveHostData =  (hostData) => {
     const currentUser = {
-        email: hostData.email ,
+        email: hostData.email,
         name: hostData.name ,
-        image: hostData.imgLink,
-        designation: hostData.designation,
-        role: hostData.role 
+        image: hostData.image,
+        hostId: hostData.hostId,
     }
 
-    axios.put(`${process.env.REACT_APP_API_URL}/tmuser/${hostData?.email}`, currentUser)
+    axios.put(`${process.env.REACT_APP_API_URL}/hostsignup/${hostData?.hostId}`, currentUser)
     .then(res => {
         console.log(res)
         const accessToken = res?.data?.data
         localStorage.setItem("accessToken", accessToken);
+    })
+    .catch(err => {
+        console.log(err)
     })
 }

@@ -11,7 +11,8 @@ function classNames(...classes) {
 
 
 
-const TeachersRegistrationTab = () => {
+const TeachersRegistrationTab = ({searchData}) => {
+    console.log(searchData)
     let [categories] = useState({
         Recent: [
             {
