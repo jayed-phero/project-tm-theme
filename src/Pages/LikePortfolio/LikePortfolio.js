@@ -3,24 +3,25 @@ import React from 'react';
 const LikePortfolio = () => {
     const portfolioData = [
         {
-            img: "https://images.unsplash.com/photo-1621111848501-8d3634f82336?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1565&q=80",
-            name: "Best Website Collections",
-            smalltitle: "WEBSITE"
+            img: "https://images.unsplash.com/photo-1568792923760-d70635a89fdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHVuaXZlcnNpdHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+            name: "Academic Building",
+            smalltitle: "Details"
         },
         {
-            img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-            name: "Ton’s of mobile mockup",
-            smalltitle: "Mockups"
+            img: "https://images.unsplash.com/photo-1481253127861-534498168948?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            name: "Students Club Building",
+            smalltitle: "Sudents"
+        },
+        
+        {
+            img: "https://images.unsplash.com/photo-1604412132568-9d5c14de13c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGxheSUyMGdyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+            name: "Play Ground For All",
+            smalltitle: "know More"
         },
         {
-            img: "https://images.unsplash.com/photo-1621111848501-8d3634f82336?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1565&q=80",
-            name: "Block of Ui kit",
-            smalltitle: "Ui kit"
-        },
-        {
-            img: "https://images.unsplash.com/photo-1603380353725-f8a4d39cc41e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-            name: "Huge collection of animation",
-            smalltitle: "Animation"
+            img: "https://images.unsplash.com/photo-1601807576163-587225545555?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGVkdWNhdGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+            name: "Library For Education",
+            smalltitle: "Education"
         }
     ]
     return (

@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { setAuthTokenForStudentInSignIn } from '../../../api/auth';
+import { setAuthTokenForStudentInSignIn, setAuthTokenForStudentInSignInIn } from '../../../api/auth';
 import { AuthContext } from '../../../Context/AuthProvider';
 import ScrollToTop from '../../../hooks/Scrool-to-top';
 import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
@@ -22,26 +22,52 @@ const StudentLogin = () => {
         const email = event.email
         const password = event.password
 
-        const studentInfo = {
-            studentId,
-            email,
-            password
-        }
+        // const studentInfo = {
+        //     studentId,
+        //     email,
+        //     password
+        // }
 
         signInUser(email, password)
-        .then(result => {
-            const user = result.user
-            console.log(user)
-            toast.success('Login Successful.....!')
-            setAuthTokenForStudentInSignIn(result.user)
-            navigate(from, { replace: true })
-        })
-        .catch(err => {
-            toast.error(err.message)
-            console.log(err)
-            setAuthError(err.message)
-            setLoading(false)
-        })
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                toast.success('Login Successful.....!')
+                // setAuthTokenForStudentInSignInIn(result.user)
+                const studentSignInData = {
+                    email,
+                    password ,
+                    studentId
+                }
+                axios.post(`${process.env.REACT_APP_API_URL}/studentlogin`, studentSignInData)
+                    .then(res => {
+                        console.log(res)
+                        if (res.data.status === "success") {
+                            toast.success("Student SignIn successfully")
+                            const accessToken = res?.data?.token
+                            localStorage.setItem("accessToken", accessToken);
+                            // navigate(from, { replace: true })
+                            navigate('/studentprofile')
+                            setLoading(false)
+                        } else {
+                            toast.error(res.data.message)
+                            setLoading(false)
+                        }
+
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        setLoading(false)
+                    })
+
+                navigate(from, { replace: true })
+            })
+            .catch(err => {
+                toast.error(err.message)
+                console.log(err)
+                setAuthError(err.message)
+                setLoading(false)
+            })
 
         // axios.post(`${process.env.REACT_APP_API_URL}/studentlogin`, studentInfo)
         //     .then(response => {
@@ -55,7 +81,7 @@ const StudentLogin = () => {
 
     return (
         <div className='xl:px-52 py-9 px-6 md:px-20 lg:px-32'>
-            <ScrollToTop/>
+            <ScrollToTop />
             <div className='flex items-start gap-7 flex-col md:flex-row '>
                 <div className='flex flex-col sm:px-10 rounded-md p-5 bg-gray-100 text-gray-900 md:w-[25rem] w-full'>
                     <div className='text-center'>
@@ -100,7 +126,7 @@ const StudentLogin = () => {
                                 <label htmlFor='email' className='block mb-2 text-sm'>
                                     Class Name
                                 </label>
-                                <select className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs" 
+                                <select className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900 max-w-xs"
                                 // {...register("class", { required: "Class is required." })}
                                 >
                                     <option>Select Class</option>
@@ -138,7 +164,7 @@ const StudentLogin = () => {
                                 className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 w-full text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                             >
                                 {
-                                    loading ? <SmallSpinner/> : 'Student Login'
+                                    loading ? <SmallSpinner /> : 'Student Login'
                                 }
                             </button>
                         </div>

@@ -37,11 +37,11 @@ const SearchHost = () => {
     }, [])
     const onSubmit = event => {
         const hostId = event.hostId
-        const classTeacher = event.classTeacher
+        const nameOfClass = event.classTeacher
 
         const searchData = {
             hostId,
-            classTeacher
+            nameOfClass
         }
         setSearchData(searchData)
 
@@ -116,15 +116,18 @@ const SearchHost = () => {
                                                 {...register("classTeacher")}
                                             >
                                                 <option>Select Class</option>
-                                                <option value='class-03'>Class 03</option>
-                                                <option value='class-05'>Class 05</option>
-                                                <option value='class-06'>Class 06</option>
-                                                <option value='class-07'>Class 07</option>
-                                                <option value='class-08'>Class 08</option>
-                                                <option value='class-09'>Class 09</option>
-                                                <option value='class-10'>Class 09</option>
-                                                <option value='class-11'>Alim 1st</option>
-                                                <option value='class-12'>Alim 2nd</option>
+                                                <option value='Hifz (1st)'>Hifz (1st)</option>
+                                                <option value='Nursary'>Nursary</option>
+                                                <option value='One'>One</option>
+                                                <option value='Two'>Two</option>
+                                                <option value='Three'>Three</option>
+                                                <option value='Four'>Four</option>
+                                                <option value='Five'>Five</option>
+                                                <option value='Six'>Six</option>
+                                                <option value='Seven'>Seven</option>
+                                                <option value='Eight'>Eight</option>
+                                                <option value='Nine'>Nine</option>
+                                                <option value='Ten'>Ten</option>
                                             </select>
                                         </div>
                                     </div>
@@ -140,9 +143,9 @@ const SearchHost = () => {
                                 </form>
 
                                 <p className='px-6 text-sm text-center text-gray-400 pt-3'>
-                                    Don't have an account yet?{' '}
+                                    Already have an account?{' '}
                                     <Link to='/tmtsection' className='hover:underline text-gray-600'>
-                                        Sign up
+                                        Sign In
                                     </Link>
                                     .
                                 </p>

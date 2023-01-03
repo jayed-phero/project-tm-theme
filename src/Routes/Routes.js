@@ -26,6 +26,7 @@ import PaymentFail from "../Pages/Payment/PaymentFail";
 import DetailsCommingEvents from "../Pages/CommingEvent/DetailsCommingEvents";
 import TeachersRegistrationTab from "../Pages/Login/TeachersRegister/TeachersRegistrationTab";
 import SearchHost from "../Pages/Login/BecomeAHost/SearchHost";
+import StudentProfile from "../Pages/Login/StudentLogin/StudentProfile";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -101,6 +102,10 @@ const routes = createBrowserRouter([
             {
                 path: '/employeesearch',
                 element: <SearchHost/>
+            },
+            {
+                path: 'studentprofile',
+                element: <StudentProfile/>
             }
         ]
     },

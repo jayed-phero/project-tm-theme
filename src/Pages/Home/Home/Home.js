@@ -33,7 +33,7 @@ const Home = () => {
             {/* <HomeCarosel/> */}
             {/* <Bar/> */}
             <PrincipalSpeech></PrincipalSpeech>
-            {/* <OurTeacher/> */}
+            <OurTeacher/>
             {/* <ImportantSpeech/> */}
             {/* <CaroGrid/> */}
             {/* <PreviousNextMethods/> */}

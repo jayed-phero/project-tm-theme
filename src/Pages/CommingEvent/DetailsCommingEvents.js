@@ -55,10 +55,10 @@ const DetailsCommingEvents = () => {
                                     )
                                 }
                             </div> */}
-                            <div className="grid grid-flow-col gap-5 text-center auto-cols-max absolute top-5">
-                                <span className="countdown">
+                            <div className="grid grid-flow-col hidden md:block gap-5 text-center auto-cols-max absolute top-5">
+                                {/* <span className="countdown">
                                     <span style={{ "--value": 9 }}></span>
-                                </span>
+                                </span> */}
                                 <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
                                     <span className="countdown font-mono text-5xl">
                                         <span style={{ "--value": 15 }}></span>

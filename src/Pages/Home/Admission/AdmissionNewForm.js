@@ -183,6 +183,7 @@ const AdmissionNewForm = ({ onSubmit, handleSubmit, register, authError, errors,
                                 <option value='Six'>Six</option>
                                 <option value='Seven'>Seven</option>
                                 <option value='Eight'>Eight</option>
+                                <option value='Nine'>Eight</option>
                             </select>
                         </div>
                         <div className='mt-3 md:mt-0 flex flex-col md:flex-row md:items-center w-full'>

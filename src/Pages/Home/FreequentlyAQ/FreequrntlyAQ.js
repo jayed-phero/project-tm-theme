@@ -86,8 +86,8 @@ const FreequrntlyAQ = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="flex items-center justify-center w-full h-96 relative">
-                        <img class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl" src="https://images.unsplash.com/photo-1543269664-7eef42226a21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="glasses photo" />
+                    <div class="flex items-center justify-center w-full h-64 md:h-96 relative">
+                        <img class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl" src="https://images.unsplash.com/photo-1568792923760-d70635a89fdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHVuaXZlcnNpdHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="glasses photo" />
                         <div className='bg-white p-3 rounded-full absolute  top-38 ring-4 ring-gray-300 cursor-pointer'>
                             <i className="fa-regular text-3xl lg:text-6xl fa-circle-play"></i>
                         </div>

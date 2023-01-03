@@ -35,10 +35,10 @@ const CommingEvents = () => {
                                     <h3>07 April</h3>
                                 </div>
                                 <h3 className='hidden md:block font-semibold my-2 text-lg'>{event.title.slice(0, 65)}...</h3>
-                                <h3 className='md:hidden font-semibold my-2'>{event.title.slice(0, 45)}...</h3>
+                                <h3 className='md:hidden font-semibold my-2'>{event.title.slice(0, 35)}...</h3>
                                 <div className='flex flex-col md:flex-row text-base text-gray-400 mt-3 md:items-center md:gap-5'>
-                                    <h3 className=''><i className="pr-2 fa-regular fa-clock text-regal-orange"></i> 08:00 - 17:00</h3>
-                                    <h3><i className="pr-2 fa-solid fa-location-dot text-regal-orange"></i> NewYourk, USA</h3>
+                                    <h3 className='text-sm md:text-lg'><i className="pr-2 fa-regular fa-clock text-regal-orange"></i> 08:00 - 17:00</h3>
+                                    <h3 className='text-sm md:text-lg'><i className="pr-2 fa-solid fa-location-dot text-regal-orange"></i> NewYourk, USA</h3>
                                 </div>
                             </div>
                         </div></Link>

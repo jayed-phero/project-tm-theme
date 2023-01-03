@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -65,7 +66,7 @@ const Admission = () => {
         const fatherAnualSalary = event.anualSalary;
         const barthCertificateNumber = event.barthNumber;
         const bloodGroup = event.bloodGroup;
-        const className = event.class;
+        const nameOfClass = event.class;
         const dob = event.dob;
         const email = event.email;
         const password = event.password;
@@ -103,10 +104,10 @@ const Admission = () => {
 
 
 
+        setLoading(true)
         postAndGetImageUrl(image)
             .then(imgLink => {
                 console.log(imgLink)
-                setLoading(true)
                 createUser(email, password)
                     .then(result => {
                         const user = result.user
@@ -119,7 +120,7 @@ const Admission = () => {
                             studentGender,
                             barthCertificateNumber,
                             bloodGroup,
-                            className,
+                            nameOfClass,
                             dob,
                             email,
                             password,
@@ -140,9 +141,24 @@ const Admission = () => {
                             admittedInHostel,
                             role: "student"
                         }
-                       setAuthTokenForStudent(studentInfo)
-                       navigate('/')
-                       setLoading(false)
+                    //    setAuthTokenForStudent(studentInfo)
+                    axios.post(`${process.env.REACT_APP_API_URL}/studentadmission`, studentInfo)
+                    .then(res => {
+                        console.log(res)
+                         if(res.data.status === "success"){
+                            navigate('/studentlogin')
+                            toast.success(res.data.message)
+                            setLoading(false)
+                         }else{
+                            setLoading(false)
+                         }
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        toast.error("User Dosn't exist..")
+                        setLoading(false)
+                    })
+                       
                     })
                     .catch(err => {
                         setAuthError(err)

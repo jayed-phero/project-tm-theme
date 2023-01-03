@@ -14,7 +14,7 @@ const Blogs = () => {
     })
 
     return (
-        <div className='max-w-screen-xl mx-auto px-5 py-11 lg:py-16'>
+        <div id='blogs' className='max-w-screen-xl mx-auto px-5 py-11 lg:py-16 '>
             <ScrollToTop />
             {/* <div class="container px-6 py-5 mx-auto"> */}
             <div class="">

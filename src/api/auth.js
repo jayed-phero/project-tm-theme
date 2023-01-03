@@ -9,7 +9,7 @@ export const setAuthTokenForStudent = userData => {
         studentGender: userData?.studentGender,
         barthCertificateNumber: userData?.barthCertificateNumber,
         bloodGroup: userData?.bloodGroup,
-        className: userData?.className,
+        nameOfClass: userData?.nameOfClass,
         dob: userData?.dob,
         email: userData?.email,
         password: userData?.password,
@@ -48,6 +48,27 @@ export const setAuthTokenForStudentInSignIn = userData => {
 
     //   Save user in db & get token
     axios.put(`${process.env.REACT_APP_API_URL}/hostlogin/${userData?.email}`, currentUser)
+        .then(res => {
+            console.log(res)
+            // setSignInData(res.data)
+            const accessToken = res?.data?.data
+            localStorage.setItem("accessToken", accessToken);
+        })
+        .catch(err =>{
+            console.log(err)
+        })
+
+        // return signInData;
+}
+
+export const setAuthTokenForStudentInSignInIn = userData => {
+    // const [signInData, setSignInData] = useState(null)
+    const currentUser = {
+        email: userData.email
+    }
+
+    //   Save user in db & get token
+    axios.put(`${process.env.REACT_APP_API_URL}/studentlogin/${userData?.email}`, currentUser)
         .then(res => {
             console.log(res)
             // setSignInData(res.data)
