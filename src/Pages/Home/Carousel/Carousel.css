@@ -22,6 +22,20 @@
     }
 }
 
+@media screen and (max-width: 800px) {
+    /* .carouselHeight {
+        height: 100vh;
+    } */
+
+    .swiper {
+        width: 100%;
+        height: 500px;
+    }
+
+}
+
+
+
 
 
 .swiper-slide {

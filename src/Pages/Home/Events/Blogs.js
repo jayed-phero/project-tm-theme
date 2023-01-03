@@ -14,9 +14,10 @@ const Blogs = () => {
     })
 
     return (
-        <div className='xl:px-52 md:px-20 md:py-20 px-5'>
+        <div className='max-w-screen-xl mx-auto px-5 py-11 lg:py-16'>
             <ScrollToTop />
-            <div class="container px-6 py-5 mx-auto">
+            {/* <div class="container px-6 py-5 mx-auto"> */}
+            <div class="">
                 <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Blogs & <span className='text-regal-orange'>News</span></h1>
                 <p class="max-w-2xl mx-auto mt-3 text-center text-gray-500 dark:text-gray-300">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error alias, adipisci rem similique, at omnis eligendi optio eos harum.

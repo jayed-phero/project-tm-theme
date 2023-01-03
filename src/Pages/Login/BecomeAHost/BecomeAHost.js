@@ -13,26 +13,26 @@ import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 const BecomeAHost = ({ searchData }) => {
     const { user, createUser, updateUserProfile } = useContext(AuthContext)
     const { register, handleSubmit } = useForm()
-    const [userRole, setUserRole] = useState({})
+    const [userRole, setUserRole] = useState(null)
     const [authError, setAuthError] = useState(' ')
     const [loading, setLoading] = useState(false)
 
 
-    useEffect(() => {
-        // getUserRole(user)
-        //     .then(data => {
-        //         console.log(data)
-        //         setUserRole(data)
-        //     })
-        axios.get(`${process.env.REACT_APP_API_URL}/hostrole/${user?.email}`)
-        .then(res => {
-            console.log(res)
-            setUserRole(res.data)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }, [])
+    // useEffect(() => {
+    //     // getUserRole(user)
+    //     //     .then(data => {
+    //     //         console.log(data)
+    //     //         setUserRole(data)
+    //     //     })
+    //     axios.get(`${process.env.REACT_APP_API_URL}/hostrolesdata/${user?.email}`)
+    //     .then(res => {
+    //         console.log(res)
+    //         setUserRole(res.data)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
+    // }, [])
 
     const onSubmit = event => {
         console.log(event)
@@ -56,6 +56,7 @@ const BecomeAHost = ({ searchData }) => {
                             name: name,
                             image: imgLink,
                             hostId: hostId,
+                            password: password
                         }
                         authTkenAndSaveHostData(hostData)
                         .then(data => {
@@ -73,10 +74,11 @@ const BecomeAHost = ({ searchData }) => {
     return (
         <div className='px-6'>
             {
-                userRole && userRole === 'searched' ?
+                // userRole && userRole.role === 'searched' ?
+                user?.uid ?
                     (
-                        <div className='h-screen text-gray-600 flex flex-col justify-center items-center pb-16 text-xl lg:text-3xl'>
-                            Request Sent, wait for admin approval
+                        <div className='h-screen text-gray-600 flex flex-col justify-center items-center pb-16 text-xl lg:text-3xl text-green-500 font-semibold'>
+                          ***  Request Sent, wait for admin approval ***
                         </div>
                     )
                     :

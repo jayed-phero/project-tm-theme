@@ -28,11 +28,12 @@ const Home = () => {
             <ScrollToTop/>
             {/* <Navbar/> */}
             <NewCarosel/>
+
             {/* <CaroselSlider/> */}
             {/* <HomeCarosel/> */}
             {/* <Bar/> */}
             <PrincipalSpeech></PrincipalSpeech>
-            <OurTeacher/>
+            {/* <OurTeacher/> */}
             {/* <ImportantSpeech/> */}
             {/* <CaroGrid/> */}
             {/* <PreviousNextMethods/> */}

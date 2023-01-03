@@ -7,7 +7,7 @@ const BlogRow = ({ blog }) => {
             <div className='border-b-2 border-gray-100 pb-5 relative'>
                 <div className=''>
                     <img className='h-56 w-full' src={blog.image} alt="" />
-                    <div className='blogPost p-5 hover:bg-white'>
+                    <div className='p-5 bg-white shadow-xl'>
                         <div className=''>
                             <p className='text-sm pb-2'>13th March 2022</p>
                             <h3 className='text-xl font-bold pb-3'>{blog.title.slice(0, 55)}...</h3>

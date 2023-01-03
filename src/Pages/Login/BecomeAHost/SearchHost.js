@@ -13,7 +13,7 @@ import BecomeAHost from './BecomeAHost';
 const SearchHost = () => {
     const { user, signInUser } = useContext(AuthContext)
     const { register, handleSubmit } = useForm()
-    const [authError, setAuthError] = useState(' ')
+    const [searchError, setSearchError] = useState(' ')
     const [userRole, setUserRole] = useState('')
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
@@ -23,13 +23,13 @@ const SearchHost = () => {
 
     console.log(searchData)
 
-    useEffect(() => {
-        getUserRole(user)
-            .then(data => {
-                console.log(data)
-                setUserRole(data)
-            })
-    }, [])
+    // useEffect(() => {
+    //     getUserRole(user)
+    //         .then(data => {
+    //             console.log(data)
+    //             setUserRole(data)
+    //         })
+    // }, [])
 
 
     useEffect(() => {
@@ -55,6 +55,7 @@ const SearchHost = () => {
                     localStorage.setItem("accessToken", accessToken);
                 } else {
                     toast.error(res.data.message)
+                    setSearchError(res.data.message)
                 }
                 setLoading(false)
             })
@@ -83,7 +84,7 @@ const SearchHost = () => {
                                     <p className='text-sm text-gray-400'>
                                         Sign in to access your account
                                     </p>
-                                    <p className='text-red-500 text-semibold py-2'>{authError}</p>
+                                    <p className='text-red-500 text-semibold py-2'>{searchError}</p>
                                 </div>
                                 <form
                                     onSubmit={handleSubmit(onSubmit)}
@@ -140,7 +141,7 @@ const SearchHost = () => {
 
                                 <p className='px-6 text-sm text-center text-gray-400 pt-3'>
                                     Don't have an account yet?{' '}
-                                    <Link to='/employeesignup' className='hover:underline text-gray-600'>
+                                    <Link to='/tmtsection' className='hover:underline text-gray-600'>
                                         Sign up
                                     </Link>
                                     .

@@ -1,13 +1,43 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../../Context/AuthProvider";
 import Logo from "../../NewNavbar/assets/Logo.png";
 import NavLinks from "./NavLinks";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const { user, logout } = useContext(AuthContext)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [nav, setNav] = useState(false)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    function activateNav() {
+      let scrollPosition = window.pageYOffset
+      if (scrollPosition > 200) {
+        setNav(true)
+      }
+      else if (scrollPosition < 10) {
+        setNav(false)
+      }
+    }
+    window.addEventListener("scroll", activateNav)
+  }, [])
+
+  const menuToggle = () => {
+    setMenuOpen(!menuOpen)
+  }
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        navigate('/')
+      })
+  }
   return (
-    <nav className="bg-white shadow-lg print:hidden relative">
-      <div className="flex items-center font-medium justify-between xl:px-52 ">
-        <div className="z-50 py-5 md:w-auto w-full flex justify-between ">
+    <nav className={`bg-white w-full shadow-lg print:hidden relative z-50 ${nav && 'navbar-active ease-in duration-700'}`}>
+      <div className="flex items-center font-medium justify-between xl:px-52 px-6 md:px-20 lg:px-32">
+        <div className="z-50 py-4 md:py-5 md:w-auto w-full flex justify-between ">
           <img src={Logo} alt="logo" className="md:cursor-pointer h-9" />
           <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
             <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>

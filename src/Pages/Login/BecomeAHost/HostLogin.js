@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -8,30 +9,64 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 
 const HostLogin = () => {
-    const { user, signInUser, loading, setLoading } = useContext(AuthContext)
+    const { user, signInUser } = useContext(AuthContext)
     const { register, handleSubmit } = useForm()
     const [authError, setAuthError] = useState(' ')
     const [userRole, setUserRole] = useState('')
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
 
     useEffect(() => {
-        getUserRole(user)
-            .then(data => {
-                console.log(data)
-                setUserRole(data)
+        // getUserRole(user)
+        //     .then(data => {
+        //         console.log(data)
+        //         setUserRole(data)
+        //     })
+        axios.get(`${process.env.REACT_APP_API_URL}/hostrolesdata/${user?.email}`)
+            .then(res => {
+                console.log(res)
+                setUserRole(res.data)
+            })
+            .catch(err => {
+                console.log(err)
             })
     }, [])
 
     const onSubmit = event => {
+        setLoading(true)
         signInUser(event.email, event.password)
             .then(result => {
                 const user = result.user;
+                const hostSignInData = {
+                    email: event.email,
+                    password: event.password,
+                    hostId: event.hostId
+                }
                 console.log(user)
-                setAuthTokenForStudentInSignIn(user)
-                toast.success("Employee SignIn successfully")
-                navigate(from, { replace: true })
+                // setAuthTokenForStudentInSignIn(hostSignInData)
+                axios.put(`${process.env.REACT_APP_API_URL}/hostlogin`, hostSignInData)
+                    .then(res => {
+                        console.log(res)
+                        if (res.data.status === "success") {
+                            toast.success("Employee SignIn successfully")
+                            const accessToken = res?.data?.token
+                            localStorage.setItem("accessToken", accessToken);
+                            // navigate(from, { replace: true })
+                            navigate('/dashboard')
+                            setLoading(false)
+                        } else {
+                            toast.error(res.data.message)
+                            setLoading(false)
+                        }
+
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        setLoading(false)
+                    })
+
             })
             .catch(err => {
                 console.log(err)
@@ -66,6 +101,21 @@ const HostLogin = () => {
                                     className='space-y-6 ng-untouched ng-pristine ng-valid'
                                 >
                                     <div className='space-y-4'>
+                                        <div>
+                                            <label htmlFor='email' className='block mb-2 text-sm'>
+                                                Employee ID
+                                            </label>
+                                            <input
+                                                type='text'
+                                                name='email'
+                                                id='email'
+                                                required
+                                                placeholder='Type Employee ID'
+                                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-green-500 bg-gray-200 text-gray-900'
+                                                data-temp-mail-org='0'
+                                                {...register("hostId")}
+                                            />
+                                        </div>
                                         <div>
                                             <label htmlFor='email' className='block mb-2 text-sm'>
                                                 Email address

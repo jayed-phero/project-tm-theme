@@ -6,6 +6,7 @@ export const authTkenAndSaveHostData =  (hostData) => {
         name: hostData.name ,
         image: hostData.image,
         hostId: hostData.hostId,
+        password: hostData.password
     }
 
     axios.put(`${process.env.REACT_APP_API_URL}/hostsignup/${hostData?.hostId}`, currentUser)

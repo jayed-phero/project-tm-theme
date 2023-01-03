@@ -1,4 +1,5 @@
 import axios from "axios"
+import { useState } from "react"
 
 export const setAuthTokenForStudent = userData => {
     const currentUser = {
@@ -40,15 +41,22 @@ export const setAuthTokenForStudent = userData => {
 }
 
 export const setAuthTokenForStudentInSignIn = userData => {
+    // const [signInData, setSignInData] = useState(null)
     const currentUser = {
         email: userData.email
     }
 
     //   Save user in db & get token
-    axios.put(`${process.env.REACT_APP_API_URL}/tmuser/${userData?.email}`, currentUser)
+    axios.put(`${process.env.REACT_APP_API_URL}/hostlogin/${userData?.email}`, currentUser)
         .then(res => {
             console.log(res)
+            // setSignInData(res.data)
             const accessToken = res?.data?.data
             localStorage.setItem("accessToken", accessToken);
         })
+        .catch(err =>{
+            console.log(err)
+        })
+
+        // return signInData;
 }

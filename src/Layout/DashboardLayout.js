@@ -6,6 +6,8 @@ import DashboardSidebar from './DashboardSidebar';
 
 const DashboardLayout = () => {
 
+    console.log("dashboard")
+
     return (
         <div>
             <ScrollToTop/>
