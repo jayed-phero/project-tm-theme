@@ -25,7 +25,7 @@ const LikePortfolio = () => {
         }
     ]
     return (
-        <div className='px-6 md:px-20 lg:px-32 xl:px-52 py-11'>
+        <div data-aos="fade-up" className='px-6 md:px-20 lg:px-32 xl:px-52 py-11'>
             <section class="bg-white dark:bg-gray-900">
                 <div class="container mx-auto">
                     <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Our

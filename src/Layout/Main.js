@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
 import HeroNavbar from '../Pages/Shared/HeroNavbar/Hero/HeroNavbar';
+import HeroSideButton from '../Pages/Shared/HeroSideButton/HeroSideButton';
 import HomeHeader from '../Pages/Shared/HomeHeader/HomeHeader';
 import Navbar from '../Pages/Shared/NewNavbar/Navbar/Navbar';
 import NewNavbar from '../Pages/Shared/NewNavbar/NewNavbar';
@@ -13,6 +14,7 @@ const Main = () => {
             <HomeHeader />
             {/* <NewNavbar/> */}
             <Navbar/>
+            <HeroSideButton/>
             {/* <HeroNavbar /> */}
             {/* <ResBar/> */}
             <Outlet></Outlet>

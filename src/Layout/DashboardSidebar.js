@@ -6,82 +6,38 @@ const DashboardSidebar = () => {
     return (
         <div>
             <div className="w-fit">
-                <div>
-                    {/* <div className='mt-7'>
-                            <h3 className='text-white text-lg font-semibold'>Academics</h3>
-                            <div className='py-2'>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-brands fa-elementor"></i>
-                                    Comming
-                                </a></li>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-solid fa-calendar-plus"></i>
-                                    Comming
-                                </a></li>
-                            </div>
-                        </div>
-                        <div className='mt-7'>
-                            <h3 className='text-white text-lg font-semibold'>
-                                Event Section
-                            </h3>
-                            <div className='py-2'>
-                                <Link to='/dashboard/eventsbyhost'><li className='text-gray-300'><a>
-                                    <i class="fa-brands fa-elementor"></i>
-                                    My Posted Event
-                                </a></li></Link>
-                                <Link to='/dashboard/addevent'> <li className='text-gray-300'><a>
-                                    <i class="fa-solid fa-calendar-plus"></i>
-                                    Add Event
-                                </a></li></Link>
-                            </div>
-                        </div>
-                        <div className="mt-7 ">
-                            <h3 className='text-white text-lg font-semibold'>Bloog Section</h3>
-                            <div className='py-2'>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-brands fa-blogger"></i>
-                                    My Bloogs
-                                </a></li>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-brands fa-blogger-b"></i>
-                                    Add Bloog
-                                </a></li>
-                            </div>
-                        </div>
-                        <div className='mt-7'>
-                            <h3 className='text-white text-lg font-semibold'>
-                                Gallery Section
-                            </h3>
-                            <div className='py-2'>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-solid fa-images"></i>
-                                    Gallery Image
-                                </a></li>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-solid fa-panorama"></i>
-                                    Add Image
-                                </a></li>
-                            </div>
-                        </div> */}
-                </div>
                 <Sidebar aria-label="Sidebar with multi-level dropdown example">
                     <Sidebar.Items>
                         <Sidebar.ItemGroup>
                             <Sidebar.Item
-                                to='/dashboard'
+
                             >
-                                Dashboard
+                                <label htmlFor="my-drawer-2" className=""><Link to='/dashboard'>Dashboard</Link></label>
+                                {/* <button htmlFor="my-drawer-2">Dashboard</button> */}
+                                {/* <Link to='/dashboard'>Dashboard</Link> */}
+                            </Sidebar.Item>
+                            <Sidebar.Item
+
+                            >
+                                <Link to='/'>Home</Link>
+                            </Sidebar.Item>
+                            <Sidebar.Item
+                            >
+                                 <label htmlFor="my-drawer-2" className=""><Link to='/dashboard/studentdetails'>My Student</Link></label>
+                                {/* <Link to='/dashboard/studentdetails'>My Student</Link> */}
                             </Sidebar.Item>
                             <Sidebar.Collapse
                                 label="Event"
                             >
                                 <Sidebar.Item
                                 >
-                                    <Link to='/dashboard/eventsbyhost'>My Posted Events</Link>
+                                    <label htmlFor="my-drawer-2" className=""><Link to='/dashboard/eventsbyhost'>My Posted Events</Link></label>
+                                    {/* <Link to='/dashboard/eventsbyhost'>My Posted Events</Link> */}
                                 </Sidebar.Item>
                                 <Sidebar.Item
                                 >
-                                     <Link to='/dashboard/addevent'>Post Events</Link>
+                                    <label htmlFor="my-drawer-2" className=""> <Link to='/dashboard/addevent'>Post Events</Link></label>
+                                    {/* <Link to='/dashboard/addevent'>Post Events</Link> */}
                                 </Sidebar.Item>
                             </Sidebar.Collapse>
                             <Sidebar.Collapse
@@ -89,11 +45,13 @@ const DashboardSidebar = () => {
                             >
                                 <Sidebar.Item
                                 >
-                                    <Link to='/dashboard/blogsbyhost'>My Posted Blogs</Link>
+                                    <label htmlFor="my-drawer-2" className=""><Link to='/dashboard/blogsbyhost'>My Posted Blogs</Link></label>
+                                    {/* <Link to='/dashboard/blogsbyhost'>My Posted Blogs</Link> */}
                                 </Sidebar.Item>
                                 <Sidebar.Item
                                 >
-                                     <Link to='/dashboard/addblog'>Blog Post</Link>
+                                    <label htmlFor="my-drawer-2" className=""><Link to='/dashboard/addblog'>Blog Post</Link></label>
+                                    {/* <Link to='/dashboard/addblog'>Blog Post</Link> */}
                                 </Sidebar.Item>
                             </Sidebar.Collapse>
                             <Sidebar.Item

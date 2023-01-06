@@ -27,6 +27,8 @@ import DetailsCommingEvents from "../Pages/CommingEvent/DetailsCommingEvents";
 import TeachersRegistrationTab from "../Pages/Login/TeachersRegister/TeachersRegistrationTab";
 import SearchHost from "../Pages/Login/BecomeAHost/SearchHost";
 import StudentProfile from "../Pages/Login/StudentLogin/StudentProfile";
+import StudentForHost from "../Dashboard/StudentForHost/StudentForHost";
+import PrivateRoutes from "./PrivateRoutes";
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -111,11 +113,11 @@ const routes = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivateRoutes><DashboardLayout /></PrivateRoutes> ,
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard />
+                element: <PrivateRoutes> <Dashboard /></PrivateRoutes> 
             },
             {
                 path: '/dashboard/eventsbyhost',
@@ -133,6 +135,10 @@ const routes = createBrowserRouter([
                 path: '/dashboard/blogsbyhost',
                 element: <AllBlogForHost/>
             },
+            {
+                path: '/dashboard/studentdetails',
+                element: <StudentForHost/>
+            }
 
         ]
     },

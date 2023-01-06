@@ -9,6 +9,12 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(" ")
     const [loading, setLoading] = useState(true)
 
+    const [open, setOpen] = useState(false);
+
+    const menuToggle = () => {
+        setOpen(!open)
+    }
+
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -49,7 +55,10 @@ const AuthProvider = ({ children }) => {
         // updateUserInfo,
         updateUserProfile,
         loading,
-        logout
+        logout,
+        menuToggle,
+        setOpen,
+        open
     }
     return (
         <div>

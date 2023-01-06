@@ -1,5 +1,7 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
 import DashboardNavbar from '../Dashboard/DashboardNavbar/DashboardNavbar';
 import ScrollToTop from '../hooks/Scrool-to-top';
 import DashboardSidebar from './DashboardSidebar';
@@ -7,81 +9,47 @@ import DashboardSidebar from './DashboardSidebar';
 const DashboardLayout = () => {
 
     console.log("dashboard")
+    const { user } = useContext(AuthContext)
+    const [hostRole, setHostRole] = useState({})
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/hostrolesdata/${user?.email}`)
+            .then(res => {
+                console.log(res)
+                setHostRole(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [user?.email])
 
     return (
-        <div>
-            <ScrollToTop/>
-            <DashboardNavbar />
-            <div className="drawer drawer-mobile">
-                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content py-7 px-5">
-                    <Outlet />
-                </div>
-                <div className="drawer-side">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 bg-sky-900 text-base-content">
-                        {/* <!-- Sidebar content here --> */}
-                        {/* <div className='mt-7'>
-                            <h3 className='text-white text-lg font-semibold'>Academics</h3>
-                            <div className='py-2'>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-brands fa-elementor"></i>
-                                    Comming
-                                </a></li>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-solid fa-calendar-plus"></i>
-                                    Comming
-                                </a></li>
+        <div className=''>
+            {
+                hostRole?.role === "searched" ?
+                    <div>
+                        <ScrollToTop />
+                        <DashboardNavbar />
+                        <div className="drawer drawer-mobile">
+                            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                            <div className="drawer-content py-7 px-5">
+                                <Outlet />
                             </div>
-                        </div>
-                        <div className='mt-7'>
-                            <h3 className='text-white text-lg font-semibold'>
-                                Event Section
-                            </h3>
-                            <div className='py-2'>
-                                <Link to='/dashboard/eventsbyhost'><li className='text-gray-300'><a>
-                                    <i class="fa-brands fa-elementor"></i>
-                                    My Posted Event
-                                </a></li></Link>
-                                <Link to='/dashboard/addevent'> <li className='text-gray-300'><a>
-                                    <i class="fa-solid fa-calendar-plus"></i>
-                                    Add Event
-                                </a></li></Link>
-                            </div>
-                        </div>
-                        <div className="mt-7 ">
-                            <h3 className='text-white text-lg font-semibold'>Bloog Section</h3>
-                            <div className='py-2'>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-brands fa-blogger"></i>
-                                    My Bloogs
-                                </a></li>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-brands fa-blogger-b"></i>
-                                    Add Bloog
-                                </a></li>
-                            </div>
-                        </div>
-                        <div className='mt-7'>
-                            <h3 className='text-white text-lg font-semibold'>
-                                Gallery Section
-                            </h3>
-                            <div className='py-2'>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-solid fa-images"></i>
-                                    Gallery Image
-                                </a></li>
-                                <li className='text-gray-300'><a>
-                                    <i class="fa-solid fa-panorama"></i>
-                                    Add Image
-                                </a></li>
-                            </div>
-                        </div> */}
-                        <DashboardSidebar/>
-                    </ul>
+                            <div className="drawer-side">
+                                <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                                <ul className="menu p-4 w-80 bg-sky-900 text-base-content">
 
-                </div>
-            </div>
+                                    <DashboardSidebar />
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    :
+                    <div className='flex items-center justify-center min-h-screen'>
+                        <h3 className='text-xl font-semibold text-center w-2/3 text-red-500'>You are not eligible to access this section...</h3>
+                    </div>
+            }
         </div>
     );
 };

@@ -15,7 +15,7 @@ const Footer = () => {
         <div className='footerBt print:hidden'>
             <div className='border-b-2 border-white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:px-52 gap-7 px-5 md:px-20 py-11'>
                 <div>
-                    <h3 className='uppescase pb-7 text-3xl font-semibold font-semibold text-white'><i class="text-4xl fa-solid fa-graduation-cap text-regal-orange"></i> Eduma</h3>
+                    <h3 className='uppescase pb-7 text-3xl font-semibold font-semibold text-white'><i class="text-4xl fa-solid fa-graduation-cap text-regal-orange"></i>TMKMT</h3>
                     <p className='text-gray-500'>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
                     <div className=' pt-5 flex items-center gap-5 text-white text-xl'>
                         <i class="fa-brands fa-facebook-f"></i>
@@ -70,11 +70,11 @@ const Footer = () => {
                     <h3 className='text-2xl font-semibold text-white pb-7'>Contact Us</h3>
                     <p className='text-gray-500 pb-5'>
                         <i class="text-lg pr-3 text-regal-orange fa-solid fa-location-dot"></i>
-                        503 Old Buffalo Street Northwest #205, New York-3087.
+                        503 Dhaka, Bangladesh. Bangladesh 1200.
                     </p>
                     <p className='text-gray-500 pb-5'>
                         <i class="text-lg pr-3 text-regal-orange fa-solid fa-phone"></i>
-                        +0081234567
+                        +008123456700
                     </p>
                     <p className='text-gray-500 pb-5'>
                         <i class="text-lg pr-3 text-regal-orange fa-regular fa-envelope"></i>
@@ -83,8 +83,11 @@ const Footer = () => {
                 </div>
             </div>
             <div className='flex items-center md:justify-between justify-center md:flex-row flex-col text-gray-500 py-5 xl:px-52 gap-3 px-5 md:px-20'>
-                <h3>All Right Reserved by Eduma.</h3>
-                <h3>Terms of use Privacy policy</h3>
+                <h3 className="text-white text-xl">
+                    Developed by Muhammad Jayed
+                </h3>
+                <h3>All Right Reserved by TMKMT.</h3>
+                
             </div>
         </div>
     );

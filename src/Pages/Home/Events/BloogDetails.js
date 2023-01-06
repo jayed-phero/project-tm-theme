@@ -92,7 +92,7 @@ const BloogDetails = () => {
                                         <p className='pt-5 underlined text-semibold lg:pr-16'>{desc3}</p>
                                     </div>
                                     <div className='flex my-9 py-2'>
-                                        <div className='flex items-center justify-between gap-11'>
+                                        <div className='flex items-center justify-between flex-col md:flex-row gap-11'>
                                             <h3 className=''><i class="fa-solid fa-share-nodes text-xl text-regal-orange pr-2"></i> Share This Blog:</h3>
                                             <div className='flex items-center gap-3'>
                                                 <div className="px-9 py-2 rounded bg-gray-100 hover:text-regal-orange ">

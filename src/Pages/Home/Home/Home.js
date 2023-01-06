@@ -21,6 +21,7 @@ import ShortDetails from '../ShortDetails/ShortDetails';
 import TeamMembers from '../TeamMembers/TeamMembers';
 import UpcommingEvents from '../UpcommingEvents/UpcommingEvents';
 import Navbar from '../../Shared/NewNavbar/Navbar/Navbar'
+import HeroSideButton from '../../Shared/HeroSideButton/HeroSideButton';
 
 const Home = () => {
     return (
@@ -28,6 +29,7 @@ const Home = () => {
             <ScrollToTop/>
             {/* <Navbar/> */}
             <NewCarosel/>
+            {/* <HeroSideButton/> */}
 
             {/* <CaroselSlider/> */}
             {/* <HomeCarosel/> */}

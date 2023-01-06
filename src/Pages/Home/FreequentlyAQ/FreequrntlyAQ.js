@@ -86,55 +86,16 @@ const FreequrntlyAQ = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="flex items-center justify-center w-full h-64 md:h-96 relative">
-                        <img class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl" src="https://images.unsplash.com/photo-1568792923760-d70635a89fdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHVuaXZlcnNpdHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="glasses photo" />
+                    <div class="flex items-center justify-center w-full h-64 md:h-96">
+                        {/* <img class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl" src="https://images.unsplash.com/photo-1568792923760-d70635a89fdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHVuaXZlcnNpdHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="glasses photo" />
                         <div className='bg-white p-3 rounded-full absolute  top-38 ring-4 ring-gray-300 cursor-pointer'>
                             <i className="fa-regular text-3xl lg:text-6xl fa-circle-play"></i>
-                        </div>
+                        </div> */}
+                        <iframe className='w-full h-64 md:h-96 rounded-lg' src="https://www.youtube.com/embed/WB_et_y80Xc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
             </section >
-            {/* <div className='flex items-center flex-col md:flex-row gap-7 md:gap-0 '>
-                <div class="relative overflow-hidden bg-no-repeat bg-cover w-full h-full">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-full h-full" alt="Louvre" />
-                    <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden opacity-50 bg-indigo-700"></div>
-                </div>
-                <div className='w-full md:p-12 p-5 h-full freeAQbg'>
-                    <h3 className='text-xl font-semibold text-regal-orange pb-5 uppercase'>Faquality ask question</h3>
-                    <h1 className='text-3xl font-semibold text-white'>Some FAQ's</h1>
-                    <div className='flex items-center gap-3 py-5'>
-                        <p className='h-1 w-16 bg-white'></p>
-                        <i className="fa-solid fa-graduation-cap text-white"></i>
-                        <p className='h-1 w-16 bg-white'></p>
-                    </div>
-                    <div className='mt-5'>
-                        <div tabIndex={0} className="collapse collapse-plus border border-regal-orange bg-transparent rounded mb-3">
-                            <div className="collapse-title text-xl font-medium text-white">
-                                Focus me to see content
-                            </div>
-                            <div className="collapse-content text-white">
-                                <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-                            </div>
-                        </div>
-                        <div tabIndex={0} className="collapse collapse-plus border border-regal-orange bg-transparent rounded mb-3">
-                            <div className="collapse-title text-xl font-medium text-white">
-                                Focus me to see content
-                            </div>
-                            <div className="collapse-content text-white">
-                                <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-                            </div>
-                        </div>
-                        <div tabIndex={0} className="collapse collapse-plus border border-regal-orange bg-transparent rounded mb-3">
-                            <div className="collapse-title text-xl font-medium text-white">
-                                Focus me to see content
-                            </div>
-                            <div className="collapse-content text-white">
-                                <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
+           
         </div >
     );
 };

@@ -11,7 +11,7 @@ const CommingEvents = () => {
 
     })
     return (
-        <div className='xl:px-44 px-5 md:px-20 lg:px-32 py-11 md:py-16'>
+        <div data-aos="fade-right" className='xl:px-44 px-5 md:px-20 lg:px-32 py-11 md:py-16'>
             <div class="mt-6 md:flex md:items-center md:justify-between">
                 <div>
                     <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">
@@ -28,14 +28,16 @@ const CommingEvents = () => {
             <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-7  '>
                 {
                     eventsData.map(event =>
-                        <Link to={`eventdetails/${event._id}`}><div className='p-2.5 border rounded bg-white flex items-center gap-5 md:gap-7 shadow-lg hover:shadow-xl'>
+                        <Link to={`eventdetails/${event._id}`}><div
+                        
+                        className='p-2.5 border rounded bg-white flex items-center gap-5 md:gap-7 shadow-lg hover:shadow-2xl'>
                             <img src={event.image} className='h-44 w-32 md:h-36 md:w-36 rounded' alt="" />
                             <div>
                                 <div className='w-20 md:w-32 h-7 text-sm mb-2 rounded-2xl flex items-center justify-center bg-regal-orange text-white'>
                                     <h3>07 April</h3>
                                 </div>
-                                <h3 className='hidden md:block font-semibold my-2 text-lg'>{event.title.slice(0, 65)}...</h3>
-                                <h3 className='md:hidden font-semibold my-2'>{event.title.slice(0, 35)}...</h3>
+                                <h3 className='hidden hover:text-regal-orange duration-300 ease-in md:block font-semibold my-2 text-lg'>{event.title.slice(0, 65)}...</h3>
+                                <h3 className='hover:text-regal-orange duration-300 ease-in md:hidden font-semibold my-2'>{event.title.slice(0, 35)}...</h3>
                                 <div className='flex flex-col md:flex-row text-base text-gray-400 mt-3 md:items-center md:gap-5'>
                                     <h3 className='text-sm md:text-lg'><i className="pr-2 fa-regular fa-clock text-regal-orange"></i> 08:00 - 17:00</h3>
                                     <h3 className='text-sm md:text-lg'><i className="pr-2 fa-solid fa-location-dot text-regal-orange"></i> NewYourk, USA</h3>

@@ -6,7 +6,7 @@ const BlogRow = ({ blog }) => {
         <div>
             <div className='border-b-2 border-gray-100 pb-5 relative'>
                 <div className=''>
-                    <img className='h-48 w-full' src={blog.image} alt="" />
+                    <img className='h-56 w-full' src={blog.image} alt="" />
                     <div className='p-5 bg-white shadow-xl'>
                         <div className=''>
                             <p className='text-sm pb-2'>13th March 2022</p>

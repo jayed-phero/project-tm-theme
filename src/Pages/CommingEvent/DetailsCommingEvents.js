@@ -44,21 +44,19 @@ const DetailsCommingEvents = () => {
                             <img
                                 src={image}
                                 alt=""
-                                className='w-full h-64 md:h-96' />
-                            {/* <div className='absolute top-3 grid grid-cols-2 md:grid-cols-4 gap-6'>
+                                className='w-full h-56 md:h-96' />
+                            <div className='hidden md:block absolute top-3 grid grid-cols-2 md:grid-cols-4 gap-6'>
                                 {
                                     timing.map((time, i) =>
-                                        <div key={i} className='h-24 w-24 rounded-full border-2 border-white text-white flex items-center justify-center flex-col bg-gray-300'>
-                                            <h3 className='text-5xl font-bold'>{time.count}</h3>
-                                            <p>{time.text}</p>
+                                        <div key={i} className='md:h-24 md:w-24
+                                        h-16 w-16 rounded-full border-2 border-white text-white flex items-center justify-center flex-col bg-gray-500'>
+                                            <h3 className='md:text-5xl text-xl font-bold'>{time.count}</h3>
+                                            <p className='text-sm'>{time.text}</p>
                                         </div>
                                     )
                                 }
-                            </div> */}
-                            <div className="grid grid-flow-col hidden md:block gap-5 text-center auto-cols-max absolute top-5">
-                                {/* <span className="countdown">
-                                    <span style={{ "--value": 9 }}></span>
-                                </span> */}
+                            </div>
+                            {/* <div className="grid   md:grid-cols-3 xl:grid-cols-4 hidden md:block gap-5 text-center absolute top-5 ">
                                 <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
                                     <span className="countdown font-mono text-5xl">
                                         <span style={{ "--value": 15 }}></span>
@@ -83,7 +81,7 @@ const DetailsCommingEvents = () => {
                                     </span>
                                     sec
                                 </div>
-                            </div>
+                            </div> */}
                             <div className='flex flex-col xl:flex-row items-start lg:gap-16 pt-12 '>
                                 <div className='flex-1'>
                                     <div>

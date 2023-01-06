@@ -4,21 +4,21 @@ import './PrincipalSpeech.css';
 
 const PrincipalSpeech = () => {
     return (
-        <section class="bg-white dark:bg-gray-900 px-6 xl:px-52">
+        <section data-aos="fade-up" class="bg-white dark:bg-gray-900 px-6 xl:px-52">
             <ScrollToTop/>
             <div class="container py-11 lg:py-20 mx-auto">
                 <div class="mt-8 lg:-mx-6 lg:flex lg:items-center">
-                    <img class="object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-64 principalIntro md:h-96 lg:h-[31rem]  " src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" />
+                    <img class="object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-64 principalIntro md:h-96 lg:h-[31rem]  " src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHByb2Zlc3Npb25hbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
 
                     <div class="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 ">
                         <p class="text-sm text-regal-orange uppercase font-semibold">importance</p>
 
                         <a href="#" class="block mt-4 text-2xl font-semibold text-gray-800 hover:underline dark:text-white md:text-3xl">
-                            One Of The Fastest Way To Gain Business Success
+                        Education is one thing no one can take away from you.” —Elin Nordegren
                         </a>
 
                         <p class="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-lg">
-                            Corpkit is a global management consulting service company. Corpkit has the trusted advisor to the world's leading businesses, finance, and institutions. Corpkit Business Consulting WP Theme is the most modern and feature-rich Theme. This Business Consulting WP Theme is designed for various business and consulting services.
+                        Education is a procedure of learning where knowledge, skills, and habits move from one generation to the other. Moreover, education is essential for the overall development of a human being. For instance, their personal, social as well as the economic development of the country. If we talk about the importance of education in our daily life, we have to admit that it improves our personal lives .
                         </p>
 
                         <a href="#" class="inline-block mt-2 text-blue-500 underline hover:text-blue-400">Read more</a>
@@ -27,8 +27,8 @@ const PrincipalSpeech = () => {
                             <img class="object-cover object-center w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=731&q=80" alt="" />
 
                             <div class="mx-4">
-                                <h1 class="text-sm text-gray-700 dark:text-gray-200">Amelia Anderson</h1>
-                                <p class="text-sm text-regal-orange dark:text-gray-400">Principal of TMKMT</p>
+                                <h1 class="text-sm text-gray-700 dark:text-gray-200">Dr. Abdur Rahman</h1>
+                                <p class="text-sm text-regal-orange dark:text-gray-400">Sacretary General Of TMKMT</p>
                             </div>
                         </div>
                     </div>

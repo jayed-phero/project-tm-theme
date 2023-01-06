@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './LoginPage.css';
 import loginImg from '../../assets/loginpage.png';
+import ScrollToTop from '../../hooks/Scrool-to-top';
 
 const LoginPage = () => {
     return (
         <header class="bg-white dark:bg-gray-900 my-5">
+            <ScrollToTop/>
             <div class="lg:flex items-center xl:px-52 md:px-20 lg:px-32 px-5">
                 <div class="flex items-center justify-center w-full py-8 lg:h-[32rem] lg:w-1/2">
                     <div class="max-w-xl">

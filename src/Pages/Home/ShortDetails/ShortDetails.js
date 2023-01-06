@@ -26,6 +26,7 @@ const ShortDetails = () => {
             title: "Founded"
         },
     ]
+    
     return (
         <div className='shortDetails grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-16 py-20 lg:my-11 sm:px-20 xl:px-52 px-5'>
             {

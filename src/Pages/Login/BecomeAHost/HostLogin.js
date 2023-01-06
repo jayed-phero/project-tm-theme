@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setAuthTokenForStudentInSignIn } from '../../../api/auth';
 import { getUserRole } from '../../../api/userRole';
 import { AuthContext } from '../../../Context/AuthProvider';
+import ScrollToTop from '../../../hooks/Scrool-to-top';
 import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 
 const HostLogin = () => {
@@ -53,8 +54,8 @@ const HostLogin = () => {
                             toast.success("Employee SignIn successfully")
                             const accessToken = res?.data?.token
                             localStorage.setItem("accessToken", accessToken);
-                            // navigate(from, { replace: true })
-                            navigate('/dashboard')
+                            navigate(from, { replace: true })
+                            // navigate('/dashboard')
                             setLoading(false)
                         } else {
                             toast.error(res.data.message)
@@ -76,6 +77,7 @@ const HostLogin = () => {
     }
     return (
         <div className='px-6'>
+            <ScrollToTop/>
             {
                 userRole && userRole === 'requested' ?
                     (
