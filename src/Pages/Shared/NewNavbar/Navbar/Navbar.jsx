@@ -70,11 +70,20 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="md:block hidden">
-            <Link to='/loginpage'
-              className='bg-regal-orange border-2 border-regal-orange hidden md:block text-white font-semibold px-5 hover:bg-blue-600 lg:px-11 py-2 rounded'
-            >
-              Sign In
-            </Link>
+            {
+              user?.uid ?
+                <Link onClick={handleLogout}
+                  className='bg-regal-orange border-2 border-regal-orange hidden md:block text-white font-semibold px-5 hover:bg-blue-600 lg:px-11 py-2 rounded'
+                >
+                  Logout
+                </Link>
+                :
+                <Link to='/loginpage'
+                  className='bg-regal-orange border-2 border-regal-orange hidden md:block text-white font-semibold px-5 hover:bg-blue-600 lg:px-11 py-2 rounded'
+                >
+                  Sign In
+                </Link>
+            }
           </div>
 
           {/* Mobile nav */}
@@ -114,7 +123,7 @@ const Navbar = () => {
               </Link>
             </li>
             <div onClick={menuToggle} className="py-5">
-              { 
+              {
                 user?.uid ?
                   <h3 onClick={handleLogout}
                     className='bg-regal-orange border-2 border-regal-orange md:block text-white font-semibold px-5 w-full hover:bg-blue-400 py-2 rounded'

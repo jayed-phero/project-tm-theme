@@ -1,6 +1,8 @@
 import React from 'react';
 
 const OurTeam = () => {
+
+    
     return (
         <div className='px-6 md:px-20 lg:px-32 xl:px-52 py-11 lg:py-16'>
             <section class="bg-white dark:bg-gray-900">

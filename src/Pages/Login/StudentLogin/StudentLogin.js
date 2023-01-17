@@ -10,8 +10,9 @@ import SmallSpinner from '../../Shared/Spinner/SmallSpinner';
 
 const StudentLogin = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { user, signInUser, loading, setLoading } = useContext(AuthContext)
+    const { user, signInUser } = useContext(AuthContext)
     const [authError, setAuthError] = useState(' ')
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
@@ -28,6 +29,7 @@ const StudentLogin = () => {
         //     password
         // }
 
+        setLoading(true)
         signInUser(email, password)
             .then(result => {
                 const user = result.user

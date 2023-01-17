@@ -26,8 +26,9 @@ const HomeHeader = () => {
         <div className='homeHeader print:hidden sm:px-20 md:px-32 lg:px-52 flex flex-col lg:flex-row px-5 md:py-2 pt-3 items-center justify-center text-white'>
             <div className='flex items-center lg:pr-16 justify-center md:justify-start'>
                 {
-                    studentRole && studentRole !== 'student' ?
-                        <Link to='/studentprofile' className='bg-orange-400 px-3  py-2 rounded flex items-center mr-2 font-semibold hover:bg-white hover:text-orange-400 ease-in duration-300 cursor-pointer'><button>MyProfile</button></Link>
+                    // studentRole && studentRole !== 'student' ?
+                    user?.uid ?
+                        <Link to='/studentprofile' className='bg-orange-400 px-3  py-2 rounded flex items-center mr-2 font-semibold hover:bg-white hover:text-orange-400 ease-in duration-300 cursor-pointer'><button>Profile</button></Link>
                         :
                         <>
                             <Link to='/admission' className='bg-orange-400 px-3  py-2 rounded flex items-center mr-2 font-semibold hover:bg-white hover:text-orange-400 ease-in duration-300 cursor-pointer'><button>Admission</button></Link>

@@ -36,7 +36,7 @@ const StudentProfile = () => {
                 studentRole && studentRole?.data?.role === "student" ?
 
                     <div className='flex items-center justify-center min-h-screen'>
-                        <div className="max-w-md p-8 sm:flex dark:bg-gray-900 dark:text-gray-100">
+                        <div className="max-w-md p-8 sm:flex dark:bg-gray-900 dark:text-gray-100 gap-5">
                             <div className=" w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
                                 <img src={user?.photoURL} alt="" className="object-cover object-center w-full h-full rounded dark:bg-gray-500" />
                                 <button onClick={handleLogout} className='px-3 py-2 rounded bg-regal-orange mt-2  text-white w-full'>Sign Out</button>
@@ -65,7 +65,7 @@ const StudentProfile = () => {
                     </div>
 
                     :
-                    <div className='flex items-center flex-col justify-center my-11 md:my-20 border-2 border-regal-orange bg-white rounded-xl p-16'>
+                    <div className='flex items-center flex-col justify-center my-11 md:my-20 border-2 border-regal-orange bg-white rounded-xl md:p-16 p-7'>
                         <h3 className='text-xl md:text-3xl font-semibold text-center w-2/3'>Hey we are very sorry for that, You are not a student of <span className='text-regal-orange'>TMKMT.</span> if you become a student of <span className='text-regal-orange'>TMKMT</span> , you will see your profile here.</h3>
                     {/* <p className='text-center pt-3'>{studentRole?.message}</p> */}
                     </div>
